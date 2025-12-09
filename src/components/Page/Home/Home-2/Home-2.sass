@@ -1,0 +1,58 @@
+.home-2
+	//- Marquee Animation
+	@apply bg-primary-1
+	.marquee-wrapper
+		@apply overflow-hidden
+	.marquee
+		@apply flex w-full gap-10
+		.marquee-content
+			@apply flex shrink-0 items-center gap-8
+			animation: marquee 20s linear infinite
+			color: rgba(255, 255, 255, 0.15)
+		.marquee-item, .marquee-dot
+			font-family: "Inter Tight", sans-serif
+			font-size: clamp(60px, calc(138/1920*100rem), calc(138/1920*100rem))
+			letter-spacing: -2.208px
+			@apply uppercase whitespace-nowrap font-bold
+		
+		
+	@keyframes marquee
+		0%
+			transform: translateX(0)
+		100%
+			transform: translateX(-100%)
+
+	//- Product Cards
+	.product-cards
+		.row
+			@apply flex-wrap
+			.col
+				@apply p-0
+	.product-card
+		@apply relative overflow-hidden cursor-pointer ratio:pt-[600_476]
+		background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 51.25%, rgba(0, 0, 0, 0.50) 100%)
+		.product-img
+			@apply absolute inset-0 transition-transform duration-500
+			img
+				@apply w-full h-full object-cover
+		.product-content
+			@apply absolute bottom-0 left-0 right-0 p-10 space-y-6 text-white z-10 transition-all duration-500
+			transform: translateY(4rem)
+		.product-title
+			@apply font-bold
+		.product-desc
+			@apply body-18
+		.product-line
+			@apply w-full h-1 bg-white
+		.product-btn
+			@apply opacity-0 transition-all duration-300
+		&::before
+			content: ''
+			@apply absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent z-1
+		&:hover
+			.product-img
+				transform: scale(1.05)
+			.product-content
+				transform: translateY(0)
+			.product-btn
+				@apply opacity-100

@@ -1,39 +1,30 @@
-import { headerSearch } from "../../plugins/ComponentsUi/HeaderSearch/HeaderSearch";
-/*==================== Header ====================*/
-/**
- * @param header
- */
-const vw = $(window).width();
 export const header = {
-	scrollActive: function () {
-		let height = $("header").height();
-		if ($(window).scrollTop() > height) {
-			$("header").addClass("active");
-		} else {
-			$("header").removeClass("active");
-		}
-	},
-	mobile: function () {
-		$(".header-hambuger").on("click", function () {
-			$(this).toggleClass("active");
-			$("body").toggleClass("isOpenMenu");
-		});
-	},
-	initVariable: function () {
-		const height = $("header").height();
-		document.documentElement.style.setProperty("--header-height", `${height}px`);
-	},
-	init: function () {
-		headerSearch();
-		header.scrollActive();
-		header.mobile();
-		header.initVariable();
-	},
+  init: () => {
+    const headerEl = document.querySelector(".header");
+    if (!headerEl) return;
+
+    // Sticky Header
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        headerEl.classList.add("active");
+      } else {
+        headerEl.classList.remove("active");
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Check on load
+
+    // Mobile Menu
+    const hamburger = document.querySelector(".header-hambuger");
+    const menu = document.querySelector(".header .menu");
+
+    if (hamburger && menu) {
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        menu.classList.toggle("hidden");
+        menu.classList.toggle("active");
+        document.body.classList.toggle("overflow-hidden");
+      });
+    }
+  },
 };
-document.addEventListener(
-	"scroll",
-	function (e) {
-		header.scrollActive();
-	},
-	true
-);

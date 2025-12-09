@@ -1,0 +1,25 @@
+.home-3
+	background: linear-gradient(180deg, rgba(217, 217, 217, 0.30) 0%, rgba(115, 115, 115, 0.70) 100%)
+	mix-blend-mode: luminosity
+	.customer-slider
+		.swiper-slide
+			@apply h-auto
+	.customer-card
+		@apply bg-white rounded-xl text-center transition-all duration-300
+	.customer-logo
+		@apply w-full flex items-center justify-center overflow-hidden
+		img
+			height: calc(166/1920*100rem)
+			@apply max-w-full max-h-full object-contain transition-all duration-300
+	.customer-card:hover
+		.customer-logo img
+			@apply scale-105
+	.customer-name
+		@apply title-20 p-3 font-normal tracking-wide border-t-[1px] border-utility-100
+	.home-3-pagination
+		@apply relative my-10 flex justify-center gap-3
+		.swiper-pagination-bullet
+			@apply border border-primary-2 rounded-full transition-all duration-300
+			&.swiper-pagination-bullet-active
+				@apply opacity-100 bg-primary-1 border-primary-1
+

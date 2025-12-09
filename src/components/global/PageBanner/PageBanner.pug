@@ -1,3 +1,29 @@
-section.page-banner-main
-	.img(class="img-ratio pt-[calc(550/1920*100rem)]")
-		img(src="./img/19.png", alt="")
+section.page-banner.relative
+	.swiper.banner-swiper
+		.swiper-wrapper
+			.swiper-slide
+				.banner-item.relative.h-full.w-full
+					.banner-img
+						+PugImg("./img/1.jpg")(class="w-full h-full object-cover")
+					.content.flex.items-center
+						.wrapper-content
+							h1.title-60.text-white.font-bold.uppercase DI SẢN 30 NĂM KIẾN TẠO <br> BIỂU TƯỢNG THƯƠNG HIỆU
+							a.btn.btn-primary(href="#") Về chúng tôi
+			.swiper-slide
+				.banner-item.relative.h-full.w-full
+					.banner-img
+						+PugImg("./img/1.jpg")(class="w-full h-full object-cover")
+					.content.flex.items-center
+						.wrapper-content
+							h1.title-60.text-white.font-bold.uppercase DI SẢN TẠO <br> BIỂU TƯỢNG THƯƠNG HIỆU
+							a.btn.btn-primary(href="#") Về ABC
+	
+	
+			
+		.group-controll
+			.wrap-button-slide
+				.btn-prev.banner-prev
+					i.fa-solid.fa-chevron-left
+				.btn-next.banner-next
+					i.fa-solid.fa-chevron-right
+			.swiper-pagination.banner-pagination

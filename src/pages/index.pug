@@ -3,5 +3,9 @@ extends ./_layout/_default.pug
 block var
 	- var title = 'Home'
 	- var bodyClass = 'homepage'
+
 block main
-	
+	include ../components/global/PageBanner/PageBanner.pug
+	include ../components/Page/Home/Home-1/Home-1.pug
+	include ../components/Page/Home/Home-2/Home-2.pug
+	include ../components/Page/Home/Home-3/Home-3.pug

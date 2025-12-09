@@ -90,11 +90,12 @@ module.exports = {
       },
     },
     fontFamily: {
-      primary: ["IBM Plex Sans", "sans-serif"],
-      goldman: ["Goldman", "sans-serif"],
+      primary: ["Exo", "sans-serif"],
+      exo: ["Exo", "sans-serif"],
       awesome: ['"Font Awesome 6 Pro"'],
       awesomeSharp: ['"Font Awesome 6 Sharp"'],
     },
+
     fontSize: {
       0: ["0", { lineHeight: "0" }],
       xs: [
@@ -252,54 +253,91 @@ module.exports = {
     },
     extend: {
       colors: {
-        transparent: "transparent",
         primary: {
-          1: "#fbd844",
-          2: "#ef212d",
+          1: "#03045e",
+          2: "#ED1C24",
+          4: "#fde4d3",
+          5: "#f4914c",
+          6: "#19517f",
+          "3 BG": "#f7fced",
+          "2 - 80%": "#000000",
         },
-        neutral: {
+        secondary: {
+          3: "#000000",
+          4: "#000000",
+          5: "#000000",
+        },
+        utility: {
           50: "#f6f6f6",
           100: "#efefef",
-          200: "#e9e9e9",
-          300: "#d4d3d3",
-          400: "#bdbcbc",
-          500: "#a8a6a7",
-          600: "#918f90",
-          700: "#7b7979",
-          800: "#666364",
-          900: "#4f4c4d",
-          950: "#3a3637",
-          White: "#ffffff",
-          Black: "#242021",
-          "000000": "#000000",
+          200: "#dcdcdc",
+          300: "#bdbdbd",
+          400: "#989898",
+          500: "#818181",
+          600: "#656565",
+          700: "#525252",
+          800: "#464646",
+          900: "#3d3d3d",
+          950: "#292929",
+          2929: "#292929",
+          "white - 80%": "#ffffff",
+          "white - 25": "#ffffff",
+          "white - 15": "#ffffff",
+          "1- 10%": "#4d9846",
+          white: "#ffffff",
+          black: "#000000",
+          error: "#e30000",
+          "error-1": "#e30000",
+          "error-2": "#e30000",
+          "error-3": "#e30000",
+          correct: "#0079d5",
+          "correct-1": "#0079d5",
+          "correct-2": "#0079d5",
+          "correct-3": "#0079d5",
         },
-        optional: {
-          1: "#150f96",
-          2: "#6e27c5",
-          3: "#e41913",
-          4: "#7acb00",
-          5: "#01c1d6",
-          6: "#ff6600",
-          7: "#ffe500",
-          8: "#ff0198",
-        },
-        "body-text": {
-          11: "#111111",
-          66: "#666666",
-          33: "#333333",
-          55: "#555555",
-          99: "#999999",
-        },
-        stroke: {
-          ED: "#EDEDED",
-          E0: "#E0E0E0",
-          CC: "#CCCCCC",
-        },
-        background: {
-          2: "#F5F5F5",
-        },
-        black: "#000000",
-        white: "#FFFFFF",
+      },
+      fontSize: {
+        xs: "0.75rem",
+        sm: "0.875rem",
+        base: "1rem",
+        lg: "1.125rem",
+        xl: "1.25rem",
+        "2xl": "1.5rem",
+        "3xl": "1.875rem",
+        "4xl": "2.25rem",
+        "5xl": "3rem",
+        "6xl": "3.75rem",
+      },
+
+      fontFamily: {
+        exo: "Exo",
+        Awesome6: ["'Font Awesome 6 Pro'"],
+        Awesome6Brands: ["'Font Awesome 6 Brands'"],
+      },
+      boxShadow: {
+        "Shadow 1": "0px 4px 4px 0px rgba(31,34,39,0.08)",
+        "Shadow 2": "0px 4px 8px 0px rgba(31,34,39,0.08)",
+        "Shadow 3": "0px 8px 16px 0px rgba(31,34,39,0.08)",
+        "Shadow 4": "0px 8px 24px 0px rgba(31,34,39,0.06)",
+        "Background blur": "",
+      },
+      borderRadius: {
+        "rounded-0": "NaNrem",
+        "rounded-1": "NaNrem",
+        "rounded-2": "NaNrem",
+        "rounded-3": "NaNrem",
+        "rounded-4": "NaNrem",
+        "rounded-5": "NaNrem",
+        "rounded-6": "NaNrem",
+        "rounded-7": "NaNrem",
+        "rounded-8": "NaNrem",
+        "rounded-9": "NaNrem",
+        "rounded-10": "NaNrem",
+        "rounded-11": "NaNrem",
+        "rounded-12": "NaNrem",
+        "rounded-13": "NaNrem",
+        "rounded-14": "NaNrem",
+        "rounded-15": "NaNrem",
       },
       animation: {
         "spin-circle": "rotateCircle 20s linear infinite",
@@ -318,7 +356,7 @@ module.exports = {
         "200-100": "200% 100%",
       },
       blur: {
-        DEFAULT: "12.5px",
+        DEFAULT: "10px",
       },
       borderRadius: {
         1: "calc(4/1920*100rem) /* 4px */",
@@ -445,6 +483,9 @@ module.exports = {
       },
       boxShadow: {
         number: "4px 4px 5px rgba(0, 0, 0, 0.15)",
+        "shadow-light": "0 0 12px 0 rgba(0, 0, 0, 0.06);",
+        "shadow-medium": "0px 8px 24px rgba(0, 0, 0, 0.16)",
+        "shadow-hard": "0px 12px 48px rgba(0, 0, 0, 0.24)",
         "dropshadow-light": "4px 4px 32px 16px rgba(0,0,0,0.08)",
         "dropshadow-medium": "4px 4px 8px 4px rgba(0,0,0,0.24)",
         "dropshadow-hard": "8px 8px 16px 8px rgba(0,0,0,0.4)",
@@ -521,7 +562,7 @@ module.exports = {
     }) {
       addBase({});
       addComponents({
-        ".title-64": {
+        ".title-60": {
           fontWeight: "700",
           fontSize: "calc(36/1920*100rem)", // 4xl
           [`@media (min-width: ${theme("screens.md")})`]: {
@@ -531,7 +572,7 @@ module.exports = {
             fontSize: "calc(48/1920*100rem)", // 6xl
           },
           [`@media (min-width: ${theme("screens.xl")})`]: {
-            fontSize: "calc(64/1920*100rem)", // 64
+            fontSize: "calc(60/1920*100rem)", // 60
           },
         },
         ".title-48": {
@@ -550,6 +591,13 @@ module.exports = {
           fontSize: "calc(36/1920*100rem)", // 4xl
           [`@media (min-width: ${theme("screens.lg")})`]: {
             fontSize: "calc(40/1920*100rem)", // 5xl
+          },
+        },
+        ".title-36": {
+          fontWeight: "700",
+          fontSize: "calc(32/1920*100rem)", // 4xl
+          [`@media (min-width: ${theme("screens.lg")})`]: {
+            fontSize: "calc(36/1920*100rem)", // 5xl
           },
         },
         ".title-32": {

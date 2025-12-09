@@ -1,11 +1,42 @@
-header
-	@apply fixed top-0 left-0 w-screen
-	@apply text-white z-10
-	.header-language
-		.header-language-active
-			@apply flex items-center
-			li:not(.wpml-ls-current-language)
-				@apply hidden
-		.header-language-list
-			li.wpml-ls-current-language
-				@apply hidden
+.header
+	@apply fixed top-0 left-0 w-full z-[100] transition-all duration-300 px-20 pt-5
+	&.active
+		.header-wrapper
+			@apply shadow-md
+	.header-wrapper
+		@apply rounded-20 shadow-shadow-light bg-[rgba(255,255,255,0.90)] backdrop-blur px-10 py-5 gap-3
+		.logo
+			a
+				img
+					@apply h-15 w-auto object-contain
+					
+		.tools
+			@apply flex items-center gap-10
+			.search
+				@apply cursor-pointer flex
+				i
+					@apply text-xl text-primary-1 transition-colors duration-300 my-auto
+					&:hover
+						@apply text-primary-2
+			.language
+				@apply flex items-center gap-1 text-primary-2 cursor-pointer px-3 py-2 border border-[rgba(191,191,191,0.40)] rounded-full hover:bg-neutral-100 transition-colors body-14
+				.flag
+					@apply w-5 h-5 aspect-1 object-cover
+				.hamburger
+					@apply lg:hidden
+					.header-hambuger
+						@apply w-7 h-0.5 bg-utility-2929 mb-1 last:mb-0
+		
+		ul
+			@apply gap-20
+			li
+				@apply relative
+				a.item-menu
+					@apply title-20 font-bold text-utility-2929 transition-colors
+				&::before
+					@apply content-[''] opacity-0 w-0 h-0.5 bg-primary-2 mt-1 rounded-full absolute left-0 bottom-0 transition-all duration-300
+				&:hover, &.active
+					a
+						@apply text-primary-2
+					&::before
+						@apply content-[''] opacity-100 w-full h-0.5 bg-primary-2 mt-1 rounded-full absolute left-0 bottom-0 transition-all duration-300

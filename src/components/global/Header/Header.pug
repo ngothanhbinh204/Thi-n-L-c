@@ -1,2 +1,34 @@
-header(class="bg-black test-white")
-	.title-64 123 
+header.header
+		.header-wrapper(class="flex items-center justify-between rounded-[80px]")
+			.logo
+				a(href="/")
+					+PugImg("./img/logo-thienloc.svg")(class="h-12 w-auto object-contain")
+			.menu(class="hidden lg:block")
+				ul(class="flex items-center gap-20")
+					li
+						a(href="#" class="item-menu") <i class="fa-solid fa-house"></i>
+					li
+						a(href="#" class="item-menu") Giới thiệu
+					li
+						a(href="#" class="item-menu") Sản phẩm
+					li
+						a(href="#" class="item-menu") Dịch vụ
+					li
+						a(href="#" class="item-menu") Khách hàng
+					li
+						a(href="#" class="item-menu") Tin tức
+					li
+						a(href="#" class="item-menu") Liên hệ
+			.tools
+				.search.cursor-pointer
+				
+					i.fa-light.fa-magnifying-glass(class="text-xl")
+				.language
+					+PugImg("./img/flag-vn.svg")(class="flag")
+					span VN
+					i.fa-light.fa-chevron-down(class="text-xs text-neutral-600")
+			.hamburger(class="lg:hidden")
+				.header-hambuger
+					span
+					span
+					span

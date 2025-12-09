@@ -1,0 +1,61 @@
+section.home-2
+	.marquee-wrapper.pt-4
+		.marquee
+			.marquee-content
+				span.marquee-item THIÊN LỘC
+				span.marquee-dot •
+				span.marquee-item THIÊN LỘC
+				span.marquee-dot •
+				span.marquee-item THIÊN LỘC
+				span.marquee-dot •
+				span.marquee-item THIÊN LỘC
+				span.marquee-dot •
+			.marquee-content(aria-hidden="true")
+				span.marquee-item THIÊN LỘC
+				span.marquee-dot •
+				span.marquee-item THIÊN LỘC
+				span.marquee-dot •
+				span.marquee-item THIÊN LỘC
+				span.marquee-dot •
+				span.marquee-item THIÊN LỘC
+				span.marquee-dot •
+	//- Section Title
+	.section-header.text-center
+		.container
+			h2.title-48.font-bold.text-white.font-medium Sản Phẩm Tiêu Biểu
+			p.body-18.text-white.py-10 Bao bì không chỉ là vật chứa đựng sản phẩm, mà còn là cách thương hiệu thể hiện giá trị, cá tính và sự khác biệt...
+	//- Product Cards
+	.product-cards
+		.list-grid(class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-1")
+				.product-card
+					.product-img
+						+PugImg("./img/product-item-1.png")(class="w-full h-full object-cover")
+					.product-content
+						h3.product-title.title-36.text-white Ấn phẩm văn phòng
+						p.product-desc Sắc nét – bền đẹp – thiết kế theo phong cách riêng
+						.product-line
+						a.btn.btn-secondary.product-btn(href="#") Xem thêm
+				.product-card
+					.product-img
+						+PugImg("./img/product-item-1.png")(class="w-full h-full object-cover")
+					.product-content
+						h3.product-title.title-36.text-white Bao bì sản phẩm
+						p.product-desc Sắc nét – bền đẹp – thiết kế theo phong cách riêng
+						.product-line
+						a.btn.btn-secondary.product-btn(href="#") Xem thêm
+				.product-card
+					.product-img
+						+PugImg("./img/product-item-1.png")(class="w-full h-full object-cover")
+					.product-content
+						h3.product-title.title-36.text-white Ấn phẩm văn phòng
+						p.product-desc Sắc nét – bền đẹp – thiết kế theo phong cách riêng
+						.product-line
+						a.btn.btn-secondary.product-btn(href="#") Xem thêm
+				.product-card
+					.product-img
+						+PugImg("./img/product-item-1.png")(class="w-full h-full object-cover")
+					.product-content
+						h3.product-title.title-36.text-white Hộp & Thùng
+						p.product-desc Sắc nét – bền đẹp – thiết kế theo phong cách riêng
+						.product-line
+						a.btn.btn-secondary.product-btn(href="#") Xem thêm

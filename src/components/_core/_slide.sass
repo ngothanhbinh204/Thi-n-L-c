@@ -36,29 +36,60 @@
 		z-index: 9
 		position: static
 		cursor: pointer
+		@apply sq-10 rounded-full border border-white/50 flex-center text-white transition-all duration-300
+		@apply hover:bg-white hover:text-primary-1 hover:border-white
 		@screen xl
 			@apply absolute top-1/2 -translate-y-1/2
 		&.swiper-button-lock
 			@apply hidden
+		i
+			@apply text-sm
 	.btn-prev
 		left: 15px
 		@screen xl
-			margin-right: rr(30px)
 			right: 100%
 			left: auto
 	.btn-next
 		right: 15px
 		@screen xl
-			margin-left: rr(30px)
 			left: 100%
 			right: auto
 .btn.swiper-button-disabled
 	@apply opacity-30 cursor-not-allowed #{!important}
+
+// Pagination styles
+	// Active sẽ có 1 vòng tròn bao quanh nút pagination
+.swiper-pagination
+	@apply flex items-center justify-center gap-4 /* Tăng gap để có chỗ cho hiệu ứng shadow */
+	.swiper-pagination-bullet
+		@apply rounded-full bg-white/80 transition-all duration-300 cursor-pointer opacity-100
+		&.swiper-pagination-bullet-active
+			@apply bg-white shadow-[0_0_0_2px_rgba(255,255,255,0.8)]
+
+// Custom pagination styles
 .pagination-style-primary
 	@apply static mt-10 bg-neutral-100 #{!important}
 	&>*
 		@apply bg-red-500 #{!important}
 
+.pagination-style-dot
+	.swiper-pagination-bullet
+		@apply sq-2.5 rounded-full bg-neutral-300 transition-all duration-300
+		&.swiper-pagination-bullet-active
+			@apply bg-primary-2
+
+.pagination-style-line
+	.swiper-pagination-bullet
+		@apply w-8 h-1 rounded-full bg-neutral-300 transition-all duration-300
+		&.swiper-pagination-bullet-active
+			@apply bg-primary-2 w-12
+.group-controll
+	@apply flex flex-col items-center gap-5 absolute right-20 bottom-20 z-10
+	.btn-prev,.btn-next
+		@apply sq-10 rounded-full border border-white/50 flex-center text-white transition-all duration-300
+		@apply hover:bg-white hover:text-primary-1 hover:border-white
+		i
+			@apply text-base font-normal
 .swiper-column-auto
 	--mr: 15px
 	--spv: 1

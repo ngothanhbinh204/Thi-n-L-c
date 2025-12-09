@@ -1,0 +1,26 @@
+.page-banner
+	@apply relative
+	.banner-swiper
+		@apply h-[80vh]
+	.banner-item
+		.banner-img
+			@apply h-full w-full absolute inset-0
+		.content
+			@apply z-2 w-full relative h-full flex p-20 pt-0
+			.wrapper-content
+				@apply mt-auto space-y-7
+		img
+			@apply w-full h-full object-cover
+		&::before
+			content: ''
+			@apply absolute inset-0 z-1 bg-gradient-to-b from-[rgba(0,0,0,0.0)] to-[rgba(0,0,0,0.5)]
+	.banner-content
+		@apply z-2
+		h1
+			@apply mb-6
+			text-shadow: 0 2px 10px rgba(0,0,0,0.3)
+	.wrap-button-slide
+		@apply relative z-10 flex items-center gap-3 -translate-y-16
+		.btn-prev, .btn-next
+			@apply static translate-y-0
+	
