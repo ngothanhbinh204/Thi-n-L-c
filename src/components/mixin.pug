@@ -1,0 +1,58 @@
+mixin subscribeForm()
+	.subscribe
+		.subscribefrm
+			input.subscribeemail(type="text", placeholder="Nhập email của bạn...")
+			button.subscribebutton Gửi
+mixin PugImg(url="./img/1.jpg")
+	img(data-src=url, alt="", class="lozad " + attributes.class)
+mixin btnViewAll(text="Xem thêm")
+	a(href="" x-link class='btn-primary-2 btn ' + attributes.class)
+		span=text
+		img(src=imgButton, alt="", class="w-5 h-5 svg")
+mixin HeaderLanguageVertical()
+	ul 
+		li.wpml-ls-item
+			a(href="") 
+				span.wpml-ls-native VN
+		ul 
+			li 
+				a(href="") 
+					span EN
+mixin HeaderLanguageHorizontal()
+	ul 
+		li.wpml-ls-item
+			a(href="") 
+				span.wpml-ls-native VN
+		li.wpml-ls-item
+			a(href="") 
+				span.wpml-ls-native VN
+mixin BtnPrimary(text="")
+	a(href="", class='btn-primary btn ' + attributes.class)
+		span=text
+mixin HeaderMenu()
+	.header-menu 
+		ul 
+			-var menu = ['Giới thiệu','Sản phẩm','Dự án', 'Dịch vụ','Thông tin','Tuyển dụng']
+			each item in menu
+				li.menu-item-has-children
+					a(href="")=item
+mixin HeaderLanguage()
+	.header-language 
+		.header-language-active
+			ul 
+				li.wpml-ls-current-language
+					a(href="") 
+						span.wpml-ls-native VN
+				ul 
+					li 
+						a(href="") 
+							span EN
+		.header-language-list
+			ul 
+				li.wpml-ls-current-language
+					a(href="") 
+						span.wpml-ls-native VN
+				ul 
+					li 
+						a(href="") 
+							span EN

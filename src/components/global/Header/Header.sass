@@ -1,0 +1,11 @@
+header
+	@apply fixed top-0 left-0 w-screen
+	@apply text-white z-10
+	.header-language
+		.header-language-active
+			@apply flex items-center
+			li:not(.wpml-ls-current-language)
+				@apply hidden
+		.header-language-list
+			li.wpml-ls-current-language
+				@apply hidden
