@@ -1,11 +1,11 @@
 section.home-3.section-py.bg-gray-50(style="background-image: url('./img/bg-image-customer.png'); background-size: cover; background-position: center;")
-	.container
+	.container(class="")
 		//- Section Header
 		.section-header(class="text-center mb-10 space-y-6")
 			h2.title-48.text-primary-1 Khách Hàng
 			p.body-18 Sự tin tưởng của quý khách hàng là động lực để chúng tôi không ngừng phát triển và hoàn thiện
 		//- Customer Slider
-		.customer-slider.swiper
+		.customer-slider.swiper.flex.flex-col.items-center
 			.swiper-wrapper
 				.swiper-slide
 					.customer-card
@@ -48,5 +48,5 @@ section.home-3.section-py.bg-gray-50(style="background-image: url('./img/bg-imag
 							+PugImg("./img/vissan-logo.png")(class="w-full h-full object-contain")
 						.customer-name Orion
 			.swiper-pagination.home-3-pagination
-			a(class="btn btn pri")
+			a(class="btn btn-primary btn-large mx-auto") Dịch vụ của chúng tôi
 	

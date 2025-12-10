@@ -1,5 +1,5 @@
 .btn
-	@apply  px-5 py-3 cursor-pointer select-none transition-all duration-300 inline-flex items-center justify-center
+	@apply  px-5 py-3 leading-[1.4] text-base cursor-pointer select-none transition-all duration-300 inline-flex items-center justify-center
 	&.loading
 		@apply bg-transparent #{!important}
 		span,.icon
@@ -14,7 +14,8 @@
 	@apply bg-primary-2 text-white font-semibold rounded-full
 	@apply hover:bg-primary-1 hover:text-white
 	@apply body-16 tracking-wide 
-
+.btn-large
+	@apply px-10.5 py-3
 .btn-secondary
 	@apply bg-transparent border border-white text-white font-semibold rounded-full
 	@apply hover:bg-white hover:text-primary-1
@@ -24,3 +25,5 @@
 	@apply gap-2
 	i
 		@apply text-sm
+
+

@@ -98,10 +98,10 @@ export function swiperInit() {
     speed: 300,
     loop: true,
     effect: "fade",
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
+    // autoplay: {
+    //   delay: 5000,
+    //   disableOnInteraction: false,
+    // },
     modules: [Pagination, Navigation, Autoplay, EffectFade],
     pagination: {
       el: ".page-banner .banner-pagination",

@@ -69,10 +69,19 @@ module.exports = {
     borderWidth: {
       DEFAULT: "1px",
       0: "0px",
+      1: "calc(1/1920*100rem)",
       2: "calc(2/1920*100rem)",
       3: "calc(3/1920*100rem)",
       4: "calc(4/1920*100rem)",
+      5: "calc(5/1920*100rem)",
+      6: "calc(6/1920*100rem)",
+      7: "calc(7/1920*100rem)",
       8: "calc(8/1920*100rem)",
+      9: "calc(9/1920*100rem)",
+      10: "calc(10/1920*100rem)",
+      12: "calc(12/1920*100rem)",
+      16: "calc(16/1920*100rem)",
+      20: "calc(20/1920*100rem)",
     },
     container: {
       center: true,
@@ -169,6 +178,7 @@ module.exports = {
       9: "calc(36/1920*100rem) /* 36px */",
       9.5: "calc(38/1920*100rem) /* 38px */",
       10: "calc(40/1920*100rem) /* 40px */",
+      10.5: "calc(42/1920*100rem) /* 42px */",
       11: "calc(44/1920*100rem) /* 44px */",
       12: "calc(48/1920*100rem) /* 48px */",
       12.5: "calc(50/1920*100rem) /* 50px */",
@@ -252,6 +262,18 @@ module.exports = {
       8: "calc(8/1920*100rem)",
     },
     extend: {
+      minWidth: {
+        fit: "fit-content",
+        40: "calc(40/1920*100rem)",
+        124: "calc(124/1920*100rem)",
+        160: "calc(160/1920*100rem)",
+      },
+      maxWidth: {
+        fit: "fit-content",
+        40: "calc(40/1920*100rem)",
+        124: "calc(124/1920*100rem)",
+        160: "calc(160/1920*100rem)",
+      },
       colors: {
         primary: {
           1: "#03045e",
@@ -295,6 +317,9 @@ module.exports = {
           "correct-2": "#0079d5",
           "correct-3": "#0079d5",
         },
+      },
+      gridTemplateColumns: {
+        "6-max": "repeat(6, max-content)",
       },
       fontSize: {
         xs: "0.75rem",
@@ -345,6 +370,8 @@ module.exports = {
         spin: "spin 2s linear infinite",
       },
       backgroundImage: ({ theme }) => ({
+        "workflow-gradient":
+          "linear-gradient(142deg, #FFF 14.64%, #D7D6D6 88.5%)",
         "linear-1": `linear-gradient(90deg, #181830 -0.01%, #1D1D38 19.26%, #141228 40.12%, #2C223A 75.47%, #231B33 99.98%)`,
       }),
       backgroundPosition: {
@@ -769,6 +796,10 @@ module.exports = {
         { values: theme("spacing") }
       );
       const newUtilities = {
+        ".linear-border-box": {
+          "background-origin": "border-box",
+          "background-clip": "padding-box, border-box",
+        },
         ".horizontal-tb": {
           writingMode: "horizontal-tb",
         },
