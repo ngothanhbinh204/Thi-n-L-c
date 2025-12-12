@@ -103,6 +103,7 @@ module.exports = {
       exo: ["Exo", "sans-serif"],
       awesome: ['"Font Awesome 6 Pro"'],
       awesomeSharp: ['"Font Awesome 6 Sharp"'],
+      inter: ["Inter", "sans-serif"],
     },
 
     fontSize: {
@@ -180,6 +181,7 @@ module.exports = {
       10: "calc(40/1920*100rem) /* 40px */",
       10.5: "calc(42/1920*100rem) /* 42px */",
       11: "calc(44/1920*100rem) /* 44px */",
+      11.5: "calc(46/1920*100rem) /* 46px */",
       12: "calc(48/1920*100rem) /* 48px */",
       12.5: "calc(50/1920*100rem) /* 50px */",
       13: "calc(52/1920*100rem) /* 52px */",
@@ -195,6 +197,7 @@ module.exports = {
       23: "calc(94/1920*100rem) /* 94px */",
       24: "calc(96/1920*100rem) /* 96px */",
       25: "calc(100/1920*100rem) /* 100px */",
+      26: "calc(104/1920*100rem) /* 104px */",
       27.5: "calc(110/1920*100rem) /* 110px */",
       28: "calc(112/1920*100rem) /* 112px */",
       30: "calc(120/1920*100rem) /* 120px */",
@@ -266,12 +269,14 @@ module.exports = {
         fit: "fit-content",
         40: "calc(40/1920*100rem)",
         124: "calc(124/1920*100rem)",
+        130: "calc(130/1920*100rem)",
         160: "calc(160/1920*100rem)",
       },
       maxWidth: {
         fit: "fit-content",
         40: "calc(40/1920*100rem)",
         124: "calc(124/1920*100rem)",
+        130: "calc(130/1920*100rem)",
         160: "calc(160/1920*100rem)",
       },
       colors: {
@@ -283,6 +288,7 @@ module.exports = {
           6: "#19517f",
           "3 BG": "#f7fced",
           "2 - 80%": "#000000",
+          "background-2": "#f5f5f5",
         },
         secondary: {
           3: "#000000",
@@ -316,6 +322,14 @@ module.exports = {
           "correct-1": "#0079d5",
           "correct-2": "#0079d5",
           "correct-3": "#0079d5",
+          f6f6: "#f6f6f6",
+          efef: "#efefef",
+          dcdc: "#dcdcdc",
+          bdbd: "#bdbdbd",
+          9898: "#989898",
+          8181: "#818181",
+          6565: "#656565",
+          5252: "#525252",
         },
       },
       gridTemplateColumns: {
@@ -373,6 +387,7 @@ module.exports = {
         "workflow-gradient":
           "linear-gradient(142deg, #FFF 14.64%, #D7D6D6 88.5%)",
         "linear-1": `linear-gradient(90deg, #181830 -0.01%, #1D1D38 19.26%, #141228 40.12%, #2C223A 75.47%, #231B33 99.98%)`,
+        "linear-top-to-bottom": `linear-gradient(180deg, #C2CCE7 0%, #F5F8FF 47.6%)`,
       }),
       backgroundPosition: {
         "pos-100-0": "100% 0%",
@@ -530,6 +545,7 @@ module.exports = {
         1.33: "1.33",
         1.4: "1.4",
         1.44: "1.44",
+        1.5: "1.5",
       },
       keyframes: {
         bgGradient: {
@@ -602,6 +618,28 @@ module.exports = {
             fontSize: "calc(60/1920*100rem)", // 60
           },
         },
+        ".title-138": {
+          fontWeight: "600",
+          lineHeight: "1.18",
+          fontSize: "calc(96/1920*100rem)", // 6xl
+          [`@media (min-width: ${theme("screens.md")})`]: {
+            fontSize: "calc(112/1920*100rem)", // still 6xl
+          },
+          [`@media (min-width: ${theme("screens.xl")})`]: {
+            fontSize: "calc(138/1920*100rem)", // 8xl
+          },
+        },
+        ".title-80": {
+          fontWeight: "600",
+          lineHeight: "1.18",
+          fontSize: "calc(52/1920*100rem)", // 4xl
+          [`@media (min-width: ${theme("screens.md")})`]: {
+            fontSize: "calc(60/1920*100rem)", // still 4xl
+          },
+          [`@media (min-width: ${theme("screens.xl")})`]: {
+            fontSize: "calc(80/1920*100rem)", // 6xl
+          },
+        },
         ".title-48": {
           fontWeight: "600",
           lineHeight: "1.18",
@@ -630,6 +668,13 @@ module.exports = {
         ".title-32": {
           fontSize: "22px",
           lineHeight: "1.1",
+        },
+        ".title-30": {
+          fontWeight: "700",
+          fontSize: "calc(26/1920*100rem)", // 4xl
+          [`@media (min-width: ${theme("screens.lg")})`]: {
+            fontSize: "calc(30/1920*100rem)", // 5xl
+          },
         },
         ".title-28": {
           fontSize: "20px",

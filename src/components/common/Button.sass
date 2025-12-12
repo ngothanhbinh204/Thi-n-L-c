@@ -1,4 +1,4 @@
-.btn
+.btn,.form-group button[type="submit"]
 	@apply  px-5 py-3 leading-[1.4] text-base cursor-pointer select-none transition-all duration-300 inline-flex items-center justify-center
 	&.loading
 		@apply bg-transparent #{!important}
@@ -10,20 +10,24 @@
 			@apply w-5 h-5 border-3 border-white/40 border-t-white rounded-full inline-block
 			@apply absolute animate-spin
 
-.btn-primary
-	@apply bg-primary-2 text-white font-semibold rounded-full
+.btn-primary, .form-group button[type="submit"]
+	@apply bg-primary-2 text-white font-medium rounded-full
 	@apply hover:bg-primary-1 hover:text-white
 	@apply body-16 tracking-wide 
 .btn-large
 	@apply px-10.5 py-3
 .btn-secondary
-	@apply bg-transparent border border-white text-white font-semibold rounded-full
+	@apply bg-transparent border border-white text-white font-medium rounded-full
 	@apply hover:bg-white hover:text-primary-1
 	@apply body-16 tracking-wide
-
+.btn-secondary-outline
+		@apply inline-block border border-white text-white rounded-full
+		@apply px-7.5 py-3 body-16 font-medium transition-300
+		@apply hover:bg-white hover:text-primary-1
 .btn-icon
 	@apply gap-2
 	i
 		@apply text-sm
+
 
 

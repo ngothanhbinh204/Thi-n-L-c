@@ -1,6 +1,163 @@
+// ========================================
+// FOOTER COMPONENT
+// Mobile-First Responsive
+// ========================================
 .footer
-	@apply bg-primary-1 text-white
+	@apply bg-primary-1 text-white py-12
+	.footer-decor
+		height: calc(336.604/1920*100rem)
+		@apply w-auto object-contain absolute bottom-0 right-0 z-0
+		img
+			@apply h-full w-auto object-contain 
+	.footer-top, .footer-middle, .footer-bottom
+		@apply relative z-1
+	// ========================================
+	// FOOTER TOP
+	// ========================================
 	.footer-top
-		@apply border-b border-white/10
+		@apply pb-8 flex flex-col items-start justify-between
+		@media (min-width: 1024px)
+			@apply pb-8 flex-row items-center
+
+	// Company Info
+	.footer-company
+		@apply text-center lg:text-left
+
+	.footer-title
+		@apply title-24 font-medium leading-[1.2] text-white mb-2
+		@media (min-width: 1024px)
+			@apply title-48 font-medium
+
+	.footer-subtitle
+		@apply title-20 text-white uppercase font-bold
+		@media (min-width: 1024px)
+			@apply title-24 font-bold
+
+	// Social & Certs
+	.footer-social-certs
+		@apply flex flex-col sm:flex-row items-end justify-center lg:justify-end gap-10
+
+	.footer-social
+		@apply flex items-center gap-4 flex-col
+
+	.social-label
+		@apply body-18 text-white mb-3
+
+	.social-links
+		@apply flex items-center gap-6
+
+	.social-link
+		@apply sq-10 bg-white rounded-1 flex-center text-primary-1 transition-300
+		i
+			@apply body-16
+		img
+			@apply w-4.5 h-auto object-contain
+		&:hover
+			@apply bg-[rgba(0,0,0,0.15)] text-white
+
+	.footer-certs
+		@apply flex items-center gap-5
+		.box-img
+			@apply sq-19 flex-center bg-white aspect-1 rounded-3 p-3
+			.cert-img
+				@apply w-full h-full object-contain
+				
+
+	// ========================================
+	// FOOTER MIDDLE
+	// ========================================
+	.footer-middle
+		@apply py-8 border-y border-[#818181] grid grid-cols-1 gap-5 lg:grid-cols-12 
+		@media (min-width: 1024px)
+			@apply py-8 gap-12
+
+	// Info List
+	.footer-info-list
+		@apply space-y-5
+
+	.footer-info-item
+		@apply flex items-start gap-3
+
+	.info-icon
+		@apply sq-12 flex-shrink-0 flex-center text-white p-2.5 bg-[rgba(0,0,0,0.15)] rounded-full
+		i
+			@apply text-sm
+		img
+			@apply w-7 h-auto object-contain
+
+	.info-content
+		@apply flex flex-col justify-start items-start
+		.info-label
+			@apply body-18 font-bold text-white
+		.info-value
+			@apply body-18 font-normal text-white transition-300
+			a
+				&:hover
+					@apply text-primary-2
+
+	// Quick Links Menu
+	.footer-menu
+		@apply text-left
+
+	.menu-title
+		@apply body-18 font-bold text-white mb-4
+
+	.menu-list
+		@apply space-y-2
+
+	.menu-item
+		a
+			@apply body-18 font-normal text-white transition-300
+			&:hover
+				@apply text-primary-2
+
+	// Watermark Logo
+	.footer-watermark
+		@apply opacity-10
+
+	.watermark-img
+		@apply w-32 h-auto
+
+	// ========================================
+	// FOOTER BOTTOM
+	// ========================================
 	.footer-bottom
-		@apply border-t border-white/10
+		@apply pt-8
+
+	.footer-bottom-inner
+		@apply flex flex-col md:flex-row items-center justify-between gap-4 py-2
+
+	.copyright
+		@apply body-14 font-normal text-white opacity-80 text-center md:text-left
+
+	// Policy Menu
+	.footer-policy-menu
+		@apply flex items-center gap-3 
+
+	.policy-item
+		a
+			@apply body-14 text-[#D5D7D8] transition-300
+			&:hover
+				@apply opacity-100
+
+	.policy-divider
+		@apply text-white opacity-40
+
+	// ========================================
+	// RESPONSIVE
+	// ========================================
+	@media (max-width: 767px)
+		.footer-info-list
+			@apply text-center
+
+		.footer-info-item
+			@apply flex-col items-start gap-2
+
+		.info-icon
+			@apply mt-0
+
+footer 
+	.info-content
+		a
+			&.info-value
+				@apply hover:text-primary-2 transition-300

@@ -1,0 +1,103 @@
+//- News Data
+-
+	var newsItems = [
+		{
+			id: 1,
+			date: "20.08.2025",
+			category: "Tin tức",
+			categoryClass: "cat-news",
+			title: "Bao bì - \"Đại sứ thầm lặng\" đưa hàng Việt vươn xa",
+			description: "",
+			image: "1.jpg",
+			featured: false
+		},
+		{
+			id: 2,
+			date: "20.08.2025",
+			category: "Tin tức",
+			categoryClass: "cat-news",
+			title: "Hướng đi mới cho ngành in ấn bao ấn Việt Nam",
+			description: "",
+			image: "1.jpg",
+			featured: false
+		},
+		{
+			id: 3,
+			date: "20.08.2025",
+			category: "Sự kiện",
+			categoryClass: "cat-event",
+			title: "Bao bì hàng hóa-ngôn ngữ của thương hiệu xuất khẩu Việt Nam",
+			description: "Bao bì là \"ngôn ngữ của thương hiệu\" xuất khẩu, vừa đóng vai trò bảo vệ sản phẩm, vừa truyền tải thông tin thương hiệu đến thị trường quốc tế.",
+			image: "1.jpg",
+			featured: true
+		},
+		{
+			id: 4,
+			date: "20.08.2025",
+			category: "Sự kiện",
+			categoryClass: "cat-event",
+			title: "Bao bì hàng hóa-ngôn ngữ của thương hiệu xuất khẩu",
+			description: "",
+			image: "1.jpg",
+			featured: false
+		},
+		{
+			id: 5,
+			date: "20.08.2025",
+			category: "Tin tức",
+			categoryClass: "cat-news",
+			title: "Xu hướng bao bì và thương hiệu xuất khẩu 2025",
+			description: "",
+			image: "1.jpg",
+			featured: false
+		}
+	]
+
+//- News Card Mixin
+mixin newsCard(item, isFeatured)
+	.news-card(class=isFeatured ? 'news-card-featured' : 'news-card-small')
+		a.news-card-img(href="#")
+			+PugImg(`./img/${item.image}`)(class="w-full h-full object-cover")
+		.news-card-content
+			.news-card-meta
+				span.news-date= item.date
+				span.news-category(class=item.categoryClass)= item.category
+			h3.news-card-title
+				a(href="#")= item.title
+			if isFeatured && item.description
+				p.news-card-desc= item.description
+
+section.section-home-5.section-py.relative
+	.home-5-decor
+			+PugImg("./img/bg-partent-1.svg")
+	.container
+		//- Section Header
+		.section-header(class="text-center !mb-7.5")
+			h2.title-48.text-primary-1.font-medium Tin Tức - Sự Kiện
+
+		//- Filter Tabs
+		.news-filter(class="flex justify-center gap-3 mb-11.5")
+			button.filter-btn.active(data-filter="all") Tất cả
+			button.filter-btn(data-filter="news") Tin tức
+			button.filter-btn(data-filter="event") Sự kiện
+
+		//- News Grid Layout - Responsive Grid
+		.news-grid
+			//- Featured Post - Full width on tablet, center on desktop
+			.news-item.news-item-featured
+				each item in newsItems.filter(n => n.featured)
+					+newsCard(item, true)
+
+			//- Small Posts - Grid items
+			.news-item.news-item-small
+				+newsCard(newsItems[0], false)
+			.news-item.news-item-small
+				+newsCard(newsItems[1], false)
+			.news-item.news-item-small
+				+newsCard(newsItems[3], false)
+			.news-item.news-item-small
+				+newsCard(newsItems[4], false)
+
+		//- View More Button
+		.news-footer(class="flex justify-center mt-10")
+			a.btn.btn-primary(href="#") Xem thêm

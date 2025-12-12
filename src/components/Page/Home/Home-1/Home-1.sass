@@ -8,16 +8,15 @@
 		@apply w-auto object-contain absolute -top-28 left-0
 		img
 			@apply h-full w-auto object-contain 
-	.container
-		.title-80
-			font-size: clamp(40px, calc(80/1920*100rem), calc(80/1920*100rem))
-		@apply flex flex-col items-center gap-10
+	.container		  
+		@apply flex flex-col items-center
+		gap: rr(40px)
 .list-stats
-	@apply grid grid-cols-2 md:grid-cols-4 gap-10 w-full mx-auto
+	@apply grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-10 w-full mx-auto
 	.stat-item
 		.stat-info
 			@apply space-y-4
-		@apply p-5 flex items-center justify-center gap-6 whitespace-nowrap
+		@apply p-3 lg:p-5 flex items-center justify-start gap-6 lg:whitespace-nowrap
 		.stat-icon
 			@apply sq-14 lg:sq-16 flex-shrink-0
 			img

@@ -15,18 +15,8 @@
 			top: calc((50% - 1px) + 6px)
 		&:nth-child(2)
 			@apply opacity-100
-body.isOpenMenu
-	header
-		.header-hambuger
-			span
-				&:nth-child(1)
-					rotate: 45deg
-					top: calc((50% - 1px))
-				&:nth-child(2)
-					@apply opacity-0
-				&:nth-child(3)
-					top: calc((50% - 1px))
-					rotate: -45deg
+
+
 @keyframes leftBar
 	0%
 		height: 0
@@ -79,3 +69,14 @@ body.isOpenMenu
 		left: 0
 		top: 100%
 		width: 0
+.header-hambuger
+	&.active
+		span
+			&:nth-child(1)
+				rotate: 45deg
+				top: calc((50% - 1px))
+			&:nth-child(2)
+				@apply opacity-0
+			&:nth-child(3)
+				top: calc((50% - 1px))
+				rotate: -45deg

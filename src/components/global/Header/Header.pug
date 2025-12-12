@@ -4,15 +4,85 @@ header.header
 				a(href="/")
 					+PugImg("./img/logo-thienloc.svg")(class="h-12 w-auto object-contain")
 			.menu(class="hidden lg:block")
-				ul(class="flex items-center gap-20")
+				ul
 					li
 						a(href="#" class="item-menu") <i class="fa-solid fa-house"></i>
 					li
 						a(href="#" class="item-menu") Giới thiệu
-					li
-						a(href="#" class="item-menu") Sản phẩm
-					li
-						a(href="#" class="item-menu") Dịch vụ
+					li.has-sub
+						a(href="#" class="item-menu")
+							span Sản phẩm
+						.mega-menu
+									.col
+										.label Ấn phẩm bao bì
+										ul
+											li: a(href="#") In Hộp Giấy - Hộp Cứng
+											li: a(href="#") In Túi Giấy
+											li: a(href="#") Tem Nhãn
+											li: a(href="#") Thùng Carton
+									.col
+										.label Ấn phẩm văn phòng
+										ul
+											li: a(href="#") In Bao Thư
+											li: a(href="#") Bìa Đựng Hồ Sơ
+											li: a(href="#") Danh Thiếp
+											li: a(href="#") Giấy Tiêu Đề
+									.col
+										.label Ấn phẩm tiếp thị
+										ul
+											li: a(href="#") In Tờ Rơi
+											li: a(href="#") In Catalogue
+											li: a(href="#") Tờ Gấp
+											li: a(href="#") Phiếu Quà Tặng - Giảm Giá
+											li: a(href="#") In Lịch Tết
+									.col
+										.label Sản phẩm khác
+										ul
+											li: a(href="#") Biểu Mẫu
+											li: a(href="#") Phiếu Bảo Hành
+											li: a(href="#") Thiệp Mời
+											li: a(href="#") Thực Đơn
+									.col
+										.label In gia công
+										ul
+											li: a(href="#") In Gia Công
+					li.has-sub
+						a(href="#" class="item-menu")
+							span Dịch vụ
+						.mega-menu
+									.col
+										.label Ấn phẩm bao bì
+										ul
+											li: a(href="#") In Hộ
+											li: a(href="#") In Túi Gi
+											li: a(href="#") Tem N
+											li: a(href="#") Thùng Cart
+									.col
+										.label Ấn phẩm văn phòng
+										ul
+											li: a(href="#") In Bao Thư
+											li: a(href="#") Bìa Đựng  
+											li: a(href="#") Danh Thiếp
+											li: a(href="#") Giấy Tiêu Đề
+									.col
+										.label Ấn phẩm tiếp thị
+										ul
+											li: a(href="#") In Tờ Rơi
+											li: a(href="#") In Catalogue
+											li: a(href="#") Tờ Gấp
+											li: a(href="#") Phiếu Quà Tặng - Giảm Giá
+											li: a(href="#") In Lịch Tết
+									.col
+										.label Sản phẩm khác
+										ul
+											li: a(href="#") Biểu Mẫu
+											li: a(href="#") Phiếu Bảo Hành
+											li: a(href="#") Thiệp Mời
+											li: a(href="#") Thực Đơn
+									.col
+										.label In gia công
+										ul
+											li: a(href="#") In Gia Công
 					li
 						a(href="#" class="item-menu") Khách hàng
 					li
@@ -27,8 +97,52 @@ header.header
 					+PugImg("./img/flag-vn.svg")(class="flag")
 					span VN
 					i.fa-light.fa-chevron-down(class="text-xs text-neutral-600")
-			.hamburger(class="lg:hidden")
-				.header-hambuger
-					span
-					span
-					span
+				.hamburger(class="lg:hidden")
+					.header-hambuger
+						span
+						span
+						span
+		.mobile-menu
+			ul.flex.flex-col.gap-4
+				li
+					a(href="#" class="text-lg font-bold text-utility-2929 block py-2") <i class="fa-solid fa-house"></i>
+				li
+					a(href="#" class="text-lg font-bold text-utility-2929 block py-2") Giới thiệu
+				li.has-sub
+					.flex.items-center.justify-between.border-b.border-neutral-100
+						a(href="#" class="text-lg font-bold text-utility-2929 block py-2 flex-1") Sản phẩm
+						i.fa-solid.fa-chevron-down(class="text-sm text-neutral-500 transition-transform duration-300 w-8 h-8 flex items-center justify-center cursor-pointer")
+					.submenu(class="hidden pl-4")
+						ul.flex.flex-col.gap-2.py-2
+							li.has-sub-2
+								.flex.items-center.justify-between
+									a(href="#" class="text-base text-neutral-600 block py-2 flex-1") Ấn phẩm bao bì
+									i.fa-solid.fa-chevron-down(class="text-xs text-neutral-400 transition-transform duration-300 w-6 h-6 flex items-center justify-center cursor-pointer")
+								.submenu-2(class="hidden pl-4 border-l border-neutral-200 ml-2")
+									ul.flex.flex-col.gap-2.py-2
+										li: a(href="#" class="text-sm text-neutral-500 block py-1") In Hộp Giấy - Hộp Cứng
+										li: a(href="#" class="text-sm text-neutral-500 block py-1") In Túi Giấy
+										li: a(href="#" class="text-sm text-neutral-500 block py-1") Tem Nhãn
+										li: a(href="#" class="text-sm text-neutral-500 block py-1") Thùng Carton
+							li
+								a(href="#" class="text-base text-neutral-600 block py-2") Ấn phẩm văn phòng
+							li
+								a(href="#" class="text-base text-neutral-600 block py-2") Ấn phẩm tiếp thị
+							li
+								a(href="#" class="text-base text-neutral-600 block py-2") Sản phẩm khác
+							li
+								a(href="#" class="text-base text-neutral-600 block py-2") In gia công
+				li.has-sub
+					.flex.items-center.justify-between.border-b.border-neutral-100
+						a(href="#" class="text-lg font-bold text-utility-2929 block py-2 flex-1") Dịch vụ
+						i.fa-solid.fa-chevron-down(class="text-sm text-neutral-500 transition-transform duration-300 w-8 h-8 flex items-center justify-center cursor-pointer")
+					.submenu(class="hidden pl-4")
+						ul.flex.flex-col.gap-2.py-2
+							li: a(href="#" class="text-base text-neutral-600 block py-2") Dịch vụ 1
+							li: a(href="#" class="text-base text-neutral-600 block py-2") Dịch vụ 2
+				li
+					a(href="#" class="text-lg font-bold text-utility-2929 block py-2") Khách hàng
+				li
+					a(href="#" class="text-lg font-bold text-utility-2929 block py-2") Tin tức
+				li
+					a(href="#" class="text-lg font-bold text-utility-2929 block py-2") Liên hệ

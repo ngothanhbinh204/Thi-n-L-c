@@ -1,14 +1,16 @@
 .page-banner
 	@apply relative
 	.banner-swiper
-		@apply h-[80vh]
+		@apply h-[50vh] md:h-auto md:aspect-video xl:aspect-[1920/710] w-full
 	.banner-item
 		.banner-img
 			@apply h-full w-full absolute inset-0
 		.content
-			@apply z-2 w-full relative h-full flex p-20 pt-0
+			@apply z-2 w-full relative h-full flex p-6 md:p-14 xl:p-20 pt-0
 			.wrapper-content
 				@apply mt-auto space-y-7
+				h1
+					@apply title-32 md:title-40 lg:title-48 xl:title-60 text-white font-bold uppercase
 		img
 			@apply w-full h-full object-cover
 		&::before
@@ -19,6 +21,8 @@
 		h1
 			@apply mb-6
 			text-shadow: 0 2px 10px rgba(0,0,0,0.3)
+	.group-controll
+		@apply absolute flex items-center gap-3 z-10 bottom-6 md:bottom-14 xl:bottom-20
 	.wrap-button-slide
 		@apply relative z-10 flex items-center gap-3 -translate-y-16
 		.btn-prev, .btn-next

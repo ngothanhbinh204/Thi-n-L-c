@@ -1,0 +1,81 @@
+section.section-home-6.section-py.relative
+	//- Background Image
+	.home-6-bg.absolute-full.z-0
+		+PugImg("./img/image-bg-contact.png")(class="w-full h-full object-cover")
+
+	.container.relative.z-10
+		.row.items-center.wrapper-cta
+			//- Left Column - Contact Form
+			.form-col(class="w-full mb-8 lg:mb-0")
+				.contact-form-wrapper
+					//- Form Header
+					.form-header
+						h3.form-title ĐĂNG KÝ NHẬN TƯ VẤN 
+							span MIỄN PHÍ
+						p.form-subtitle ĐỂ TÌM KIẾM GIẢI PHÁP BAO BÌ TỐI ƯU NHẤT.
+
+					//- Contact Form - CF7 Ready Structure
+					form.contact-form(action="#" method="post")
+						//- Name Field
+						.form-group
+							label.form-label(for="your-name") Tên
+							input.form-control(
+								type="text"
+								id="your-name"
+								name="your-name"
+								placeholder="Tên*"
+								required
+							)
+
+						//- Email Field
+						.form-group
+							label.form-label(for="your-email") Email
+							input.form-control(
+								type="email"
+								id="your-email"
+								name="your-email"
+								placeholder="Email*"
+								required
+							)
+
+						//- Phone Field
+						.form-group
+							label.form-label(for="your-phone") Điện thoại
+							input.form-control(
+								type="tel"
+								id="your-phone"
+								name="your-phone"
+								placeholder="Điện thoại"
+							)
+
+						//- Message Field
+						.form-group
+							label.form-label(for="your-message") Nội dung
+							textarea.form-control(
+								id="your-message"
+								name="your-message"
+								placeholder="Nội dung"
+								rows="4"
+							)
+
+						//- Submit Button
+						.form-group.form-submit
+							button.btn.btn-primary(type="submit") Gửi
+
+			//- Right Column - CTA Content
+			.content-col(class="w-full lg:ml-auto")
+				.cta-content
+					//- CTA Header Box
+					.cta-header
+						h2.cta-title Sẵn Sàng Kiến Tạo Giá Trị Thương Hiệu Bạn?
+						p.cta-desc Khách hàng không nhất thiết sẽ nhớ bạn vì sản phẩm bạn bán, nhưng họ nhất định sẽ nhớ bạn vì cách bạn đã chăm sóc họ.
+						a.btn.btn-secondary-outline(href="#") Liên hệ
+
+					//- Hotline Box
+					.cta-hotline
+						.hotline-left
+							p.hotline-label Bạn cần
+							p.hotline-label hỗ trợ
+						.hotline-right
+							span.hotline-tag Hotline
+							p.hotline-number +84-283 771 6039
