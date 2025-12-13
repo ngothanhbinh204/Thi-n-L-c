@@ -1,0 +1,21 @@
+section.introduction-4.section-py
+	.container
+		.text-center.mb-10.lg_mb-16
+			h2.title-48.text-primary-1.font-bold.uppercase.mb-4 4 Cam Kết Kiến Tạo Sự Khác Biệt
+			p.text-neutral-600.text-lg Cam kết mang lại giá trị bền vững và chất lượng vượt trội cho khách hàng
+		
+		.accordion-container
+			each item, index in [1, 2, 3, 4]
+				.accordion-item(class=index === 0 ? 'active' : '')
+					.item-bg
+						+PugImg("./img/exp.svg")
+					.item-overlay
+					.item-content
+						.icon
+							+PugImg("./img/exp.svg")
+						h3.title
+							span.text-vertical Cam Kết #{item}
+							span.text-horizontal Cam Kết #{item}
+						.desc
+							p Chúng tôi cam kết mang đến những sản phẩm chất lượng nhất, đáp ứng mọi yêu cầu khắt khe của khách hàng với công nghệ in ấn hiện đại.
+

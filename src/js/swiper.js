@@ -6,12 +6,15 @@ import {
   Mousewheel,
   Navigation,
   Pagination,
+  Thumbs,
+  Controller,
 } from "swiper/modules";
 
 /**
  * @param swiperInit
  */
 export function swiperInit() {
+  initHistorySwiper();
   $(".swiper-column-auto").each(function (index) {
     const $this = $(this);
     // Configuration flagsvideoSetting
@@ -147,4 +150,76 @@ export function swiperInit() {
       },
     },
   });
+}
+
+function initHistorySwiper() {
+  if (
+    $(".history-timeline .swiper").length > 0 &&
+    $(".history-main .swiper").length > 0
+  ) {
+    const historyTimeline = new Swiper(".history-timeline .swiper", {
+      modules: [Navigation, Controller],
+      slidesPerView: 3,
+      spaceBetween: 20,
+      centeredSlides: true,
+      slideToClickedSlide: true,
+      loop: false,
+      breakpoints: {
+        768: {
+          slidesPerView: 5,
+          spaceBetween: 40,
+        },
+        1024: {
+          slidesPerView: 7,
+          spaceBetween: 60,
+        },
+      },
+    });
+
+    const historyMain = new Swiper(".history-main .swiper", {
+      modules: [Navigation, Thumbs, Controller],
+      slidesPerView: 1,
+      spaceBetween: 30,
+      centeredSlides: true,
+      loop: false,
+      navigation: {
+        nextEl: ".history-nav .btn-next",
+        prevEl: ".history-nav .btn-prev",
+      },
+      thumbs: {
+        swiper: historyTimeline,
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 30,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 40,
+        },
+      },
+    });
+  }
+
+  if ($(".machine-slider .swiper").length > 0) {
+    new Swiper(".machine-slider .swiper", {
+      modules: [Navigation, Autoplay, EffectFade],
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      effect: "fade",
+      fadeEffect: {
+        crossFade: true,
+      },
+      //   autoplay: {
+      //     delay: 5000,
+      //     disableOnInteraction: false,
+      //   },
+      navigation: {
+        nextEl: ".machine-nav .btn-next",
+        prevEl: ".machine-nav .btn-prev",
+      },
+    });
+  }
 }

@@ -5,6 +5,7 @@ import {
   buttonToTop,
   menuSpy,
   stickElementToEdge,
+  initAccordion,
 } from "./helper";
 import { header } from "./header";
 import { swiperInit } from "./swiper";
@@ -13,6 +14,7 @@ $(document).ready(function () {
   stickElementToEdge();
   menuSpy();
   buttonToTop();
+  initAccordion();
   header.init();
   swiperInit();
 });

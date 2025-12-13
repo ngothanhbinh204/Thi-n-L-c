@@ -1,0 +1,31 @@
+.introduction-1
+	@apply bg-neutral-100
+	.intro-grid
+		@apply grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 mb-10 lg:mb-20
+	.col-content
+		.intro-title
+			@apply title-48 text-primary-1 font-bold mb-6 uppercase
+		.intro-desc
+			@apply text-neutral-600 text-lg space-y-4 text-justify
+			.intro-quote
+				@apply font-bold text-primary-1
+	.col-img
+		.img-wrapper
+			@apply rounded-3xl overflow-hidden h-full relative w-full min-h-[300px]
+			img
+				@apply w-full h-full object-cover
+	
+	.list-stats
+		@apply grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-10 w-full mx-auto
+		.stat-item
+			@apply p-3 lg:p-5 flex items-center justify-start gap-4 lg:gap-6
+			.stat-info
+				@apply space-y-2
+			.stat-icon
+				@apply w-14 h-14 lg:w-16 lg:h-16 flex-shrink-0
+				img
+					@apply w-full h-full object-contain
+			.stat-number
+				@apply text-primary-2 font-black text-3xl lg:text-4xl
+			.stat-label
+				@apply text-neutral-600 text-sm

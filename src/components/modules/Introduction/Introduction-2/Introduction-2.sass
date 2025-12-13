@@ -1,0 +1,22 @@
+.introduction-2
+	@apply bg-blue-50
+	.intro-grid
+		@apply grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16
+	.col-item
+		@apply flex flex-col h-full
+		.header-box
+			@apply flex items-center gap-4 mb-6
+			.icon
+				@apply flex items-center justify-center w-16 h-16 rounded-full bg-primary-1 text-white flex-shrink-0
+				img
+					@apply w-8 h-8 brightness-0 invert
+			.title
+				@apply title-48 text-primary-1 font-bold
+		.desc
+			@apply body-18 text-neutral-600 mb-8 text-justify
+			ul
+				@apply list-disc pl-5 space-y-2
+		.img-wrapper
+			@apply mt-auto w-full aspect-video rounded-3xl overflow-hidden
+			img
+				@apply w-full h-full object-cover

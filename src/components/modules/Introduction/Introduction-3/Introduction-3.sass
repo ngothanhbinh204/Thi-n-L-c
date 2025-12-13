@@ -1,0 +1,72 @@
+.introduction-3
+	@apply bg-blue-50 overflow-hidden
+	.history-timeline
+		.swiper
+			@apply pb-4
+		.swiper-slide
+			@apply w-auto px-4 cursor-pointer opacity-50 transition-all
+			&.swiper-slide-thumb-active
+				@apply opacity-100
+				.year-dot
+					.year
+						@apply text-primary-2 font-bold scale-110
+					.dot
+						@apply bg-primary-2 scale-125 border-white border-2
+			.year-dot
+				@apply flex flex-col items-center gap-4
+				.year
+					@apply text-neutral-400 font-bold transition-all
+				.dot
+					@apply w-3 h-3 rounded-full bg-neutral-300 transition-all relative z-10
+		.line-bg
+			@apply absolute bottom-[20px] left-0 w-full h-[1px] bg-neutral-300 z-0
+
+	.history-main
+		.swiper
+			@apply py-10
+		.swiper-slide
+			@apply h-auto opacity-40 transition-opacity duration-300
+			&.swiper-slide-active
+				@apply opacity-100
+		.history-item
+			@apply flex flex-col gap-6 h-full
+			&.is-even
+				@apply flex-col-reverse
+				.item-year
+					@apply mt-auto
+					.dot
+						@apply order-last
+			&.is-odd
+				.item-year
+					.dot
+						@apply order-first
+			
+			.item-year
+				@apply title-48 font-black text-primary-1 mb-4 flex flex-col items-start gap-4 relative pl-4
+				&::before
+					content: ''
+					@apply absolute left-[5px] top-0 bottom-0 w-[1px] bg-neutral-300
+				.dot
+					@apply w-3 h-3 rounded-full bg-primary-1 block relative z-10
+				.text
+					@apply leading-none
+			
+			.item-content
+				@apply bg-transparent pl-4
+				.title
+					@apply font-bold text-lg mb-2 uppercase
+				.desc
+					@apply text-neutral-600 text-sm
+			
+			.item-img
+				@apply rounded-2xl overflow-hidden aspect-[4/3] w-full
+				img
+					@apply w-full h-full object-cover
+
+	.history-nav
+		.btn-prev, .btn-next
+			@apply absolute top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-primary-1 text-primary-1 flex items-center justify-center cursor-pointer z-20 hover:bg-primary-1 hover:text-white transition-all bg-white
+		.btn-prev
+			@apply -left-4 lg:-left-12
+		.btn-next
+			@apply -right-4 lg:-right-12

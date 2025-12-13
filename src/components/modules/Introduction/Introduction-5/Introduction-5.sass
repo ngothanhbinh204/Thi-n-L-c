@@ -1,0 +1,45 @@
+.introduction-5
+	.wrapper-grid
+		@apply grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-10 items-center
+		.col-slider
+			@apply lg:col-span-7
+			.machine-slider
+				@apply w-full
+				.machine-grid
+					@apply grid grid-cols-7 gap-3
+					.machine-item
+						@apply bg-white rounded-5 p-6 flex flex-col items-center justify-between text-center h-full min-h-[200px] transition-all hover:shadow-lg border border-transparent hover:border-primary-1/20
+						&.full
+							@apply col-span-2
+						&:first-child
+							@apply col-span-5
+						&:nth-child(2)
+							@apply col-span-2	
+						&:last-child
+							@apply col-span-7
+						img
+							@apply w-full h-full object-cover rounded-5
+						.img-wrapper
+							@apply w-full h-52 flex items-center justify-center
+							img
+								@apply w-full h-full object-contain transition-transform duration-500
+						&:hover
+							.img-wrapper img
+								@apply scale-105
+							.title a
+								@apply text-primary-1
+						.title
+							@apply font-bold title-20 text-neutral-800 px-2 py-5
+							a
+								@apply transition-colors duration-300
+	
+		.col-content
+			@apply lg:col-span-5 space-y-6
+			h2
+				@apply title-48 font-medium text-primary-1 uppercase
+			.desc
+				@apply text-utility-2929 title-20 space-y-4 text-justify
+			.machine-nav
+				.btn-prev, .btn-next
+					@apply w-12 h-12 rounded-full border border-primary-1 text-primary-1 flex items-center justify-center cursor-pointer transition-all hover:bg-primary-1 hover:text-white
+
