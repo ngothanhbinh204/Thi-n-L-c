@@ -1,72 +1,303 @@
 .introduction-3
-	@apply bg-blue-50 overflow-hidden
+	@apply overflow-hidden
+	padding: 60px 0
+	background: linear-gradient(180deg, #E8EBF3 0%, #F5F6FA 100%)
+	
+	@media (min-width: 1024px)
+		padding: 100px 0
+	h2
+		@apply title-48 text-primary-1 font-bold text-center mb-10 uppercase 
+	
+	// Timeline Section (Top Dots)
 	.history-timeline
+		@apply mb-10 relative overflow-hidden
+		
+		@media (min-width: 1024px)
+			margin-bottom: 80px
+		
 		.swiper
-			@apply pb-4
+			@apply pb-6
+			overflow: visible
+			
+			@media (min-width: 1024px)
+				padding-bottom: 32px
+			
+		.swiper-wrapper
+			@apply flex items-center
+		
 		.swiper-slide
-			@apply w-auto px-4 cursor-pointer opacity-50 transition-all
+			@apply cursor-pointer transition-all duration-500 flex-shrink-0
+			opacity: 0.4
+			
+			&:hover
+				opacity: 0.7
+			
 			&.swiper-slide-thumb-active
-				@apply opacity-100
+				opacity: 1
+				
 				.year-dot
 					.year
-						@apply text-primary-2 font-bold scale-110
+						@apply text-primary-2
+						
 					.dot
-						@apply bg-primary-2 scale-125 border-white border-2
+						@apply bg-primary-2
+						
 			.year-dot
-				@apply flex flex-col items-center gap-4
+				@apply flex flex-col-reverse items-center gap-3
+				
+				@media (min-width: 1024px)
+					gap: 16px
+				
 				.year
-					@apply text-neutral-400 font-bold transition-all
+					@apply text-utility-500 font-semibold transition-all duration-500
+					font-size: 14px
+					white-space: nowrap
+					
+					@media (min-width: 768px)
+						font-size: 16px
+					
+					@media (min-width: 1024px)
+						font-size: 18px
+					
 				.dot
-					@apply w-3 h-3 rounded-full bg-neutral-300 transition-all relative z-10
+					@apply w-2.5 h-2.5 rounded-full bg-utility-300 transition-all duration-500 relative z-10
+					
+					@media (min-width: 768px)
+						width: 10px
+						height: 10px
+					
+					@media (min-width: 1024px)
+						width: 12px
+						height: 12px
+		
 		.line-bg
-			@apply absolute bottom-[20px] left-0 w-full h-[1px] bg-neutral-300 z-0
+			@apply absolute left-0 w-full bg-utility-300 z-0 pointer-events-none
+			height: 1px
+			top: 5px
+			bottom: auto
+			
+			@media (min-width: 768px)
+				height: 2px
+				top: 5px
+			
+			@media (min-width: 1024px)
+				top: 6px
 
+	// Main Content Section (Bottom Cards)
 	.history-main
+		@apply relative overflow-hidden
+		
 		.swiper
-			@apply py-10
+			@apply py-6
+			overflow: visible
+			
+			@media (min-width: 1024px)
+				padding-top: 40px
+				padding-bottom: 40px
+		
+		.swiper-wrapper
+			@apply items-stretch
+		
 		.swiper-slide
-			@apply h-auto opacity-40 transition-opacity duration-300
+			@apply h-auto transition-all duration-700
+			transform: scale(0.92)
+			
+			@media (max-width: 767px)
+				opacity: 1
+				transform: scale(1)
+			
+			// Slide active
 			&.swiper-slide-active
-				@apply opacity-100
+				opacity: 1
+				transform: scale(1)
+				z-index: 2
+			
+			// Các slide adjacent
+			&.swiper-slide-next,
+			&.swiper-slide-prev
+				@media (min-width: 768px)
+					opacity: 0.6
+					transform: scale(0.96)
+		
 		.history-item
-			@apply flex flex-col gap-6 h-full
+			@apply flex flex-col gap-4 h-full bg-transparent transition-all duration-500 relative pl-8
+			
+			@media (min-width: 1024px)
+				padding-left: 40px
+			
+			// Vertical Line
+			&::before
+				content: ''
+				@apply absolute left-0 w-[1px] bg-utility-300
+			
+			// Alternating layout
 			&.is-even
-				@apply flex-col-reverse
 				.item-year
-					@apply mt-auto
+					@apply order-3 mt-auto
+					
 					.dot
-						@apply order-last
+						@apply bg-[#1E2875]
+				
+				.item-content
+					@apply order-2
+				
+				.item-img
+					@apply order-1
+				
+				// Line goes UP from bottom year
+				&::before
+					top: 0
+					bottom: 28px // Align with center of year pill
+			
 			&.is-odd
 				.item-year
+					@apply order-1 mb-auto
+					
 					.dot
-						@apply order-first
-			
-			.item-year
-				@apply title-48 font-black text-primary-1 mb-4 flex flex-col items-start gap-4 relative pl-4
+						@apply bg-[#1E2875]
+				
+				.item-content
+					@apply order-2
+				
+				.item-img
+					@apply order-3
+				
+				// Line goes DOWN from top year
 				&::before
-					content: ''
-					@apply absolute left-[5px] top-0 bottom-0 w-[1px] bg-neutral-300
+					top: 28px // Align with center of year pill
+					bottom: 0
+			
+			// Year Section
+			.item-year
+				@apply flex items-center relative
+				padding: 0
+				background: none
+				border: none
+				
+				&::before
+					display: none
+				
 				.dot
-					@apply w-3 h-3 rounded-full bg-primary-1 block relative z-10
+					@apply w-3 h-3 rounded-full block absolute z-10
+					left: -36px
+					box-shadow: 0 0 0 4px #F5F6FA
+					
+					@media (min-width: 1024px)
+						left: -46px
+						@apply w-4 h-4
+					
 				.text
-					@apply leading-none
+					@apply text-[#1E2875] font-black leading-none select-none bg-white rounded-full shadow-md flex items-center justify-center
+					padding: 12px 24px
+					font-size: 24px
+					
+					@media (min-width: 768px)
+						font-size: 28px
+						padding: 14px 30px
+					
+					@media (min-width: 1024px)
+						font-size: 32px
 			
+			// Content Section
 			.item-content
-				@apply bg-transparent pl-4
+				@apply px-0 py-2
+				
 				.title
-					@apply font-bold text-lg mb-2 uppercase
+					@apply font-bold text-[#1E2875] mb-2 uppercase leading-tight
+					font-size: 14px
+					
+					@media (min-width: 768px)
+						font-size: 15px
+						margin-bottom: 8px
+					
+					@media (min-width: 1024px)
+						font-size: 16px
+						margin-bottom: 12px
+				
 				.desc
-					@apply text-neutral-600 text-sm
+					@apply text-[#6B7280] leading-relaxed
+					font-size: 13px
+					
+					@media (min-width: 768px)
+						font-size: 14px
+						line-height: 1.6
 			
+			// Image Section
 			.item-img
-				@apply rounded-2xl overflow-hidden aspect-[4/3] w-full
+				@apply w-full overflow-hidden relative rounded-2xl shadow-sm
+				aspect-ratio: 16/9
+				background: #F3F4F6
+				
+				@media (min-width: 1024px)
+					aspect-ratio: 2/1
+				
 				img
-					@apply w-full h-full object-cover
+					@apply w-full h-full object-cover transition-transform duration-700
+				
+				&:hover img
+					transform: scale(1.1)
 
+	// Navigation Buttons
 	.history-nav
+		@apply absolute top-1/2 left-0 right-0 z-20
+		transform: translateY(-50%)
+		pointer-events: none
+		
+		@media (max-width: 1023px)
+			@apply flex justify-center gap-4 relative top-auto
+			transform: none
+			margin-top: 32px
+			pointer-events: auto
+		
 		.btn-prev, .btn-next
-			@apply absolute top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-primary-1 text-primary-1 flex items-center justify-center cursor-pointer z-20 hover:bg-primary-1 hover:text-white transition-all bg-white
+			@apply w-11 h-11 rounded-full bg-white border-2 border-[#1E2875] text-[#1E2875] flex items-center justify-center cursor-pointer transition-all duration-300 shadow-lg
+			pointer-events: auto
+			
+			@media (min-width: 1024px)
+				width: 52px
+				height: 52px
+			
+			&:hover:not(.swiper-button-disabled)
+				@apply bg-[#1E2875] text-white
+				transform: scale(1.15)
+				box-shadow: 0 12px 28px rgba(30, 40, 117, 0.35)
+			
+			&.swiper-button-disabled
+				@apply opacity-25 cursor-not-allowed
+				pointer-events: none
+			
+			i
+				@apply text-sm
+				
+				@media (min-width: 1024px)
+					font-size: 16px
+		
 		.btn-prev
-			@apply -left-4 lg:-left-12
+			@media (min-width: 1024px)
+				position: absolute
+				left: -70px
+			
+			@media (min-width: 1280px)
+				left: -90px
+			
+			@media (min-width: 1440px)
+				left: -110px
+		
 		.btn-next
-			@apply -right-4 lg:-right-12
+			@media (min-width: 1024px)
+				position: absolute
+				right: -70px
+			
+			@media (min-width: 1280px)
+				right: -90px
+			
+			@media (min-width: 1440px)
+				right: -110px
+
+// Container
+.container
+	@apply mx-auto px-4
+	max-width: 1280px
+	
+	@media (min-width: 1440px)
+		max-width: 1360px

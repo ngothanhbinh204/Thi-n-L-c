@@ -389,6 +389,7 @@ module.exports = {
           "linear-gradient(142deg, #FFF 14.64%, #D7D6D6 88.5%)",
         "linear-1": `linear-gradient(90deg, #181830 -0.01%, #1D1D38 19.26%, #141228 40.12%, #2C223A 75.47%, #231B33 99.98%)`,
         "linear-top-to-bottom": `linear-gradient(180deg, #C2CCE7 0%, #F5F8FF 47.6%)`,
+        "linear-1-top-to-bottom": `linear-gradient(180deg, #C2CCE7 0%, #DCE2F3 77.36%, #FFF 99.22%)`,
         "linear-2": `linear-gradient(180deg, #FFF 0%, #E3EBFF 41%, #C2CCE7 100%)`,
       }),
       backgroundPosition: {

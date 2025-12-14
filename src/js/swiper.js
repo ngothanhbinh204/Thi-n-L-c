@@ -157,12 +157,15 @@ function initHistorySwiper() {
     $(".history-timeline .swiper").length > 0 &&
     $(".history-main .swiper").length > 0
   ) {
+    // 1. Timeline Swiper
     const historyTimeline = new Swiper(".history-timeline .swiper", {
       modules: [Navigation, Controller],
       slidesPerView: 3,
       spaceBetween: 20,
       centeredSlides: true,
+      centeredSlidesBounds: true,
       slideToClickedSlide: true,
+      watchSlidesProgress: true,
       loop: false,
       breakpoints: {
         768: {
@@ -171,24 +174,26 @@ function initHistorySwiper() {
         },
         1024: {
           slidesPerView: 7,
-          spaceBetween: 60,
+          spaceBetween: 0,
+        },
+      },
+      on: {
+        click: function (swiper) {
+          historyMain.slideTo(swiper.clickedIndex);
         },
       },
     });
 
+    // 2. Main Content Swiper
     const historyMain = new Swiper(".history-main .swiper", {
-      modules: [Navigation, Thumbs, Controller],
+      modules: [Navigation, Controller],
       slidesPerView: 1,
       spaceBetween: 30,
+      speed: 800,
       centeredSlides: true,
-      loop: false,
-      navigation: {
-        nextEl: ".history-nav .btn-next",
-        prevEl: ".history-nav .btn-prev",
-      },
-      thumbs: {
-        swiper: historyTimeline,
-      },
+      centeredSlidesBounds: false,
+      watchSlidesProgress: true,
+      // Navigation removed from config to handle manually
       breakpoints: {
         768: {
           slidesPerView: 2,
@@ -199,9 +204,71 @@ function initHistorySwiper() {
           spaceBetween: 40,
         },
       },
+      on: {
+        setTranslate: function (swiper) {
+          // Manual bounds for Desktop to fix active index issue
+          if (window.innerWidth >= 1024) {
+            const totalWidth = swiper.virtualSize;
+            const containerWidth = swiper.width;
+            const maxTranslate = -(totalWidth - containerWidth);
+
+            let visualTranslate = swiper.translate;
+
+            // Clamp start (left)
+            if (visualTranslate > 0) visualTranslate = 0;
+            // Clamp end (right)
+            if (visualTranslate < maxTranslate) visualTranslate = maxTranslate;
+
+            // Apply to DOM only, keep swiper.translate logical
+            swiper.wrapperEl.style.transform = `translate3d(${visualTranslate}px, 0, 0)`;
+          }
+        },
+        slideChange: function (swiper) {
+          // Sync timeline active state
+          const activeIndex = swiper.activeIndex;
+          historyTimeline.slideTo(activeIndex);
+
+          // Manually update active class on timeline dots
+          $(".history-timeline .swiper-slide").removeClass(
+            "swiper-slide-thumb-active"
+          );
+          $(historyTimeline.slides[activeIndex]).addClass(
+            "swiper-slide-thumb-active"
+          );
+        },
+        init: function (swiper) {
+          $(historyTimeline.slides[swiper.activeIndex]).addClass(
+            "swiper-slide-thumb-active"
+          );
+        },
+      },
     });
+
+    // 3. Custom Navigation Logic (Manual)
+    $(".history-nav .btn-next")
+      .off("click")
+      .on("click", function (e) {
+        e.preventDefault();
+        if (historyMain.activeIndex === historyMain.slides.length - 1) {
+          historyMain.slideTo(0);
+        } else {
+          historyMain.slideNext();
+        }
+      });
+
+    $(".history-nav .btn-prev")
+      .off("click")
+      .on("click", function (e) {
+        e.preventDefault();
+        if (historyMain.activeIndex === 0) {
+          historyMain.slideTo(historyMain.slides.length - 1);
+        } else {
+          historyMain.slidePrev();
+        }
+      });
   }
 
+  // Machine Slider
   if ($(".machine-slider .swiper").length > 0) {
     new Swiper(".machine-slider .swiper", {
       modules: [Navigation, Autoplay, EffectFade],
@@ -212,10 +279,6 @@ function initHistorySwiper() {
       fadeEffect: {
         crossFade: true,
       },
-      //   autoplay: {
-      //     delay: 5000,
-      //     disableOnInteraction: false,
-      //   },
       navigation: {
         nextEl: ".machine-nav .btn-next",
         prevEl: ".machine-nav .btn-prev",

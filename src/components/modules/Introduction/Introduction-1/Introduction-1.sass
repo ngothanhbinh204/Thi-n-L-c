@@ -1,17 +1,18 @@
 .introduction-1
-	@apply bg-neutral-100
+	@apply pb-0 #{!important}
 	.intro-grid
-		@apply grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 mb-10 lg:mb-20
+		@apply grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 mb-10
 	.col-content
 		.intro-title
-			@apply title-48 text-primary-1 font-bold mb-6 uppercase
+			@apply title-48 font-medium text-primary-1 mb-6
 		.intro-desc
-			@apply text-neutral-600 text-lg space-y-4 text-justify
+			@apply text-utility-2929 body-18 space-y-3 text-justify leading-1.4
 			.intro-quote
 				@apply font-bold text-primary-1
 	.col-img
+		@apply flex items-center justify-center
 		.img-wrapper
-			@apply rounded-3xl overflow-hidden h-full relative w-full min-h-[300px]
+			@apply rounded-5 overflow-hidden h-auto relative w-full img-ratio ratio:pt-[383_680] my-auto
 			img
 				@apply w-full h-full object-cover
 	
@@ -28,4 +29,18 @@
 			.stat-number
 				@apply text-primary-2 font-black text-3xl lg:text-4xl
 			.stat-label
-				@apply text-neutral-600 text-sm
+				@apply text-utility-2929 text-sm
+
+.wrapper-introduction
+	@apply relative overflow-hidden
+	.bg-decor-top, .bg-decor-bottom
+		@apply w-auto object-contain absolute
+		height: calc(482/1920*100rem)
+		img
+			@apply h-full w-auto object-contain 
+	.bg-decor-top
+		@apply -top-20 -left-50
+	.bg-decor-bottom
+		@apply -bottom-20 -left-44
+		
+		

@@ -6,8 +6,14 @@ block var
 	
 block main
 	include ../components/global/PageBanner/PageBanner.pug
-	include ../components/modules/Introduction/Introduction-1/Introduction-1
-	include ../components/modules/Introduction/Introduction-2/Introduction-2
-	include ../components/modules/Introduction/Introduction-3/Introduction-3
-	include ../components/modules/Introduction/Introduction-4/Introduction-4
-	include ../components/modules/Introduction/Introduction-5/Introduction-5
+	.wrapper-introduction
+		.bg-decor-top
+			+PugImg("./img/bg-partent-1.svg")
+		.bg-decor-bottom
+			+PugImg("./img/bg-partent-1.svg")
+		.wrapper-bg.bg-linear-1-top-to-bottom
+			include ../components/modules/Introduction/Introduction-1/Introduction-1
+			include ../components/modules/Introduction/Introduction-2/Introduction-2
+			include ../components/modules/Introduction/Introduction-3/Introduction-3
+		include ../components/modules/Introduction/Introduction-4/Introduction-4
+		include ../components/modules/Introduction/Introduction-5/Introduction-5

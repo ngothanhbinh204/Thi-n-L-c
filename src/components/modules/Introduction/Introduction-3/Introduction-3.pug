@@ -1,15 +1,74 @@
 section.introduction-3.section-py
+	-
+		const historyData = [
+			{
+				year: '2006',
+				title: 'CÔNG TY TNHH SẢN XUẤT VÀ XUẤT KHẨU HOÀNG PHÁT VINH',
+				desc: 'Chuyên sản xuất tem, nhãn, thùng carton...',
+				img: './img/1.jpg'
+			},
+			{
+				year: '2010',
+				title: 'Đổi tên thành: CÔNG TY TNHH HOÀNG PHÁT VINH',
+				desc: 'Chuyên sản xuất tem, nhãn, thùng carton...',
+				img: './img/1.jpg'
+			},
+			{
+				year: '2011',
+				title: 'Đổi tên thành: CÔNG TY TNHH IN BAO BÌ THIÊN LỘC',
+				desc: 'Bắt đầu mở rộng quy mô sản xuất, xây dựng nhà xưởng rộng 2000m2 cùng nhiều máy móc hiện đại',
+				img: './img/1.jpg'
+			},
+			{
+				year: '2012',
+				title: 'MỞ RỘNG QUY MÔ',
+				desc: 'Tiếp tục đầu tư dây chuyền sản xuất hiện đại',
+				img: './img/1.jpg'
+			},
+			{
+				year: '2013',
+				title: 'PHÁT TRIỂN BỀN VỮNG',
+				desc: 'Khẳng định vị thế trên thị trường',
+				img: './img/1.jpg'
+			},
+			{
+				year: '2018',
+				title: 'ĐỔI MỚI CÔNG NGHỆ',
+				desc: 'Nhập khẩu dây chuyền in ấn từ Đức',
+				img: './img/1.jpg'
+			},
+			{
+				year: '2023',
+				title: 'VƯƠN TẦM QUỐC TẾ',
+				desc: 'Xuất khẩu sang thị trường Âu Mỹ',
+				img: './img/1.jpg'
+			},
+			{
+				year: '2025',
+				title: 'VƯƠN TẦM QUỐC TẾ',
+				desc: 'Xuất khẩu sang thị trường Âu Mỹ',
+				img: './img/1.jpg'
+			},
+			{
+				year: '2026',
+				title: 'VƯƠN TẦM QUỐC TẾ',
+				desc: 'Xuất khẩu sang thị trường Âu Mỹ',
+				img: './img/1.jpg'
+			}
+			
+		]
+
 	.container
-		h2.title-48.text-primary-1.font-bold.text-center.mb-10.uppercase Lịch Sử & Phát Triển
+		h2 Lịch Sử & Phát Triển (tạo từ Claude AI)
 		
 		//- Timeline Slider
-		.history-timeline.mb-10.relative
+		.history-timeline.relative
 			.swiper
 				.swiper-wrapper
-					each year in [2006, 2007, 2008, 2010, 2011, 2012, 2013]
+					each item, index in historyData
 						.swiper-slide
 							.year-dot
-								span.year= year
+								span.year= item.year
 								span.dot
 			.line-bg
 
@@ -17,65 +76,18 @@ section.introduction-3.section-py
 		.history-main.relative
 			.swiper
 				.swiper-wrapper
-					//- Item 1 (2006) - Odd
-					.swiper-slide
-						.history-item.is-odd
-							.item-year
-								span.dot
-								span.text 2006
-							.item-content
-								h3.title CÔNG TY TNHH SẢN XUẤT VÀ XUẤT KHẨU HOÀNG PHÁT VINH
-								p.desc Chuyên sản xuất tem, nhãn, thùng carton...
-							.item-img
-								+PugImg("./img/1.jpg")
-					
-					//- Item 2 (2010) - Even
-					.swiper-slide
-						.history-item.is-even
-							.item-year
-								span.dot
-								span.text 2010
-							.item-content
-								h3.title Đổi tên thành: CÔNG TY TNHH HOÀNG PHÁT VINH
-								p.desc Chuyên sản xuất tem, nhãn, thùng carton...
-							.item-img
-								+PugImg("./img/1.jpg")
-
-					//- Item 3 (2011) - Odd
-					.swiper-slide
-						.history-item.is-odd
-							.item-year
-								span.dot
-								span.text 2011
-							.item-content
-								h3.title Đổi tên thành: CÔNG TY TNHH IN BAO BÌ THIÊN LỘC
-								p.desc Bắt đầu mở rộng quy mô sản xuất, xây dựng nhà xưởng rộng 2000m2 cùng nhiều máy móc hiện đại
-							.item-img
-								+PugImg("./img/1.jpg")
-					
-					//- Item 4 (2012) - Even
-					.swiper-slide
-						.history-item.is-even
-							.item-year
-								span.dot
-								span.text 2012
-							.item-content
-								h3.title MỞ RỘNG QUY MÔ
-								p.desc Tiếp tục đầu tư dây chuyền sản xuất hiện đại
-							.item-img
-								+PugImg("./img/1.jpg")
-					
-					//- Item 5 (2013) - Odd
-					.swiper-slide
-						.history-item.is-odd
-							.item-year
-								span.dot
-								span.text 2013
-							.item-content
-								h3.title PHÁT TRIỂN BỀN VỮNG
-								p.desc Khẳng định vị thế trên thị trường
-							.item-img
-								+PugImg("./img/1.jpg")
+					each item, index in historyData
+						//- Use is-odd / is-even based on index for staggered layout
+						.swiper-slide
+							.history-item(class=(index % 2 === 0 ? 'is-odd' : 'is-even'))
+								.item-year
+									span.dot
+									span.text= item.year
+								.item-content
+									h3.title= item.title
+									p.desc= item.desc
+								.item-img
+									+PugImg(item.img)
 
 			//- Nav
 			.history-nav
