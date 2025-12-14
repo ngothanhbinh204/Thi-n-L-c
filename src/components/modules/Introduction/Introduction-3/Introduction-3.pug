@@ -59,7 +59,7 @@ section.introduction-3.section-py
 		]
 
 	.container
-		h2 Lịch Sử & Phát Triển (tạo từ Claude AI)
+		h2 Lịch Sử & Phát Triển
 		
 		//- Timeline Slider
 		.history-timeline.relative
@@ -73,25 +73,27 @@ section.introduction-3.section-py
 			.line-bg
 
 		//- Main Slider
-		.history-main.relative
-			.swiper
-				.swiper-wrapper
-					each item, index in historyData
-						//- Use is-odd / is-even based on index for staggered layout
-						.swiper-slide
-							.history-item(class=(index % 2 === 0 ? 'is-odd' : 'is-even'))
-								.item-year
-									span.dot
-									span.text= item.year
-								.item-content
-									h3.title= item.title
-									p.desc= item.desc
-								.item-img
-									+PugImg(item.img)
-
-			//- Nav
-			.history-nav
-				.btn-prev
-					i.fa-solid.fa-chevron-left
-				.btn-next
-					i.fa-solid.fa-chevron-right
+		.wrapper-history-main.relative
+			.history-main.relative
+				.swiper
+					.swiper-wrapper
+						each item, index in historyData
+							//- Use is-odd / is-even based on index for staggered layout
+							.swiper-slide
+								.history-item(class=(index % 2 === 0 ? 'is-odd' : 'is-even'))
+									.content 
+										.item-year
+											span.dot
+											span.text= item.year
+										.item-content
+											h3.title= item.title
+											p.desc= item.desc
+									.item-img
+										+PugImg(item.img)
+			.center-y
+					.wrap-button-slide.history-nav
+						.btn-prev.btn-slider-2
+							i.fa-solid.fa-chevron-left
+						.btn-next.btn-slider-2
+							i.fa-solid.fa-chevron-right
+			

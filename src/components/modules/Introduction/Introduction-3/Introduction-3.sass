@@ -10,10 +10,7 @@
 	
 	// Timeline Section (Top Dots)
 	.history-timeline
-		@apply mb-10 relative overflow-hidden
-		
-		@media (min-width: 1024px)
-			margin-bottom: 80px
+		@apply mb-2 relative overflow-hidden
 		
 		.swiper
 			@apply pb-6
@@ -26,12 +23,7 @@
 			@apply flex items-center
 		
 		.swiper-slide
-			@apply cursor-pointer transition-all duration-500 flex-shrink-0
-			opacity: 0.4
-			
-			&:hover
-				opacity: 0.7
-			
+			@apply cursor-pointer transition-all duration-500 flex-shrink-0						
 			&.swiper-slide-thumb-active
 				opacity: 1
 				
@@ -43,7 +35,7 @@
 						@apply bg-primary-2
 						
 			.year-dot
-				@apply flex flex-col-reverse items-center gap-3
+				@apply body-18 text-utility-500 font-bold flex flex-col-reverse items-center gap-3
 				
 				@media (min-width: 1024px)
 					gap: 16px
@@ -99,137 +91,86 @@
 			@apply items-stretch
 		
 		.swiper-slide
-			@apply h-auto transition-all duration-700
-			transform: scale(0.92)
-			
-			@media (max-width: 767px)
-				opacity: 1
-				transform: scale(1)
-			
-			// Slide active
-			&.swiper-slide-active
-				opacity: 1
-				transform: scale(1)
-				z-index: 2
-			
-			// Các slide adjacent
-			&.swiper-slide-next,
-			&.swiper-slide-prev
-				@media (min-width: 768px)
-					opacity: 0.6
-					transform: scale(0.96)
+			@apply h-auto transition-all duration-700			
+		
 		
 		.history-item
-			@apply flex flex-col gap-4 h-full bg-transparent transition-all duration-500 relative pl-8
-			
-			@media (min-width: 1024px)
-				padding-left: 40px
+			@apply flex flex-col justify-between gap-4 h-full transition-all duration-500 relative pl-8 pr-8 lg:pl-7.5 lg:pr-20
+
 			
 			// Vertical Line
 			&::before
 				content: ''
-				@apply absolute left-0 w-[1px] bg-utility-300
-			
+				@apply absolute left-2 w-[1px] bg-utility-300 h-[95%]
+			&::after
+				content: ''
+				@apply absolute w-4.5 left-0 h-4.5 bg-primary-1 rounded-full z-10
 			// Alternating layout
-			&.is-even
-				.item-year
-					@apply order-3 mt-auto
-					
-					.dot
-						@apply bg-[#1E2875]
-				
-				.item-content
-					@apply order-2
-				
-				.item-img
-					@apply order-1
-				
-				// Line goes UP from bottom year
-				&::before
-					top: 0
-					bottom: 28px // Align with center of year pill
+			@media screen and (min-width: 1024px)
+				&.is-even
+					&::after
+						@apply bottom-5 top-auto
+					.item-year
+						@apply order-3 mt-auto
+						
+						.dot
+							@apply bg-primary-1
+					.content
+						@apply order-2 pb-4
+					.item-img
+						@apply order-1
+					&::before
+						top: 0
+						bottom: auto
 			
 			&.is-odd
+				&::after
+					@apply top-5 bottom-auto
 				.item-year
 					@apply order-1 mb-auto
 					
 					.dot
-						@apply bg-[#1E2875]
+						@apply bg-primary-1
 				
 				.item-content
 					@apply order-2
 				
 				.item-img
-					@apply order-3
+					@apply order-3 mt-auto
 				
 				// Line goes DOWN from top year
 				&::before
-					top: 28px // Align with center of year pill
+					top: auto
 					bottom: 0
 			
 			// Year Section
-			.item-year
-				@apply flex items-center relative
-				padding: 0
-				background: none
-				border: none
-				
-				&::before
-					display: none
-				
-				.dot
-					@apply w-3 h-3 rounded-full block absolute z-10
-					left: -36px
-					box-shadow: 0 0 0 4px #F5F6FA
+			.content 
+				@apply flex flex-col gap-5
+				.item-year
+					@apply flex items-center relative
+					padding: 0
+					background: none
+					border: none
 					
-					@media (min-width: 1024px)
-						left: -46px
-						@apply w-4 h-4
+					&::before
+						display: none
+						
+					.text
+						@apply title-36 px-4 py-2 text-primary-1 font-bold leading-none select-none bg-white rounded-full flex items-center justify-center
 					
-				.text
-					@apply text-[#1E2875] font-black leading-none select-none bg-white rounded-full shadow-md flex items-center justify-center
-					padding: 12px 24px
-					font-size: 24px
-					
-					@media (min-width: 768px)
-						font-size: 28px
-						padding: 14px 30px
-					
-					@media (min-width: 1024px)
-						font-size: 32px
 			
 			// Content Section
 			.item-content
-				@apply px-0 py-2
-				
+				@apply space-y-2 body-16 leading-1.4	
 				.title
-					@apply font-bold text-[#1E2875] mb-2 uppercase leading-tight
-					font-size: 14px
-					
-					@media (min-width: 768px)
-						font-size: 15px
-						margin-bottom: 8px
-					
-					@media (min-width: 1024px)
-						font-size: 16px
-						margin-bottom: 12px
+					@apply font-bold body-16
 				
 				.desc
-					@apply text-[#6B7280] leading-relaxed
-					font-size: 13px
-					
-					@media (min-width: 768px)
-						font-size: 14px
-						line-height: 1.6
+					@apply font-normal body-16
 			
 			// Image Section
 			.item-img
-				@apply w-full overflow-hidden relative rounded-2xl shadow-sm
-				aspect-ratio: 16/9
-				background: #F3F4F6
-				
-				@media (min-width: 1024px)
-					aspect-ratio: 2/1
+				@apply w-full overflow-hidden relative rounded-2 img-ratio ratio:pt-[180_320]
 				
 				img
 					@apply w-full h-full object-cover transition-transform duration-700
@@ -248,40 +189,7 @@
 			transform: none
 			margin-top: 32px
 			pointer-events: auto
-		
-		.btn-prev, .btn-next
-			@apply w-11 h-11 rounded-full bg-white border-2 border-[#1E2875] text-[#1E2875] flex items-center justify-center cursor-pointer transition-all duration-300 shadow-lg
-			pointer-events: auto
-			
-			@media (min-width: 1024px)
-				width: 52px
-				height: 52px
-			
-			&:hover:not(.swiper-button-disabled)
-				@apply bg-[#1E2875] text-white
-				transform: scale(1.15)
-				box-shadow: 0 12px 28px rgba(30, 40, 117, 0.35)
-			
-			&.swiper-button-disabled
-				@apply opacity-25 cursor-not-allowed
-				pointer-events: none
-			
-			i
-				@apply text-sm
-				
-				@media (min-width: 1024px)
-					font-size: 16px
-		
-		.btn-prev
-			@media (min-width: 1024px)
-				position: absolute
-				left: -70px
-			
-			@media (min-width: 1280px)
-				left: -90px
-			
-			@media (min-width: 1440px)
-				left: -110px
+
 		
 		.btn-next
 			@media (min-width: 1024px)
