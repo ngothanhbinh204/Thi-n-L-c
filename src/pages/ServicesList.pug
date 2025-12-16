@@ -1,0 +1,10 @@
+extends ./_layout/_default.pug
+
+block var
+	- var title = 'Dịch vụ'
+	- var bodyClass = 'services-list-page'
+
+block main
+	include ../components/global/PageBanner/PageBanner.pug
+	include ../components/global/Breadcrumb/Breadcrumb.pug
+	include ../components/modules/Services/List/ServicesList

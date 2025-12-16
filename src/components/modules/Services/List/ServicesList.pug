@@ -1,0 +1,43 @@
+section.services-list
+		h2.section-title Dịch vụ
+		.services-grid
+			-
+				var services = [
+					{
+						title: "Hệ thống quản lý tiết kiệm năng lượng EMS",
+						img: "./img/1.jpg",
+						desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt."
+					},
+					{
+						title: "Hệ thống thông minh đám mây GoService",
+						img: "./img/1.jpg",
+						desc: "Giải pháp giám sát và quản lý hệ thống khí nén từ xa thông qua nền tảng đám mây."
+					},
+					{
+						title: "Hệ thống thu hồi nhiệt máy nén khí",
+						img: "./img/1.jpg",
+						desc: "Tận dụng nhiệt lượng tỏa ra từ máy nén khí để phục vụ cho các mục đích khác, giúp tiết kiệm năng lượng."
+					},
+					{
+						title: "Dịch vụ bảo trì, sửa chữa máy nén khí",
+						img: "./img/1.jpg",
+						desc: "Đội ngũ kỹ thuật viên chuyên nghiệp, đảm bảo hệ thống máy nén khí hoạt động ổn định và hiệu quả."
+					},
+					{
+						title: "Mạng lưới dịch vụ",
+						img: "./img/1.jpg",
+						desc: "Mạng lưới dịch vụ rộng khắp, đáp ứng nhanh chóng nhu cầu của khách hàng trên toàn quốc."
+					},
+					{
+						title: "Tổng đài hỗ trợ",
+						img: "./img/1.jpg",
+						desc: "Hỗ trợ khách hàng 24/7, giải đáp mọi thắc mắc và xử lý sự cố kịp thời."
+					}
+				]
+			each item in services
+				.service-item
+					.service-img
+						+PugImg(item.img)
+					.service-content
+						h3.service-title= item.title
+						p.service-desc= item.desc

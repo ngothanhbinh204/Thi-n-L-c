@@ -150,6 +150,52 @@ export function swiperInit() {
       },
     },
   });
+
+  // Services Detail Slider
+  if ($(".swiper-services-detail .swiper").length > 0) {
+    new Swiper(".swiper-services-detail .swiper", {
+      modules: [Navigation, Autoplay],
+      slidesPerView: "auto",
+      centeredSlides: true,
+      spaceBetween: 20,
+      loop: true,
+      speed: 800,
+      navigation: {
+        nextEl: ".swiper-services-detail .swiper-button-next",
+        prevEl: ".swiper-services-detail .swiper-button-prev",
+      },
+      breakpoints: {
+        768: {
+          spaceBetween: 40,
+        },
+      },
+    });
+  }
+
+  // Services Other Slider
+  if ($(".swiper-services-other .swiper").length > 0) {
+    new Swiper(".swiper-services-other .swiper", {
+      modules: [Navigation, Autoplay],
+      slidesPerView: 1,
+      spaceBetween: 20,
+      loop: true,
+      speed: 800,
+      navigation: {
+        nextEl: ".swiper-services-other .swiper-button-next",
+        prevEl: ".swiper-services-other .swiper-button-prev",
+      },
+      breakpoints: {
+        576: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+      },
+    });
+  }
 }
 
 function initHistorySwiper() {

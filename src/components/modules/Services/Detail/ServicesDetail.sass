@@ -1,0 +1,92 @@
+.section-services-detail-1
+	@apply relative
+	.container
+		@apply relative z-10
+	.row
+		@apply items-center
+	.col
+		@apply w-full lg:w-5/12
+	.content
+		@apply py-10 lg:py-20
+	.sub-title
+		@apply text-primary-2 font-bold mb-4 uppercase text-lg lg:text-xl
+	.title
+		@apply font-bold mb-6 text-3xl lg:text-5xl text-black
+	.image-bg
+		@apply w-full h-[300px] lg:absolute lg:top-0 lg:right-0 lg:w-[60%] lg:h-full
+		img
+			@apply w-full h-full object-cover
+
+.section-services-detail-2
+	@apply py-10 lg:py-20 bg-white
+	.col
+		@apply w-full lg:w-10/12 mx-auto
+	.content-wrapper
+		@apply pl-6 border-l-4 border-primary-2
+	.title
+		@apply text-xl font-bold mb-6 lg:text-2xl text-black
+	.desc
+		@apply text-utility-500 mb-6 text-base lg:text-lg
+		p
+			@apply mb-4
+			&:last-child
+				@apply mb-0
+	.list-check
+		@apply space-y-4
+		li
+			@apply flex items-start
+			i
+				@apply text-primary-2 mr-3 mt-1
+			span
+				@apply text-utility-500 text-base lg:text-lg
+	.desc-bottom
+		@apply text-utility-500 mt-6 text-base lg:text-lg
+
+.section-services-detail-3
+	@apply py-10 lg:py-20 overflow-hidden
+	.swiper-services-detail
+		@apply relative
+	.swiper-slide
+		@apply w-[80%] md:w-[60%] lg:w-[50%] transition-all duration-300 opacity-50 scale-90
+		&.swiper-slide-active
+			@apply opacity-100 scale-100
+		.img
+			@apply aspect-video relative w-full
+		.tag
+			@apply absolute top-4 left-4 bg-primary-2 text-white px-2 py-1 text-sm
+	.swiper-navigation
+		@apply flex justify-between absolute top-1/2 left-0 w-full z-10 px-4 -translate-y-1/2 pointer-events-none
+	.swiper-button-prev,
+	.swiper-button-next
+		@apply pointer-events-auto bg-white w-10 h-10 flex items-center justify-center shadow-md cursor-pointer rounded-full transition-colors duration-300 hover:bg-primary-2 hover:text-white
+		&::after
+			content: none
+
+.section-services-detail-4
+	@apply py-10 lg:py-20 bg-utility-50
+	h2
+		@apply text-center text-3xl font-bold mb-10 text-black
+	.swiper-services-other
+		@apply relative px-12
+	.item
+		@apply bg-transparent cursor-pointer
+		.img
+			@apply aspect-video mb-4 overflow-hidden
+			img
+				@apply w-full h-full object-cover transition-transform duration-500
+		.title
+			@apply font-bold text-lg text-black
+		&:hover
+			.img img
+				@apply scale-110
+			.title
+				@apply text-primary-2
+	.swiper-button-prev,
+	.swiper-button-next
+		@apply absolute top-1/2 bg-white w-10 h-10 flex items-center justify-center shadow-md cursor-pointer rounded-full transition-colors duration-300 -translate-y-1/2 z-10 hover:bg-primary-2 hover:text-white
+		&::after
+			content: none
+	.swiper-button-prev
+		@apply left-0
+	.swiper-button-next
+		@apply right-0
