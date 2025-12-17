@@ -204,7 +204,7 @@ module.exports = {
       32: "calc(128/1920*100rem) /* 128px */",
       36: "calc(144/1920*100rem) /* 144px */",
       40: "calc(160/1920*100rem) /* 160px */",
-      42: "calc(160/1920*100rem) /* 168px */",
+      42: "calc(168/1920*100rem) /* 168px */",
       44: "calc(176/1920*100rem) /* 176px */",
       48: "calc(192/1920*100rem) /* 192px */",
       48: "calc(192/1920*100rem) /* 192px */",
@@ -279,6 +279,22 @@ module.exports = {
         124: "calc(124/1920*100rem)",
         130: "calc(130/1920*100rem)",
         160: "calc(160/1920*100rem)",
+      },
+      minHeight: {
+        fit: "fit-content",
+        40: "calc(40/1920*100rem)",
+        124: "calc(124/1920*100rem)",
+        130: "calc(130/1920*100rem)",
+        160: "calc(160/1920*100rem)",
+        680: "calc(680/1920*100rem)",
+      },
+      maxHeight: {
+        fit: "fit-content",
+        40: "calc(40/1920*100rem)",
+        124: "calc(124/1920*100rem)",
+        130: "calc(130/1920*100rem)",
+        160: "calc(160/1920*100rem)",
+        680: "calc(680/1920*100rem)",
       },
       colors: {
         primary: {
@@ -669,8 +685,11 @@ module.exports = {
           },
         },
         ".title-32": {
-          fontSize: "22px",
-          lineHeight: "1.1",
+          fontWeight: "700",
+          fontSize: "calc(28/1920*100rem)", // 4xl
+          [`@media (min-width: ${theme("screens.lg")})`]: {
+            fontSize: "calc(32/1920*100rem)", // 5xl
+          },
         },
         ".title-30": {
           fontWeight: "700",

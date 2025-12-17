@@ -480,3 +480,63 @@ document.addEventListener("DOMContentLoaded", () => {
 if (typeof module !== "undefined" && module.exports) {
   module.exports = CustomSelect;
 }
+
+(function () {
+  "use strict";
+
+  // ============ MANUFACTURER TABS ============
+  const tabButtons = document.querySelectorAll(".manufacturer-tabs .tab-btn");
+  const tabPanes = document.querySelectorAll(".manufacturer-tabs .tab-pane");
+
+  if (tabButtons.length > 0 && tabPanes.length > 0) {
+    tabButtons.forEach((button) => {
+      button.addEventListener("click", function () {
+        const targetTab = this.dataset.tab;
+
+        // Remove active from all buttons
+        tabButtons.forEach((btn) => btn.classList.remove("active"));
+
+        // Add active to clicked button
+        this.classList.add("active");
+
+        // Hide all tab panes
+        tabPanes.forEach((pane) => {
+          pane.classList.remove("active");
+        });
+
+        // Show target tab pane
+        setTimeout(() => {
+          const targetPane = document.getElementById(targetTab);
+          if (targetPane) {
+            targetPane.classList.add("active");
+
+            // Smooth scroll to tab content
+            targetPane.scrollIntoView({
+              behavior: "smooth",
+              block: "nearest",
+            });
+          }
+        }, 100);
+      });
+    });
+
+    // Keyboard navigation
+    tabButtons.forEach((button, index) => {
+      button.addEventListener("keydown", function (e) {
+        let newIndex;
+
+        if (e.key === "ArrowRight") {
+          e.preventDefault();
+          newIndex = (index + 1) % tabButtons.length;
+          tabButtons[newIndex].click();
+          tabButtons[newIndex].focus();
+        } else if (e.key === "ArrowLeft") {
+          e.preventDefault();
+          newIndex = (index - 1 + tabButtons.length) % tabButtons.length;
+          tabButtons[newIndex].click();
+          tabButtons[newIndex].focus();
+        }
+      });
+    });
+  }
+})();

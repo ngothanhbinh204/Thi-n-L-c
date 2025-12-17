@@ -15,7 +15,7 @@
 	// FOOTER TOP
 	// ========================================
 	.footer-top
-		@apply pb-8 flex flex-col items-start justify-between
+		@apply pb-8 flex flex-col items-center lg:items-start justify-center lg:justify-between
 		@media (min-width: 1024px)
 			@apply pb-8 flex-row items-center
 
@@ -35,7 +35,7 @@
 
 	// Social & Certs
 	.footer-social-certs
-		@apply flex flex-col sm:flex-row items-end justify-center lg:justify-end gap-10
+		@apply flex flex-col items-center sm:flex-row lg:items-end justify-center lg:justify-end gap-10
 
 	.footer-social
 		@apply flex items-center gap-4 flex-col
@@ -90,14 +90,14 @@
 		.info-label
 			@apply body-18 font-bold text-white
 		.info-value
-			@apply body-18 font-normal text-white transition-300
+			@apply body-18 font-normal text-white transition-300 text-left
 			a
 				&:hover
 					@apply text-primary-2
 
 	// Quick Links Menu
 	.footer-menu
-		@apply text-left
+		@apply -lg:mt-5 text-center lg:text-left
 
 	.menu-title
 		@apply body-18 font-bold text-white mb-4

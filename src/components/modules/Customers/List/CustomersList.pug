@@ -3,8 +3,8 @@ section.section-product-commitment.section-py
   .container
     .commitment-header
       .header-icon
-        i.fa-solid.fa-badge-check
-      h2.title-36 Cam kết sản phẩm – Chính hãng & Hiệu quả vượt trội
+        +PugImg('img/check-icon.png')
+      h2(class="title-40 text-primary-1") Cam kết sản phẩm – Chính hãng & Hiệu quả vượt trội
 
     .commitment-content
       .commitment-image
@@ -21,11 +21,11 @@ section.section-product-commitment.section-py
 
 //- SECTION 2: Brand Partners
 section.section-brand-partners.section-py
-  .container
+  .container.space-y-5
     .partners-header
       .header-icon
-        i.fa-solid.fa-handshake
-      h2.title-36 Đối tác của <span class="text-primary">NÔNG DƯỢC XANH</span>
+        +PugImg('img/check-icon.png')
+      h2(class="title-40 text-primary-1") Đối tác của <span class="text-primary">NÔNG DƯỢC XANH</span>
 
     p.partners-description.body-18 CÔNG TY TNHH THƯƠNG MẠI NÔNG DƯỢC XANH là chuỗi của hàng cung cấp vật tư nông nghiệp chính hãng với chất lượng vượt trội; chuyên phục vụ người nông dân trên hành trình canh tác bền vững và hiệu quả. Với khát lý "Farmer-centric – Lấy lõi của nha nước nông dân làm trọng tâm của mọi hành động", chúng tôi cam kết mang đến giá trị thực sự và lâu dài cho nhà nông.
 
@@ -33,8 +33,8 @@ section.section-brand-partners.section-py
       - for(var i=1; i<=9; i++)
         .partner-card
           .partner-logo
-            +PugImg(`img/1.jpg`)
+            +PugImg(`img/ctm-logo.png`)
           .partner-info
             h4.partner-name SQM EUROPE B.V.
             p.partner-description.body-18 Add a paragraph text here. Click to the textbox to customize content, font style, color of your paragraph.
-          a.btn.btn-primary(href="#") Xem thêm
+            a.btn.btn-primary.w-fit(href="#") Xem thêm

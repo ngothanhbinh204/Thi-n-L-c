@@ -110,7 +110,7 @@
 			.custom-select
 				@apply w-full
 
-
+// Pagination styles
 .wrapper-pagination
 			@apply flex justify-center
 			.pagination
@@ -157,3 +157,38 @@
 	100%
 		transform: scale(2)
 		opacity: 0
+
+
+// Tabs fade-in content
+
+
+.tabs-wrapper
+	@apply mb-16
+
+	.tabs-navigation
+		@apply flex flex-wrap gap-4 lg:gap-10 mb-8
+		@apply border-b border-gray-200 pb-0
+
+		.tab-btn
+			@apply px-2 py-5 bg-transparent border-b-2 border-transparent
+			@apply font-semibold text-gray-600
+			@apply transition-all duration-300
+			@apply cursor-pointer
+			@apply hover:text-primary-1 hover:border-primary-1
+
+		&.active
+			@apply text-primary-1 border-primary-1
+
+	.tabs-content
+		.tab-pane
+			@apply hidden opacity-0
+			@apply transition-all duration-500 ease-in-out
+			@apply transform translate-y-4
+
+		&.active
+			@apply block opacity-100 translate-y-0
+			animation: fadeInUp 0.5s ease-out
+
+		.tab-content-body
+			p
+				@apply mb-4 last:mb-0
