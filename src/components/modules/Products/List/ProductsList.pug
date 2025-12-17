@@ -1,0 +1,78 @@
+section.section-product-listing.section-py
+	.container
+		.row
+			aside.col-lg-3.product-sidebar
+				.sidebar-sticky
+					.sidebar-widget.category-menu
+						.widget-header Danh mục sản phẩm
+						nav.category-nav
+							ul.category-list
+								li.category-item.active
+									.header-filter 
+										a() Air Compressor
+										span.toggle-icon 
+											i.fa-solid.fa-minus
+									ul.sub-category
+										li.active
+											a() Oil - Lub
+										li
+											a() Oil - Free
+								li.category-item
+									.header-filter 
+										a() Air Compressor
+										span.toggle-icon
+											i.fa-solid.fa-plus
+								li.category-item
+									.header-filter 
+										a() Air Compressor
+										span.toggle-icon
+											i.fa-solid.fa-plus
+								li.category-item
+									.header-filter 
+										a() Air Compressor
+										span.toggle-icon
+											i.fa-solid.fa-plus
+
+			main.col-lg-9.product-main
+				.product-header
+					h1.product-title Oil - Lub
+					.product-sort
+						label Lọc theo
+						.custom-select
+							.select-trigger
+								span.selected-value Tất cả
+								i.fa-solid.fa-chevron-down
+							.select-dropdown
+								.select-option.active(data-value="") Tất cả
+								.select-option(data-value="price") Giá tăng dần
+								.select-option(data-value="price-desc") Giá giảm dần
+								.select-option(data-value="date") Mới nhất
+
+				.product-grid
+					-
+						var products = [
+							{ url: '#', image: 'img/1.jpg', title: 'Product 1', spec1: 'Áp suất làm việc: 7 - 12kg/cm2G', spec2: 'Lưu lượng: 0.80 - 75m3/min', spec3: 'Spec 3' },
+							{ url: '#', image: 'img/1.jpg', title: 'Product 2', spec1: 'Áp suất làm việc: 7 - 12kg/cm2G', spec2: 'Lưu lượng: 0.80 - 75m3/min', spec3: 'Spec 3' },
+							{ url: '#', image: 'img/1.jpg', title: 'Product 3', spec1: 'Áp suất làm việc: 7 - 12kg/cm2G', spec2: 'Lưu lượng: 0.80 - 75m3/min', spec3: 'Spec 3' },
+							{ url: '#', image: 'img/1.jpg', title: 'Product 4', spec1: 'Áp suất làm việc: 7 - 12kg/cm2G', spec2: 'Spec 2', spec3: 'Spec 3' },
+						]
+					each product in products
+						article.product-card
+							a.product-link(href=product.url)
+								.product-image
+									+PugImg(product.image)
+								.product-info
+									h3.product-name= product.title
+									.product-specs
+										p= product.spec1
+										p= product.spec2
+										p= product.spec3
+
+				nav.wrapper-pagination(aria-label="Product pagination")
+					ul.pagination
+						li.page-item.active
+							a.page-link(href="#") 1
+						li.page-item
+							a.page-link(href="#") 2
+						li.page-item
+							a.page-link(href="#") 3

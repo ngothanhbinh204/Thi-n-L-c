@@ -1,0 +1,119 @@
+.section-product-listing
+	@apply py-12 lg:py-20
+
+	.container
+		@apply max-w-7xl mx-auto px-4
+
+	.row
+		@apply flex flex-wrap -mx-4
+
+	.product-sidebar
+		@apply w-full lg:w-1/4 px-4 mb-8 lg:mb-0
+
+		.sidebar-sticky
+			@apply lg:sticky lg:top-36
+
+		.sidebar-widget
+			@apply mb-6
+
+			&.category-menu
+				.widget-header
+					@apply bg-primary-2 text-white px-4 py-3 font-semibold title-24
+
+				.category-nav
+					@apply border border-gray-200 border-t-0
+
+				.category-list
+					@apply list-none pt-0 p-5 m-0
+
+					> .category-item
+						@apply border-b border-gray-200 last:border-b-0
+						.header-filter
+							@apply bg-white cursor-pointer flex justify-between items-center py-3 body-18 font-semibold
+							> a
+								@apply block text-utility-500
+								@apply transition-colors duration-200
+								@apply flex items-center justify-between
+
+								&:hover
+									@apply text-primary-2 bg-utility-50
+							.toggle-icon
+									@apply font-bold body-16 text-utility-500
+						&.active
+							.header-filter
+								> a
+									@apply font-semibold text-primary-2
+
+								
+
+							// Sub-categories
+							.sub-category
+								@apply list-none bg-utility-50 mb-3
+
+								li
+									@apply border-t border-utility-200
+
+									a
+										@apply block px-5 py-3 font-bold body-16
+										@apply transition-colors duration-200
+
+										&:hover
+											@apply text-primary-2
+
+									&.active a
+										@apply font-semibold text-primary-2
+
+	.product-main
+		@apply w-full lg:w-3/4 px-4 space-y-5 md:space-y-10
+		.product-grid
+			@apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3
+			@apply gap-8 md:gap-10 mb-8
+
+			.product-card
+				@apply bg-white
+				@apply transition-all duration-300
+
+				.product-link
+					@apply block no-underline
+
+				.product-image
+					@apply relative overflow-hidden img-ratio ratio:pt-[252_320]
+					@apply bg-white
+
+					img
+						@apply w-full h-full object-cover
+						@apply transition-transform duration-300
+
+					&:hover img
+						@apply scale-105
+
+				.product-info
+					@apply p-4 lg:p-6
+
+					.product-name
+						@apply title-24 font-semibold pb-1 border-b-2 border-black
+						@apply mb-2
+
+					.product-specs
+						@apply space-y-1
+
+						p
+							@apply body-16 text-utility-900 font-normal leading-1.4
+							@apply m-0
+
+
+
+	@media (max-width: 1023px)
+		.product-sidebar
+			.sidebar-sticky
+				@apply static
+
+	@media (max-width: 767px)
+		.product-header
+			@apply flex-col items-start gap-3
+
+			.product-sort
+				@apply w-full
+
+				.form-select
+					@apply flex-1

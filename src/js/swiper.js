@@ -157,32 +157,77 @@ export function swiperInit() {
       modules: [Navigation, Autoplay],
       slidesPerView: "auto",
       centeredSlides: true,
-      spaceBetween: 20,
+      spaceBetween: 8,
       loop: true,
-      speed: 800,
+      speed: 600,
       navigation: {
-        nextEl: ".swiper-services-detail .swiper-button-next",
-        prevEl: ".swiper-services-detail .swiper-button-prev",
+        nextEl: ".swiper-services-detail .swiper-button-deGallery-next",
+        prevEl: ".swiper-services-detail .swiper-button-deGallery-prev",
       },
       breakpoints: {
+        320: {
+          slidesPerView: 1.2,
+          spaceBetween: 8,
+        },
+        640: {
+          slidesPerView: 1.3,
+          spaceBetween: 8,
+        },
         768: {
-          spaceBetween: 40,
+          slidesPerView: 1.4,
+          spaceBetween: 8,
+        },
+        1024: {
+          slidesPerView: 1.5,
+          spaceBetween: 8,
+        },
+        1280: {
+          slidesPerView: 1.6,
+          spaceBetween: 8,
+        },
+        1536: {
+          slidesPerView: 1.8,
+          spaceBetween: 8,
+        },
+      },
+      on: {
+        init: function () {
+          updateSlideOpacity(this);
+        },
+        slideChange: function () {
+          updateSlideOpacity(this);
+        },
+        transitionEnd: function () {
+          updateSlideOpacity(this);
         },
       },
     });
+
+    function updateSlideOpacity(swiper) {
+      swiper.slides.forEach((slide) => {
+        if (slide.classList.contains("swiper-slide-active")) {
+          slide.style.zIndex = "2";
+        } else {
+          slide.style.zIndex = "1";
+        }
+      });
+    }
   }
 
   // Services Other Slider
   if ($(".swiper-services-other .swiper").length > 0) {
     new Swiper(".swiper-services-other .swiper", {
-      modules: [Navigation, Autoplay],
+      modules: [Navigation, Autoplay, Mousewheel],
       slidesPerView: 1,
-      spaceBetween: 20,
+      spaceBetween: 10,
       loop: true,
       speed: 800,
+      mousewheel: {
+        forceToAxis: true,
+      },
       navigation: {
-        nextEl: ".swiper-services-other .swiper-button-next",
-        prevEl: ".swiper-services-other .swiper-button-prev",
+        nextEl: ".swiper-services-other .swiper-button-other-next",
+        prevEl: ".swiper-services-other .swiper-button-other-prev",
       },
       breakpoints: {
         576: {
@@ -191,7 +236,7 @@ export function swiperInit() {
         },
         1024: {
           slidesPerView: 3,
-          spaceBetween: 30,
+          spaceBetween: 40,
         },
       },
     });

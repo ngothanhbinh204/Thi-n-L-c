@@ -1,0 +1,252 @@
+// ============ PRODUCT DETAIL PAGE ============
+.section-product-detail
+  @apply py-12 lg:py-20
+
+  .container
+    @apply max-w-7xl mx-auto px-4
+
+  .row
+    @apply flex flex-wrap -mx-4
+
+  // ============ LEFT COLUMN ============
+  .product-detail-left
+    @apply w-full lg:w-3/4 px-4
+
+    // PRODUCT HERO (Gallery + Info)
+    .product-detail-hero
+      @apply flex flex-col lg:flex-row gap-8 mb-16
+
+      // ============ GALLERY ============
+      .product-gallery
+        @apply flex flex-col lg:grid lg:grid-cols-[13%_87%] w-full lg:w-[58.5%]
+
+        // Thumbnail Navigation
+        .gallery-thumbnails
+          @apply flex flex-col gap-2 items-center
+          @apply w-full order-2 lg:order-1 mt-4 lg:mt-0 lg:pr-4
+          @apply lg:h-full lg:overflow-hidden
+
+          .thumb-nav
+            @apply w-full h-6 bg-white border border-gray-300
+            @apply flex items-center justify-center cursor-pointer
+            @apply transition-all duration-300
+            @apply hover:bg-gray-50 hover:border-gray-400 flex-shrink-0
+
+            i
+              @apply text-xs text-gray-600
+
+            &.swiper-button-disabled
+              @apply opacity-30 cursor-not-allowed pointer-events-none
+
+          .thumbs-slider
+            @apply w-full flex-1 min-h-0
+
+            .swiper-slide
+              @apply w-full cursor-pointer
+              height: auto !important
+
+              .thumbnail-item
+                @apply w-full h-full
+                @apply border border-transparent
+                @apply transition-all duration-300
+                @apply overflow-hidden img-ratio ratio:pt-[100_100] rounded-2
+
+                img
+                  @apply w-full h-full object-cover
+                  @apply transition-transform duration-300
+
+                &:hover
+                  @apply border-primary-2
+
+                  img
+                    @apply scale-110
+
+              &.swiper-slide-thumb-active
+                .thumbnail-item
+                  @apply border-primary-2
+
+        // Main Gallery
+        .gallery-main
+          @apply w-full order-1 lg:order-2
+
+          .swiper-product-gallery
+            @apply w-full rounded-4 overflow-hidden border border-gray-200
+            
+            .swiper-slide
+              @apply h-full
+
+              .img-wrapper
+                @apply w-full h-full overflow-hidden img-ratio ratio:pt-[650_650]
+                @apply bg-gray-100
+
+                img
+                  @apply w-full h-full object-cover
+
+      .product-info
+        @apply w-full lg:w-[41.5%] flex flex-col space-y-4
+
+        .product-description
+          @apply flex-1
+
+          p
+            @apply mb-4 last:mb-0
+
+        .btn-primary
+          @apply inline-block text-center
+
+    // ============ PRODUCT TABS ============
+    .product-tabs
+      @apply mb-16
+
+      .tabs-navigation
+        @apply flex flex-wrap gap-2 mb-8
+        @apply border-b border-gray-200 pb-0
+
+        .tab-btn
+          @apply px-6 py-3 bg-transparent border-b-2 border-transparent
+          @apply font-semibold text-gray-600
+          @apply transition-all duration-300
+          @apply cursor-pointer
+          @apply hover:text-primary-2 hover:border-primary-2
+
+          &.active
+            @apply text-primary-2 border-primary-2
+
+      .tabs-content
+        .tab-pane
+          @apply hidden opacity-0
+          @apply transition-all duration-500 ease-in-out
+          @apply transform translate-y-4
+
+          &.active
+            @apply block opacity-100 translate-y-0
+            animation: fadeInUp 0.5s ease-out
+
+          .tab-content-body
+            p
+              @apply mb-4 last:mb-0
+
+    // ============ RELATED PRODUCTS ============
+    .product-related
+
+      .swiper-related-products
+        @apply pb-16
+
+        .product-card
+          @apply bg-white border border-gray-200
+          @apply transition-all duration-300
+          @apply hover:shadow-lg
+
+          .product-image
+            @apply overflow-hidden
+            aspect-ratio: 1/1
+
+            img
+              @apply w-full h-full object-cover
+              @apply transition-transform duration-300
+
+          &:hover .product-image img
+            @apply scale-110
+
+          .product-title
+            @apply px-4 py-3 font-semibold text-lg text-gray-900
+
+          .btn-primary
+            @apply mx-4 mb-4 text-center block
+
+        .swiper-navigation
+          @apply absolute bottom-0 left-1/2 transform -translate-x-1/2
+          @apply flex gap-4 z-10
+
+          .swiper-button-prev,
+          .swiper-button-next
+            @apply relative left-0 right-0 top-0 mt-0
+            @apply w-12 h-12 bg-white border border-gray-300
+            @apply flex items-center justify-center
+            @apply cursor-pointer transition-all duration-300
+            @apply hover:bg-primary-2 hover:text-white hover:border-primary-2
+
+            &::after
+              @apply hidden
+
+            i
+              @apply text-lg
+
+            &.swiper-button-disabled
+              @apply opacity-30 cursor-not-allowed
+
+  // ============ RIGHT COLUMN - SIDEBAR ============
+  .product-detail-right
+    @apply w-full lg:w-1/4 px-4
+
+    .sidebar-widget
+      @apply mb-8 last:mb-0
+
+      .widget-title
+        @apply text-xl font-bold mb-4 pb-3
+        @apply border-b-2 border-primary-2
+
+      .widget-content
+        // Latest Posts
+        .post-item
+          @apply mb-4 pb-4 last:mb-0 last:pb-0
+          @apply border-b border-gray-200 last:border-b-0
+
+          p
+            @apply m-0 text-gray-700
+            @apply transition-colors duration-300
+            @apply hover:text-primary-2 cursor-pointer
+
+        // Services
+        .service-item
+          @apply mb-4 pb-4 last:mb-0 last:pb-0
+          @apply border-b border-gray-200 last:border-b-0
+
+          p
+            @apply m-0 text-gray-700
+
+  // ============ RESPONSIVE ============
+  @media (max-width: 1023px)
+    .product-detail-left
+      @apply w-full mb-12
+
+    .product-detail-right
+      @apply w-full
+
+    .product-detail-hero
+      @apply grid-cols-1 gap-6
+
+      .product-gallery
+        @apply flex-col
+
+        .gallery-thumbnails
+          @apply flex-row w-full h-20 order-2
+
+          .thumb-nav
+            @apply hidden
+
+          .thumbnails-wrapper
+            @apply flex gap-2 overflow-x-auto
+
+            .thumbnail-item
+              @apply w-20 mb-0 flex-shrink-0
+
+  @media (max-width: 767px)
+    .tabs-navigation
+      @apply overflow-x-auto
+
+      .tab-btn
+        @apply px-4 py-2 text-sm whitespace-nowrap
+
+    .product-related
+      .swiper-navigation
+        @apply flex-wrap
+
+// ============ ANIMATIONS ============
+@keyframes fadeInUp
+  from
+    opacity: 0
+    transform: translateY(20px)
+  to
+    opacity: 1
+    transform: translateY(0)

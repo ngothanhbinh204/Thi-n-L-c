@@ -1,0 +1,167 @@
+// ============ SECTION 1: PRODUCT COMMITMENT ============
+.section-product-commitment
+  @apply py-12 lg:py-20 bg-white
+
+  .container
+    @apply max-w-7xl mx-auto px-4
+
+  .commitment-header
+    @apply flex items-center justify-start gap-6 mb-10
+
+    .header-icon
+      @apply w-15 h-15 bg-primary-2 rounded-full
+      @apply flex items-center justify-center flex-shrink-0
+
+      i
+        @apply text-2xl text-white
+
+    .title-36
+      @apply m-0 text-center
+
+  .commitment-content
+    @apply grid grid-cols-1 lg:grid-cols-2 gap-10 items-center
+
+    .commitment-image
+      @apply overflow-hidden rounded-lg shadow-lg
+      aspect-ratio: 4/3
+
+      img
+        @apply w-full h-full object-cover
+        @apply transition-transform duration-500
+        @apply hover:scale-105
+
+    .commitment-info
+      @apply space-y-8
+
+      .info-item
+        @apply relative pl-8
+
+        &::before
+          content: ''
+          @apply absolute left-0 top-2
+          @apply w-4 h-4 bg-primary-2 rounded-full
+
+        .info-title
+          @apply text-xl font-bold text-primary-2 mb-3
+
+        .body-18
+          @apply text-gray-700 leading-relaxed
+
+// ============ SECTION 2: BRAND PARTNERS ============
+.section-brand-partners
+  @apply py-12 lg:py-20 bg-gray-50
+
+  .container
+    @apply max-w-7xl mx-auto px-4
+
+  .partners-header
+    @apply flex items-center justify-center gap-4 mb-6
+
+    .header-icon
+      @apply w-15 h-15 bg-primary-2 rounded-full
+      @apply flex items-center justify-center flex-shrink-0
+
+      i
+        @apply text-2xl text-white
+      img
+        @apply w-full h-full object-contain  
+
+    .title-36
+      @apply m-0 text-center
+
+  .partners-description
+    @apply text-center max-w-4xl mx-auto mb-12
+    @apply text-gray-700 leading-relaxed
+
+  .partners-grid
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10
+
+    .partner-card
+      @apply bg-white rounded-lg shadow-md
+      @apply transition-all duration-300
+      @apply hover:shadow-xl hover:transform hover:scale-105
+      @apply flex flex-col
+
+      .partner-logo
+        @apply w-full p-8 bg-gray-50
+        @apply flex items-center justify-center
+        aspect-ratio: 1/1
+
+        img
+          @apply w-full h-full object-contain
+          @apply max-w-[150px] max-h-[150px] mx-auto
+
+      .partner-info
+        @apply p-6 flex-1
+
+        .partner-name
+          @apply text-lg font-bold text-gray-900 mb-3
+
+        .partner-description
+          @apply text-gray-600 leading-relaxed
+
+      .btn-primary-2
+        @apply mx-6 mb-6 text-center block
+
+// ============ RESPONSIVE ============
+@media (max-width: 1023px)
+  .section-product-commitment
+    .commitment-content
+      @apply gap-8
+
+      .commitment-info
+        @apply space-y-6
+
+  .section-brand-partners
+    .partners-grid
+      @apply gap-6
+
+@media (max-width: 767px)
+  .section-product-commitment
+    .commitment-header
+      @apply flex-col gap-3
+
+      .title-36
+        @apply text-2xl
+
+    .commitment-content
+      @apply gap-6
+
+      .commitment-info
+        .info-item
+          @apply pl-6
+
+          &::before
+            @apply w-3 h-3 top-1
+
+          .info-title
+            @apply text-lg
+
+  .section-brand-partners
+    .partners-header
+      @apply flex-col gap-3
+
+      .title-36
+        @apply text-2xl
+
+    .partners-description
+      @apply text-base
+
+    .partners-grid
+      @apply gap-6
+
+      .partner-card
+        .partner-logo
+          @apply p-6
+
+          img
+            @apply max-w-[120px] max-h-[120px]
+
+        .partner-info
+          @apply p-4
+
+          .partner-name
+            @apply text-base
+
+        .btn-primary-2
+          @apply mx-4 mb-4

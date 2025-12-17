@@ -1,0 +1,40 @@
+//- SECTION 1: Product Commitment
+section.section-product-commitment.section-py
+  .container
+    .commitment-header
+      .header-icon
+        i.fa-solid.fa-badge-check
+      h2.title-36 Cam kết sản phẩm – Chính hãng & Hiệu quả vượt trội
+
+    .commitment-content
+      .commitment-image
+        +PugImg('img/1.jpg')
+      
+      .commitment-info
+        .info-item
+          h3.info-title Hàng chính hãng 100%
+          p.body-18 Tất cả sản phẩm đều được nhập khẩu trực tiếp từ các thương hiệu nổng nghiệp uy tín hàng đầu như Syngenta, Bayer CropScience, Vinh Thanh, MAP Pacific, Fertiberia, NAM Agro, ADOB, SGCT GROUP...
+
+        .info-item
+          h3.info-title Chất lượng đã được kiểm chứng
+          p.body-18 Tất cả sản phẩm đều được nhập khẩu trực tiếp từ các thương hiệu nổng nghiệp uy tín hàng đầu như Syngenta, Bayer CropScience, Vinh Thanh, MAP Pacific, Fertiberia, NAM Agro, ADOB, SGCT GROUP...
+
+//- SECTION 2: Brand Partners
+section.section-brand-partners.section-py
+  .container
+    .partners-header
+      .header-icon
+        i.fa-solid.fa-handshake
+      h2.title-36 Đối tác của <span class="text-primary">NÔNG DƯỢC XANH</span>
+
+    p.partners-description.body-18 CÔNG TY TNHH THƯƠNG MẠI NÔNG DƯỢC XANH là chuỗi của hàng cung cấp vật tư nông nghiệp chính hãng với chất lượng vượt trội; chuyên phục vụ người nông dân trên hành trình canh tác bền vững và hiệu quả. Với khát lý "Farmer-centric – Lấy lõi của nha nước nông dân làm trọng tâm của mọi hành động", chúng tôi cam kết mang đến giá trị thực sự và lâu dài cho nhà nông.
+
+    .partners-grid
+      - for(var i=1; i<=9; i++)
+        .partner-card
+          .partner-logo
+            +PugImg(`img/1.jpg`)
+          .partner-info
+            h4.partner-name SQM EUROPE B.V.
+            p.partner-description.body-18 Add a paragraph text here. Click to the textbox to customize content, font style, color of your paragraph.
+          a.btn.btn-primary(href="#") Xem thêm

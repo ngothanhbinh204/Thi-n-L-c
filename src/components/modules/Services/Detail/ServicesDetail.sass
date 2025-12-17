@@ -1,32 +1,81 @@
+.wrapper-services-detail
+	@apply min-h-screen pt-30 pb-10
 .section-services-detail-1
-	@apply relative
-	.container
-		@apply relative z-10
-	.row
-		@apply items-center
-	.col
-		@apply w-full lg:w-5/12
-	.content
-		@apply py-10 lg:py-20
-	.sub-title
-		@apply text-primary-2 font-bold mb-4 uppercase text-lg lg:text-xl
-	.title
-		@apply font-bold mb-6 text-3xl lg:text-5xl text-black
-	.image-bg
-		@apply w-full h-[300px] lg:absolute lg:top-0 lg:right-0 lg:w-[60%] lg:h-full
-		img
-			@apply w-full h-full object-cover
+	@apply bg-utility-50 flex py-20
+	@media (min-width: 768px)
+			@apply py-25
+	.services-detail-wrapper
+		display: grid
+		grid-template-columns: 1fr
+		gap: r(32px)
+		align-items: center
+		height: 100%
+		@media (min-width: 768px)
+			@apply grid-cols-12
+			gap: r(40px)
+
+		.services-detail-content
+			@apply col-span-5
+			margin-right: auto
+			margin-left: auto
+			padding: r(80px) r(20px) 0 r(20px)
+			width: 100%
+			max-width: 100%
+			.sub-title
+				@apply  font-bold mb-5 title-60 relative leading-1.125
+				padding-bottom: r(20px)
+				&::after
+					position: absolute
+					content: ''
+					@apply w-15 h-0.5 bg-primary-2 block mt-5 mb-5 
+			
+			.title
+				@apply title-36 font-normal leading-1.125
+				margin-bottom: r(24px)
+			@media (min-width: 768px) 
+				padding: r(112px) r(0px) r(112px) r(40px)
+				max-width: 100%
+			@media (min-width: 1024px) 
+				padding: r(112px) r(0px) r(112px) r(80px)
+				max-width: 100%
+			@media (min-width: 1280px)
+				padding: r(112px) r(0px) r(112px) r(120px) 
+			@media (min-width: 1440px)
+				padding: r(112px) r(0px) r(112px) r(241px) 
+
+			
+
+		.services-detail-image
+			height: 100%
+			@apply col-span-7
+			display: flex
+			align-items: center
+			@apply img-ratio ratio:pt-[640_1060]
+			img
+				overflow: hidden
+				height: auto
+				width: 100%
+				object-fit: cover
+			@media (min-width: 1440px)
+				overflow: hidden
+				min-height: 100%
+				height: r(640px)
+				img
+					width: 100%
+					height: 100%
+					object-fit: cover
+					transition: transform 0.5s ease
 
 .section-services-detail-2
 	@apply py-10 lg:py-20 bg-white
-	.col
-		@apply w-full lg:w-10/12 mx-auto
+	.grid-layout
+		@apply grid grid-cols-1 md:grid-cols-12 gap-0 justify-center items-center
 	.content-wrapper
-		@apply pl-6 border-l-4 border-primary-2
+		@apply text-utility-900 col-span-full md:col-start-3 md:col-span-8 space-y-5 pl-5 md:pl-10 border-l-2 border-primary-2
 	.title
-		@apply text-xl font-bold mb-6 lg:text-2xl text-black
+		@apply body-18 font-bold text-black
 	.desc
-		@apply text-utility-500 mb-6 text-base lg:text-lg
+		@apply  mb-6 body-18
 		p
 			@apply mb-4
 			&:last-child
@@ -36,34 +85,78 @@
 		li
 			@apply flex items-start
 			i
-				@apply text-primary-2 mr-3 mt-1
+				@apply text-primary-2 mr-5 mt-1
 			span
-				@apply text-utility-500 text-base lg:text-lg
+				@apply body-18
 	.desc-bottom
-		@apply text-utility-500 mt-6 text-base lg:text-lg
+		@apply body-18
 
-.section-services-detail-3
-	@apply py-10 lg:py-20 overflow-hidden
-	.swiper-services-detail
-		@apply relative
-	.swiper-slide
-		@apply w-[80%] md:w-[60%] lg:w-[50%] transition-all duration-300 opacity-50 scale-90
-		&.swiper-slide-active
-			@apply opacity-100 scale-100
-		.img
-			@apply aspect-video relative w-full
-		.tag
-			@apply absolute top-4 left-4 bg-primary-2 text-white px-2 py-1 text-sm
-	.swiper-navigation
-		@apply flex justify-between absolute top-1/2 left-0 w-full z-10 px-4 -translate-y-1/2 pointer-events-none
-	.swiper-button-prev,
-	.swiper-button-next
-		@apply pointer-events-auto bg-white w-10 h-10 flex items-center justify-center shadow-md cursor-pointer rounded-full transition-colors duration-300 hover:bg-primary-2 hover:text-white
-		&::after
-			content: none
+.section-services-detail-3 
+	@apply relative overflow-hidden
+
+	.swiper-services-detail 
+		@apply relative w-full
+
+	.swiper 
+		@apply overflow-visible
+
+		.swiper-wrapper 
+			@apply flex items-center
+
+
+		.swiper-slide 
+			@apply relative transition-all duration-500 ease-out
+			@apply opacity-100
+			&.swiper-slide-active
+				.img 
+					&::before 
+						@apply opacity-0
+
+		.img 
+			@apply relative overflow-hidden
+			@apply transition-transform duration-500 ease-out img-ratio ratio:pt-[810_1124]
+			
+			img 
+				@apply w-full h-full object-cover
+
+		&:not(.swiper-slide-active) 
+			.img 
+				&::before 
+					content: ''
+					@apply absolute inset-0 bg-black/50 z-[1] transition-opacity duration-500 ease-out pointer-events-none
+
+	// Navigation buttons
+	.swiper-navigation 
+		@apply absolute top-1/2 -translate-y-1/2 left-0 right-0 mx-auto
+		@apply flex justify-between items-center
+		@apply px-60 z-10 pointer-events-none
+
+		.swiper-button-vuong
+			@apply w-10 h-10 bg-white text-utility-500
+			@apply flex items-center justify-center
+			@apply cursor-pointer transition-all duration-300
+			@apply pointer-events-auto hover:bg-primary-2 hover:text-white
+			i 
+				@apply text-lg font-normal
+		
+			&.swiper-button-disabled 
+				@apply opacity-50 cursor-not-allowed
+		
+.swiper-button-vuong
+			@apply w-10 h-10 bg-white text-utility-500 border-1 border-utility-200
+			@apply flex items-center justify-center
+			@apply cursor-pointer transition-all duration-300
+			@apply pointer-events-auto hover:bg-primary-2 hover:text-white
+			i 
+				@apply text-lg font-normal
+		
+			&.swiper-button-disabled 
+				@apply opacity-50 cursor-not-allowed
+	
+
 
 .section-services-detail-4
-	@apply py-10 lg:py-20 bg-utility-50
+	@apply py-10 lg:py-25 bg-utility-50
 	h2
 		@apply text-center text-3xl font-bold mb-10 text-black
 	.swiper-services-other
@@ -81,12 +174,16 @@
 				@apply scale-110
 			.title
 				@apply text-primary-2
-	.swiper-button-prev,
-	.swiper-button-next
-		@apply absolute top-1/2 bg-white w-10 h-10 flex items-center justify-center shadow-md cursor-pointer rounded-full transition-colors duration-300 -translate-y-1/2 z-10 hover:bg-primary-2 hover:text-white
-		&::after
-			content: none
-	.swiper-button-prev
-		@apply left-0
-	.swiper-button-next
-		@apply right-0
+	.swiper-navigation-center-y
+		@apply absolute top-1/2 -translate-y-1/2 left-0 right-0 mx-auto
+		@apply flex justify-between items-center
+		@apply z-10 pointer-events-none
+		.swiper-button-other-prev,
+		.swiper-button-other-next
+			@apply absolute top-1/2 flex items-center justify-center cursor-pointer transition-colors duration-300 -translate-y-1/2 z-10 pointer-events-auto
+			&::after
+				content: none
+		.swiper-button-other-prev
+			@apply left-0
+		.swiper-button-other-next
+			@apply right-0

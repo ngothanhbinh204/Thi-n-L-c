@@ -1,0 +1,115 @@
+section.section-product-detail.section-py
+  .container
+    .row
+      //- LEFT COLUMN - Product Information (col-9)
+      .col-lg-9.product-detail-left
+        
+        //- PRODUCT GALLERY & INFO
+        .product-detail-hero
+          .product-gallery
+            //- Thumbnail Navigation
+            .gallery-thumbnails
+              button.thumb-nav.thumb-prev
+                i.fa-solid.fa-chevron-up
+              .swiper.thumbs-slider
+                .swiper-wrapper
+                  - for(var i=1; i<=10; i++)
+                    .swiper-slide
+                      .thumbnail-item
+                        +PugImg(`img/1.jpg`)
+              button.thumb-nav.thumb-next
+                i.fa-solid.fa-chevron-down
+            
+            //- Main Gallery Slider
+            .gallery-main
+              .swiper.swiper-product-gallery
+                .swiper-wrapper
+                  - for(var i=1; i<=10; i++)
+                    .swiper-slide
+                      .img-wrapper
+                        +PugImg(`img/1.jpg`)
+
+          //- Product Info
+          .product-info
+            h1.title-36.text-primary-1 Ấn phẩm văn phòng
+            
+            .product-description.body-18
+              p Cây đặc inox 304 là loại thép không gỉ austenitic phổ biến nhất hiện nay và hay bắt với khả năng chống ăn mòn cao, độ bền vượt trội và dễ gia công trong nhiều điều kiện. Sản phẩm được ứng dụng rộng rãi trong cả khi khe tạo, thực phẩm, y tế, xây dựng và trong tri nội thất, đáp ứng tiêu chuẩn khắt khe về chất lượng và an toàn.
+            
+            a.btn.btn-primary(href="#") Liên hệ tư vấn
+
+        //- PRODUCT TABS
+        .product-tabs
+          .tabs-navigation
+            button.tab-btn.active(data-tab="tab-info") Thông tin sản phẩm
+            button.tab-btn(data-tab="tab-advantages") Ưu đãi và chiết khấu
+            button.tab-btn(data-tab="tab-usage") Hướng dẫn sử dụng
+            button.tab-btn(data-tab="tab-maintenance") Hướng dẫn bảo quản
+
+          .tabs-content
+            //- Tab 1: Thông tin sản phẩm
+            .tab-pane.active(id="tab-info")
+              h3.title-36 Thông tin sản phẩm
+              .tab-content-body.body-18
+                p Chúng tôi cung cấp Ba chi bò mỹ nguyên khối. Ba chi bò mỹ cát lát. Ba chi bò mỹ nguyên thùng cắt. nhân hàng nói tiếng đến từ Mỹ như Excel. Được đến cắt hút lên tủ có chuối bán lẻ, nhà hàng, khách sạn... người tiêu dùng.
+                
+                p Quá trình sơ chế, hút chân không, đông khay, cấp đông ba chi bò Mỹ về sinh sạch sẽ đảm bảo chất lượng, an toàn cho sức khỏe người tiêu dùng. Ba chi bò Mỹ cát lát được phả cát bằng máy Cắt công nghiệp, cắt mỏng cho món lẩu theo tiêu chuẩn độ dày 1mm hoặc cát dạng dày khoảng...5mm phù hợp cho món nướng...
+                
+                p Ba chi bò Mỹ có thể bảo quản đông trong ngăn đá với nhiệt độ -18 do C. Trước khi sử dụng không nên để thịt tan giã hoàn toàn mà miếng thịt phải còn hơi cứng để khi thái lát, cắt miếng sẽ dễ dàng hơn. Như vậy thịt vừa có độ dẻo dai, vừa giữ được hương vị tự nhiên nhất và không bị nát khi chế biến.
+
+            //- Tab 2: Ưu đãi
+            .tab-pane(id="tab-advantages")
+              h3.title-36 Ưu đãi và chiết khấu
+              .tab-content-body.body-18
+                p Nội dung về ưu đãi và chiết khấu...
+
+            //- Tab 3: Hướng dẫn sử dụng
+            .tab-pane(id="tab-usage")
+              h3.title-36 Hướng dẫn sử dụng
+              .tab-content-body.body-18
+                p Nội dung hướng dẫn sử dụng...
+
+            //- Tab 4: Bảo quản
+            .tab-pane(id="tab-maintenance")
+              h3.title-36 Hướng dẫn bảo quản
+              .tab-content-body.body-18
+                p Nội dung hướng dẫn bảo quản...
+
+        //- RELATED PRODUCTS
+        .product-related.section-py
+          h2.title-36.text-center Sản phẩm gợi ý
+          
+          .swiper.swiper-related-products
+            .swiper-wrapper
+              - for(var i=1; i<=6; i++)
+                .swiper-slide
+                  .product-card
+                    .product-image
+                      +PugImg(`img/1.jpg`)
+                    h3.product-title Ấn phẩm văn phòng
+                    a.btn.btn-primary(href="#") Xem chi tiết
+            
+            .swiper-navigation
+              .swiper-button-prev
+                i.fa-solid.fa-chevron-left
+              .swiper-button-next
+                i.fa-solid.fa-chevron-right
+
+      //- RIGHT COLUMN - Sidebar (col-3)
+      .col-lg-3.product-detail-right
+        
+        //- Latest Posts Widget
+        .sidebar-widget.widget-latest-posts
+          h3.widget-title Bài viết mới
+          .widget-content
+            - for(var i=1; i<=5; i++)
+              .post-item
+                p.body-18 103+ Mẫu background tím sáng tối, ý tưởng nền màu tím trơn và nhiều
+
+        //- Services Widget
+        .sidebar-widget.widget-services
+          h3.widget-title Dịch vụ chính
+          .widget-content
+            - for(var i=1; i<=5; i++)
+              .service-item
+                p.body-18 103+ Mẫu background tím sáng tối, ý tưởng nền màu tím trơn và nhiều

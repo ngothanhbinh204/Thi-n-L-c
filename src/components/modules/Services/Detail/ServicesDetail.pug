@@ -1,17 +1,15 @@
 section.section-services-detail-1
-	.container
-		.row
-			.col
-				.content
-					.sub-title Dịch vụ
-					h1.title Hệ thống thông minh đám mây GoService
-	.image-bg
-		+PugImg('img/1.jpg')
+	.services-detail-wrapper
+		.services-detail-content
+			.sub-title Dịch vụ
+			h1.title Hệ thống thông minh đám mây GoService
+		.services-detail-image
+			+PugImg('img/1.jpg')
 
-section.section-services-detail-2
+section.section-services-detail-2.section-py
 	.container
 		.row
-			.col
+			.grid-layout
 				.content-wrapper
 					h2.title Nền tảng đám mây thông minh GoService – Kết nối, phân tích, tối ưu vận hành
 					.desc
@@ -30,23 +28,22 @@ section.section-services-detail-2
 					.desc-bottom
 						p GoService không chỉ là một hệ thống giám sát – mà là một trợ lý kỹ thuật số giúp doanh nghiệp vận hành hệ thống khí nén một cách tiết kiệm, hiệu quả và thông minh hơn bao giờ hết.
 
-section.section-services-detail-3
+section.section-services-detail-3.section-py
 	.swiper-services-detail
 		.swiper
 			.swiper-wrapper
 				- for(var i=1; i<=5; i++)
 					.swiper-slide
 						.img
-							+PugImg('services-detail-slide-' + i + '.png')
+							+PugImg('img/1.jpg')
 							if i == 2
-								.tag 1580
 		.swiper-navigation
-			.swiper-button-prev
+			.swiper-button-deGallery-prev.swiper-button-vuong
 				i.fa-solid.fa-chevron-left
-			.swiper-button-next
-				i.fa-solid.fa-chevron-right
+			.swiper-button-deGallery-next
+				i.fa-solid.fa-chevron-right.swiper-button-vuong
 
-section.section-services-detail-4
+section.section-services-detail-4.section-py
 	.container
 		h2 Dịch vụ khác
 		.swiper-services-other
@@ -55,19 +52,25 @@ section.section-services-detail-4
 					.swiper-slide
 						.item
 							.img
-								+PugImg('services-other-1.png')
+								+PugImg('img/1.jpg')
 							h3.title Hệ thống quản lý tiết kiệm năng lượng EMS
 					.swiper-slide
 						.item
 							.img
-								+PugImg('services-other-2.png')
+								+PugImg('img/1.jpg')
 							h3.title Hệ thống thu hồi nhiệt máy nén khí
 					.swiper-slide
 						.item
 							.img
-								+PugImg('services-other-3.png')
+								+PugImg('img/1.jpg')
 							h3.title Mạng lưới dịch vụ
-			.swiper-button-prev
-				i.fa-solid.fa-chevron-left
-			.swiper-button-next
-				i.fa-solid.fa-chevron-right
+					.swiper-slide
+						.item
+							.img 
+								+PugImg('img/1.jpg')
+							h3.title Mạng lưới dịch vụ
+			.swiper-navigation-center-y
+				.swiper-button-other-prev.swiper-button-vuong
+					i.fa-solid.fa-chevron-left
+				.swiper-button-other-next.swiper-button-vuong
+					i.fa-solid.fa-chevron-right
