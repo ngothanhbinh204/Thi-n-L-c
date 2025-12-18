@@ -1,12 +1,11 @@
 .introduction-3
 	@apply overflow-hidden
 	padding: 60px 0
-	background: linear-gradient(180deg, #E8EBF3 0%, #F5F6FA 100%)
 	
 	@media (min-width: 1024px)
 		padding: 100px 0
 	h2
-		@apply title-48 text-primary-1 font-bold text-center mb-10 uppercase 
+		@apply title-48 text-primary-1 font-medium text-center mb-10 uppercase 
 	
 	// Timeline Section (Top Dots)
 	.history-timeline
@@ -80,13 +79,7 @@
 		@apply relative overflow-hidden
 		
 		.swiper
-			@apply py-6
 			overflow: visible
-			
-			@media (min-width: 1024px)
-				padding-top: 40px
-				padding-bottom: 40px
-		
 		.swiper-wrapper
 			@apply items-stretch
 		
@@ -123,25 +116,25 @@
 						top: 0
 						bottom: auto
 			
-			&.is-odd
-				&::after
-					@apply top-5 bottom-auto
-				.item-year
-					@apply order-1 mb-auto
+				&.is-odd
+					&::after
+						@apply top-5 bottom-auto
+					.item-year
+						@apply order-1 mb-auto
+						
+						.dot
+							@apply bg-primary-1
 					
-					.dot
-						@apply bg-primary-1
-				
-				.item-content
-					@apply order-2
-				
-				.item-img
-					@apply order-3 mt-auto
-				
-				// Line goes DOWN from top year
-				&::before
-					top: auto
-					bottom: 0
+					.item-content
+						@apply order-2
+					
+					.item-img
+						@apply order-3 mt-auto
+					
+					// Line goes DOWN from top year
+					&::before
+						top: auto
+						bottom: 0
 			
 			// Year Section
 			.content 

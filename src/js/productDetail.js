@@ -33,10 +33,6 @@ export default function productDetail() {
       },
       freeMode: true,
       watchSlidesProgress: true,
-      navigation: {
-        nextEl: ".thumb-next",
-        prevEl: ".thumb-prev",
-      },
     });
 
     // Main Gallery Swiper
@@ -51,6 +47,10 @@ export default function productDetail() {
       },
       thumbs: {
         swiper: thumbsSwiper,
+      },
+      navigation: {
+        nextEl: ".thumb-next",
+        prevEl: ".thumb-prev",
       },
     });
   }
@@ -116,7 +116,7 @@ export default function productDetail() {
     new Swiper(".swiper-related-products", {
       modules: [Navigation, Autoplay],
       slidesPerView: 1,
-      spaceBetween: 24,
+      spaceBetween: 12,
       loop: true,
       speed: 600,
       autoplay: {
@@ -125,20 +125,24 @@ export default function productDetail() {
       },
       navigation: {
         nextEl:
-          ".swiper-related-products + .swiper-navigation .swiper-button-next",
+          ".swiper-related-products + .swiper-navigation .btn-relative-next",
         prevEl:
-          ".swiper-related-products + .swiper-navigation .swiper-button-prev",
+          ".swiper-related-products + .swiper-navigation .btn-relative-prev",
       },
       breakpoints: {
         640: {
           slidesPerView: 2,
-          spaceBetween: 24,
+          spaceBetween: 12,
         },
         768: {
           slidesPerView: 3,
-          spaceBetween: 24,
+          spaceBetween: 16,
         },
         1024: {
+          slidesPerView: 4,
+          spaceBetween: 16,
+        },
+        1280: {
           slidesPerView: 4,
           spaceBetween: 24,
         },

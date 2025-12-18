@@ -1,0 +1,10 @@
+extends ./_layout/_default.pug
+	
+block var
+	- var title = ''
+	- var bodyClass = ''
+	
+block main
+	.wrapper-gap-top
+		include ../components/global/Breadcrumb/Breadcrumb.pug
+		include ../components/modules/Contact/Contact.pug

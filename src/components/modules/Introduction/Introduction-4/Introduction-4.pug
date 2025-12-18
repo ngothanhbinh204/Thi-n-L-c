@@ -1,21 +1,35 @@
 section.introduction-4.section-py
 	.container
-		.text-center.mb-10.lg_mb-16
-			h2.title-48.text-primary-1.font-bold.uppercase.mb-4 4 Cam Kết Kiến Tạo Sự Khác Biệt
-			p.text-neutral-600.text-lg Cam kết mang lại giá trị bền vững và chất lượng vượt trội cho khách hàng
+		.header-center(data-aos="fade-up")
+			h2.title-center 4 Cam Kết Kiến Tạo Sự Khác Biệt
+			p.title-20 Cam kết mang lại giá trị bền vững và chất lượng vượt trội cho khách hàng
 		
 		.accordion-container
-			each item, index in [1, 2, 3, 4]
-				.accordion-item(class=index === 0 ? 'active' : '')
+			-
+				var accordionItems = [
+					{ title: 'Kiến tạo giá trị', desc: 'Thiên Lộc hiểu rằng bao bì không chỉ là vật chứa đựng sản phẩm, mà còn là cách thương hiệu thể hiện giá trị, cá tính và sự khác biệt.', icon: 'img/exp.svg', bg: 'img/1.jpg' },
+					{ title: 'Trăn tâm đồng hành', desc: 'Chúng tôi cam kết đồng hành cùng khách hàng trong suốt quá trình phát triển sản phẩm, từ ý tưởng đến thành phẩm.', icon: 'img/exp.svg', bg: 'img/1.jpg' },
+					{ title: 'Công nghệ - Quy trình', desc: 'Sử dụng công nghệ in ấn hiện đại nhất, quy trình sản xuất khép kín, đảm bảo chất lượng và tiến độ tối ưu.', icon: 'img/exp.svg', bg: 'img/1.jpg' },
+					{ title: 'Gói trọn niềm tin', desc: 'Cam kết về chất lượng, giá cả minh bạch, giao hàng đúng hạn và dịch vụ hậu mãi tận tâm.', icon: 'img/exp.svg', bg: 'img/1.jpg' }
+				]
+			
+			each item, index in accordionItems
+				.accordion-item(class=index === 0 ? 'active' : '', data-index=index data-aos="fade-up" data-aos-delay=index*100)
 					.item-bg
-						+PugImg("./img/exp.svg")
+						+PugImg(item.bg)
+					
 					.item-overlay
+					
 					.item-content
-						.icon
-							+PugImg("./img/exp.svg")
-						h3.title
-							span.text-vertical Cam Kết #{item}
-							span.text-horizontal Cam Kết #{item}
-						.desc
-							p Chúng tôi cam kết mang đến những sản phẩm chất lượng nhất, đáp ứng mọi yêu cầu khắt khe của khách hàng với công nghệ in ấn hiện đại.
-
+						.content-wrapper
+							.icon
+								+PugImg(item.icon)
+							
+							.text-group
+								h3.title
+									span.text-horizontal= item.title
+								
+								.divider
+								
+								.desc
+									p= item.desc

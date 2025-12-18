@@ -13,3 +13,8 @@
 		&[data-loaded="true"]
 			opacity: 1
 			filter: blur(0)
+	.scrollbar-hidden
+		&::-webkit-scrollbar
+			@apply hidden
+		-ms-overflow-style: none // IE and Edge
+		scrollbar-width: none // Firefox

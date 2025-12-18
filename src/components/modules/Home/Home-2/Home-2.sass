@@ -13,7 +13,8 @@
 			font-family: "Inter Tight", sans-serif
 			letter-spacing: -2.208px
 			@apply uppercase whitespace-nowrap font-bold title-138
-		
+	.section-header
+		@apply mb-0	
 		
 	@keyframes marquee
 		0%
@@ -21,37 +22,59 @@
 		100%
 			transform: translateX(-100%)
 
-	//- Product Cards
-	.product-cards
-		.row
-			@apply flex-wrap
-			.col
-				@apply p-0
+.product-cards
+	.row
+		@apply flex-wrap
+
+		.col
+			@apply p-0
+
 	.product-card
 		@apply relative overflow-hidden cursor-pointer ratio:pt-[600_476]
-		background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 51.25%, rgba(0, 0, 0, 0.50) 100%)
+
 		.product-img
-			@apply absolute inset-0 transition-transform duration-500
+			@apply absolute inset-0 transition-transform duration-500 z-0
+
 			img
 				@apply w-full h-full object-cover
+
 		.product-content
-			@apply absolute bottom-0 left-0 right-0 p-10 space-y-6 text-white z-10 transition-all duration-500
+			@apply absolute bottom-0 left-0 right-0 p-10 space-y-6 text-white z-20
+			@apply transition-all duration-500 ease-out
 			transform: translateY(4rem)
+
 		.product-title
 			@apply font-bold
+
 		.product-desc
-			@apply body-18
+			@apply body-18 line-clamp-6
+
 		.product-line
 			@apply w-full h-1 bg-white
+
 		.product-btn
 			@apply opacity-0 transition-all duration-300
 		&::before
 			content: ''
-			@apply absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent z-1
+			@apply absolute inset-0 z-10 pointer-events-none
+			background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,.5) 100%)
+		&::after
+			content: ''
+			@apply absolute inset-0 z-12 pointer-events-none
+			background: linear-gradient(180deg, rgba(3,4,94,0) 0%, #03045E 100%)
+			transform: translateY(100%)
+			opacity: 0
+			transition: transform .3s ease-out, opacity .3s ease-out
 		&:hover
 			.product-img
 				transform: scale(1.05)
+
 			.product-content
 				transform: translateY(0)
+
 			.product-btn
 				@apply opacity-100
+
+			&::after
+				transform: translateY(0)
+				opacity: 1

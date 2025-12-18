@@ -1,0 +1,53 @@
+section.section-news-archive.section-py
+	.container
+		//- FEATURED POST (Latest Post)
+		.featured-post
+			.box-news.box-news-featured
+				.news-image
+					a(href="#")
+						+PugImg('img/1.jpg')
+						
+
+				.news-content
+					.news-date
+						.date-day 20
+						.date-month 06.2024
+					.wrapper
+						h2.news-title.title-20
+							a(href="#") Lễ ra mắt liên doanh TTCapital - Cosmos Initia - Koterasu
+
+						.news-excerpt.body-16
+							p TPHCM, ngày 5/12/2023. Hôm nay. Công ty cổ phần Đầu tư TTCapital cùng 2 đối tác là Cosmos Initia (Thành viên của Daiwa House Group) và Koterasu ra mắt liên doanh hợp tác, đồng hành dài hạn trong việc phát triển các cư dân bất động sản vừa túi tiền tại Việt Nam. Liên doanh lông trong tuyên bố đã hoàn tất việc góp vốn cho dự án đầu tiên trong tháng 11/2023.
+
+		//- NEWS GRID
+		.news-grid
+			- for(var i=1; i<=9; i++)
+				.box-news
+					.news-image
+						a(href="#")
+							+PugImg(`img/1.jpg`)
+
+					.news-content
+						.news-date
+							.date-day 20
+							.date-month 06.2024
+
+						.wrapper
+							h3.news-title.title-20
+								a(href="#") Từ bài học nhỏ đời, doanh nghiệp địa ốc đón lực bật thị trường cuối năm
+
+							.news-excerpt.body-16
+								p Lễ ra mắt liên doanh TTCapital - Cosmos Initia - Koterasu cùng thực hiện các dự án bất động sản vừa túi tiền tại TP.HCM và vùng phụ cận
+
+		//- PAGINATION
+		.news-pagination
+			nav(aria-label="News pagination")
+				ul.pagination
+					li.page-item.active
+						a.page-link(href="#") 1
+					li.page-item
+						a.page-link(href="#") 2
+					li.page-item
+						a.page-link(href="#") 3
+					li.page-item
+						a.page-link(href="#") 4

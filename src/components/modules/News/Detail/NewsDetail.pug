@@ -1,0 +1,87 @@
+section.section-news-detail.section-py
+	.container
+		.news-detail-main
+
+			//- NEWS HEADER
+			.header-news
+				.news-date
+					.date-day 20
+					.date-month 06.2024
+
+				h1.news-title.title-36 Lễ ra mắt liên doanh TTCapital - Cosmos Initia - Koterasu
+
+				//- .news-meta
+				//- 	span.news-author
+				//- 		i.fa-solid.fa-user
+				//- 		| Admin
+				//- 	span.news-date
+				//- 		i.fa-solid.fa-calendar
+				//- 		| 20/06/2024
+				//- 	span.news-views
+				//- 		i.fa-solid.fa-eye
+				//- 		| 1,234 lượt xem
+
+			//- NEWS CONTENT
+			.news-body.space-y-5
+				.content-detail
+					p TPHCM, ngày 5/12/2023. Hôm nay. Công ty cổ phần Đầu tư TTCapital cùng 2 đối tác là Cosmos Initia (Thành viên của Daiwa House Group) và Koterasu ra mắt liên doanh hợp tác, đồng hành dài hạn trong việc phát triển các cư dân bất động sản vừa túi tiền tại Việt Nam. Liên doanh lông trong tuyên bố đã hoàn tất việc góp vốn cho dự án đầu tiên trong tháng 11/2023.
+
+					figure.news-image
+						+PugImg('img/1.jpg')
+						figcaption Sự kiện lễ ra mắt liên doanh TTCapital - Cosmos Initia - Koterasu
+
+					p Sự kiện tậc hạt on sự tham dự của ông Ono Masuo - Tổng lãnh sự quán Nhật Bản tại TPHCM. Phát biểu tại sự kiện, ông Ono Masuo gửi lời chúc mừng cho quan hệ hợp tác bền chặt Việt–Nhật, mong muốn liên doanh sẽ triển khai thành công các dự án bất động sản có trách nhiệm và bền vững với môi trường, đóng góp cho sự phát triển đô thị TP.HCM theo hướng xanh bền vững.
+
+					p Sau thời gian tìm hiểu kỹ lưỡng, nhận thấy các cơ hội lớn tại thị trường bất động sản Việt Nam, liên doanh gồm 3 công ty đã thống nhất sẽ cùng thực hiện các dự án bất động sản vừa túi tiền tại TP.HCM và các địa phương lân cận. Chất lượng nhà ở do liên doanh đầu tư sẽ đảm bảo vượt trội so với các sản phẩm cùng phân khúc nhờ áp dụng các nghiên cứu công nghệ xây dựng bền vững của các tập đoàn quốc tế tại Nhật Bản.
+
+					figure.news-image
+						+PugImg('img/1.jpg')
+
+					p Liên doanh dự kiến sẽ đầu tư khoảng 150 triệu USD trong vòng 5 năm tới, mục tiêu mỗi năm đưa ra thị trường khoảng 1.000 căn hộ vừa túi tiền.
+
+					p Nhằm thực hiện vai trò trụ cột của nhà ở vừa túi tiền, đáp ứng nhu cầu sở hữu thực của đông đảo người dân, liên doanh TTCapital cùng 2 đối tác sẽ chung tay thực hiện dự án bất động sản tại Dĩ An, tỉnh Bình Dương. Quy mô dự án khoảng 2.000 căn hộ với diện tích 50–60m²/căn, giá dưới 35 triệu đồng/m², tương đương dưới 2 tỷ đồng/căn.
+
+			//- NEWS SHARE
+			.news-share
+				span.share-label Chia sẻ:
+				.share-buttons
+					a.share-btn.share-facebook(href="#" target="_blank")
+						i.fa-brands.fa-facebook
+					a.share-btn.share-linkedin(href="#" target="_blank")
+						i.fa-brands.fa-linkedin
+					a.share-btn.share-youtube(href="#" target="_blank")
+						i.fa-brands.fa-youtube
+
+			//- RELATED NEWS
+.section-related-news1 
+	.container
+			.related-news.section-py
+				h2.section-title.title-36.text-center.text-primary Tin tức liên quan
+				.related-news.relative
+					.swiper-column-auto.auto-3-column.swiper-loop
+						.swiper.swiper-related-news
+							.swiper-wrapper
+								- for(var i=1; i<=6; i++)
+									.swiper-slide
+										.box-news
+											.news-image
+												a(href="#")
+													+PugImg(`img/1.jpg`)
+
+											.news-content
+												.news-date
+													.date-day 20
+													.date-month 06.2024
+
+												.wrapper
+													h3.news-title.title-20
+														a(href="#") Từ bài học nhỏ đời, doanh nghiệp địa ốc đón lực bật thị trường cuối năm
+
+													.news-excerpt.body-16
+														p Lễ ra mắt liên doanh TTCapital - Cosmos Initia - Koterasu cùng thực hiện các dự án bất động sản vừa túi tiền tại TP.HCM và vùng phụ cận
+
+						.swiper-navigation.center-y
+							.btn-prev.btn-slider-1
+								i.fa-solid.fa-chevron-left
+							.btn-next.btn-slider-1
+								i.fa-solid.fa-chevron-right

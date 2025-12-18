@@ -1,134 +1,187 @@
 // ============ MANUFACTURER DETAIL PAGE ============
 .section-manufacturer-detail
-  @apply py-12 lg:py-20
+		.row
+				@apply flex flex-wrap mx-4
+		// ============ LEFT COLUMN ============
+		.manufacturer-detail-left
+				@apply w-full
 
-  .container
-    @apply max-w-7xl mx-auto px-4
+				// MANUFACTURER HEADER
+				.manufacturer-header
+						@apply grid grid-cols-1 lg:grid-cols-2 gap-10
+						.manufacturer-logo
+								@apply w-full rounded-4 border border-utility-100 bg-[#f3f3f3] transition-all duration-300 hover:border-primary-2
+								@apply flex items-center justify-center min-h-160 lg:min-h-680
+								aspect-ratio: 1/1
 
-  .row
-    @apply flex flex-wrap -mx-4
+								img
+										@apply w-full h-full object-contain
 
-  // ============ LEFT COLUMN ============
-  .manufacturer-detail-left
-    @apply w-full
+						.manufacturer-info
+								@apply space-y-4
+								.manufacturer-meta
+										@apply space-y-3
+										.meta-item
+												@apply inline-flex items-center gap-2 mr-6 body-18
+												.meta-value
+														@apply text-primary-1
 
-    // MANUFACTURER HEADER
-    .manufacturer-header
-      @apply grid grid-cols-1 lg:grid-cols-2 gap-10
-      .manufacturer-logo
-        @apply w-full rounded-4 border border-utility-100 bg-[#f3f3f3] transition-all duration-300 hover:border-primary-2
-        @apply flex items-center justify-center min-h-160 lg:min-h-680
-        aspect-ratio: 1/1
+								.manufacturer-description
+										@apply space-y-2
 
-        img
-          @apply w-full h-full object-contain
+								.manufacturer-specs
+										@apply p-4 bg-utility-50 rounded-3 body-18 space-y-3
 
-      .manufacturer-info
-        @apply space-y-4
-        .manufacturer-meta
-          @apply space-y-3
-          .meta-item
-            @apply inline-flex items-center gap-2 mr-6 body-18
-            .meta-value
-              @apply text-primary-1
+										.spec-row
+												@apply grid grid-cols-1 gap-4
 
-        .manufacturer-description
-          @apply space-y-2
-
-        .manufacturer-specs
-          @apply p-4 bg-utility-50 rounded-3 body-18
-
-          .spec-row
-            @apply grid grid-cols-1 gap-4 mb-4 last:mb-0
-
-            .spec-item
-              @apply grid grid-cols-2 items-start gap-6
-              &.spec-full
-                @apply col-span-full
-              .spec-label
-                @apply font-bold whitespace-nowrap
+												.spec-item
+														@apply grid grid-cols-2 items-start gap-6
+														&.spec-full
+																@apply col-span-full
+														.spec-label
+																@apply font-bold whitespace-nowrap
 
 
-  // ============ RIGHT COLUMN - SIDEBAR ============
-  .manufacturer-detail-right
-    @apply w-full lg:w-1/4 px-4
+		// ============ RIGHT COLUMN - SIDEBAR ============
+		.manufacturer-detail-right
+				@apply w-full lg:w-1/4 px-4
 
-    .sidebar-widget
-      @apply mb-8 last:mb-0
+				.sidebar-widget
+						@apply mb-8 last:mb-0
 
-      .widget-title
-        @apply text-xl font-bold mb-4 pb-3
-        @apply border-b-2 border-primary-2
+						.widget-title
+								@apply text-xl font-bold mb-4 pb-3
+								@apply border-b-2 border-primary-2
 
-      .widget-content
-        .post-item
-          @apply mb-4 pb-4 last:mb-0 last:pb-0
-          @apply border-b border-gray-200 last:border-b-0
+						.widget-content
+								.post-item
+										@apply mb-4 pb-4 last:mb-0 last:pb-0
+										@apply border-b border-gray-200 last:border-b-0
 
-          p
-            @apply m-0 text-gray-700
-            @apply transition-colors duration-300
-            @apply hover:text-primary-2 cursor-pointer
+										p
+												@apply m-0 text-gray-700
+												@apply transition-colors duration-300
+												@apply hover:text-primary-2 cursor-pointer
 
-        .service-item
-          @apply mb-4 pb-4 last:mb-0 last:pb-0
-          @apply border-b border-gray-200 last:border-b-0
+								.service-item
+										@apply mb-4 pb-4 last:mb-0 last:pb-0
+										@apply border-b border-gray-200 last:border-b-0
 
-          p
-            @apply m-0 text-gray-700
+										p
+												@apply m-0 text-gray-700
 
-  // ============ RESPONSIVE ============
-  @media (max-width: 1023px)
-    .manufacturer-detail-left
-      @apply w-full mb-12
+		// ============ RESPONSIVE ============
+		@media (max-width: 1023px)
+				.manufacturer-detail-left
+						@apply w-full mb-12
 
-    .manufacturer-detail-right
-      @apply w-full
+				.manufacturer-detail-right
+						@apply w-full
 
-    .manufacturer-header
-      .manufacturer-specs
-        .spec-row
-          @apply grid-cols-1
+				.manufacturer-header
+						.manufacturer-specs
+								.spec-row
+										@apply grid-cols-1
 
-  @media (max-width: 767px)
-    .manufacturer-header
-      .manufacturer-logo
-        @apply p-3
+		@media (max-width: 767px)
+				.manufacturer-header
+						.manufacturer-logo
+								@apply p-3
 
-      .manufacturer-info
-        .manufacturer-meta
-          .meta-item
-            @apply mr-4 mb-2
+						.manufacturer-info
+								.manufacturer-meta
+										.meta-item
+												@apply mr-4 mb-2
 
-        .manufacturer-specs
-          .spec-row
-            @apply gap-3 mb-3
+								.manufacturer-specs
+										.spec-row
+												@apply gap-3 mb-3
 
-            .spec-item
-              @apply flex-col items-start gap-1
+												.spec-item
+														@apply flex-col items-start gap-1
 
-              .spec-label
-                @apply text-sm
+														.spec-label
+																@apply text-sm
 
-              .spec-value
-                @apply text-sm
+														.spec-value
+																@apply text-sm
 
-    .manufacturer-tabs
-      .tabs-navigation
-        @apply overflow-x-auto
+				.manufacturer-tabs
+						.tabs-navigation
+								@apply overflow-x-auto
 
-        .tab-btn
-          @apply px-4 py-2 text-sm whitespace-nowrap
+								.tab-btn
+										@apply px-4 py-2 text-sm whitespace-nowrap
 
 .section-tabs-customer
-    @apply pt-0 #{!important}
-    .tabs-navigation
-        @apply justify-center
+	@apply pt-0 #{!important}
+.section-tabs-customer, .section-product-detail
+	.tabs-navigation
+		@apply justify-center
+
+	.tabs-content
+		.wrapper-content-tab
+			@apply relative overflow-hidden
+			@apply transition-[max-height] duration-700 ease-in-out
+			max-height: 80vh
+
+			&.expanded
+				max-height: 9999px // fallback nếu JS chưa chạy
+
+		.view-more-container
+			.btn-view-more
+				@apply transition-all duration-300 hover:text-primary-2
+				display: inline-flex
+				align-items: center
+				i
+					@apply transition-transform duration-300
+
+				&.active
+					i
+						@apply rotate-180
+
+
+.section-related-customers
+				.swiper-related-customers
+								@apply pb-12
+								.swiper-slide
+												height: auto
+												.customer-card
+																@apply h-full bg-white rounded-2 overflow-hidden transition-all duration-300 hover:shadow-lg hover:border-primary-2 flex-col
+																.card-img
+																				@apply relative img-ratio ratio:pt-[1/1] overflow-hidden p-4 justify-center 
+																				img
+																								@apply w-full h-full object-contain transition-transform duration-500
+																.card-body
+																				@apply px-4 py-6 flex-col flex-grow text-center
+																				.card-title
+																								@apply text-lg font-bold mb-4 line-clamp-2
+																				// .btn-detail
+																				// 				@apply mt-auto inline-block px-6 py-2 rounded-full border border-primary-1 text-primary-1 font-medium transition-all duration-300 hover:bg-primary-1 hover:text-white
+
+																&:hover
+																				.card-img
+																								img
+																												@apply scale-110
+
+.swiper-navigation
+								.btn-prev,
+								.btn-next
+												@apply w-10 h-10 rounded-full flex justify-center transition-all duration-300
+												&::after
+																@apply hidden
+										
+								.btn-prev
+												@apply left-0 lg:-left-20
+								.btn-next
+												@apply right-0 lg:-right-20
+
 // ============ ANIMATIONS ============
 @keyframes fadeInUp
-  from
-    opacity: 0
-    transform: translateY(20px)
-  to
-    opacity: 1
-    transform: translateY(0)
+		from
+				opacity: 0
+				transform: translateY(20px)
+		to
+				opacity: 1
+				transform: translateY(0)

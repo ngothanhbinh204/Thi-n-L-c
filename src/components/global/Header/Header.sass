@@ -1,11 +1,11 @@
 .header
 	@apply fixed top-0 left-0 w-full z-[100] transition-all duration-300 pt-5
-	@apply px-6 md:px-10 lg:px-20
+	@apply px-4 md:px-6 lg:px-10 xl:px-20
 	&.active
 		.header-wrapper
 			@apply shadow-md
 	.header-wrapper
-		@apply rounded-20 shadow-shadow-light bg-[rgba(255,255,255,0.90)] backdrop-blur px-8 py-3 xl:px-10 xl:py-5 gap-3
+		@apply rounded-20 shadow-shadow-light bg-[rgba(255,255,255,0.90)] backdrop-blur px-8 py-3 lg:px-8 lg:py-4 xl:px-10 xl:py-5 gap-3
 		.logo
 			a
 				img
@@ -59,9 +59,7 @@
 				.mega-menu
 					@apply grid grid-cols-1 gap-10 backdrop-blur p-12 lg:grid-cols-5 absolute left-0 w-full bg-white shadow-lg rounded-5 overflow-hidden transition-all duration-300 z-[-1]
 					// Desktop
-					@apply lg:fixed lg:left-0 lg:w-full lg:top-26 lg:opacity-0 lg:invisible lg:-translate-y-[100%] lg:border-t lg:border-neutral-100
-					
-					// Mobile - Hidden by default, handled by separate structure
+					@apply lg:fixed lg:left-0 lg:w-full lg:top-20 xl:top-26 lg:opacity-0 lg:invisible lg:-translate-y-[100%] lg:border-t lg:border-neutral-100
 					@media (max-width: 1024px)
 						@apply hidden
 					

@@ -42,7 +42,7 @@
 section.section-home-4.section-py
 	.container
 		//- Section Title
-		.section-header(class="text-center")
+		.section-header(class="text-center" data-aos="fade-up")
 			h2.title-48.text-white.font-medium Quy Trình Làm Việc
 
 		//- Workflow Grid - 6 columns
@@ -50,7 +50,7 @@ section.section-home-4.section-py
 			each item, index in workflowSteps
 				- var isOdd = (item.id % 2 !== 0)
 				- var arrowPath = isOdd ? "./img/arrow_workflow.svg" : "./img/arrow_workflow_down.svg"
-				.workflow-item(class=isOdd ? 'item-odd' : 'item-even')
+				.workflow-item(class=isOdd ? 'item-odd' : 'item-even' data-aos="fade-up" data-aos-delay=index*100)
 					//- Description
 					.workflow-desc
 						p= item.description

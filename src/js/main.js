@@ -10,6 +10,7 @@ import {
 import { header } from "./header";
 import { swiperInit } from "./swiper";
 import productDetail from "./productDetail";
+import customersDetail from "./customersDetail";
 $(document).ready(function () {
   setBackgroundElement();
   stickElementToEdge();
@@ -18,6 +19,7 @@ $(document).ready(function () {
   initAccordion();
   header.init();
   productDetail();
+  customersDetail();
   swiperInit();
 });
 
@@ -61,7 +63,11 @@ window.FE = {
 
     if ($subMenu.length) {
       $subMenu.slideToggle(300);
-      $(this).text($(this).text() === "+" ? "-" : "+");
+      $(this).html(
+        $(this).html() === '<i class="fa-solid fa-plus"></i>'
+          ? '<i class="fa-solid fa-minus"></i>'
+          : '<i class="fa-solid fa-plus"></i>'
+      );
     }
   });
 

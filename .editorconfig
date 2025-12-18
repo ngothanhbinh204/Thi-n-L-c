@@ -1,0 +1,5 @@
+# root = true
+
+# [*.{sass,pug,js,php}]
+# indent_style = tab
+# indent_size = tab

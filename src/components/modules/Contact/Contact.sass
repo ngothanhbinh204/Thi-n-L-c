@@ -1,0 +1,141 @@
+// ============ CONTACT PAGE ============
+.section-contact
+	// LEFT COLUMN - Contact Info
+	.contact-info
+		h2
+			@apply title-32 mb-6 text-primary-1
+			
+		.contact-list
+			@apply space-y-6 mb-5
+
+			.contact-item
+				@apply flex gap-4
+
+				.contact-icon
+					@apply w-5 h-auto text-black
+					@apply flex items-start justify-center flex-shrink-0
+					@apply rounded-lg
+
+					i
+						@apply text-lg
+					img
+						@apply w-full h-auto object-contain
+
+				.contact-content
+					@apply flex-1 body-16
+
+					.contact-label
+						@apply font-bold mb-2
+						@apply uppercase tracking-wide
+
+					.contact-value
+						p
+							@apply m-0 leading-relaxed
+
+						a
+							@apply  no-underline
+							@apply transition-colors duration-300
+							@apply hover:text-primary-1
+
+		.contact-map
+			@apply overflow-hidden min-h-[336px]
+			@apply border border-gray-200
+
+			iframe
+				@apply w-full
+
+	// RIGHT COLUMN - Contact Form
+	.contact-form-wrapper
+		@apply col-span-12 lg:col-span-7 p-8 lg:p-12 bg-white
+		box-shadow: 4px 4px 24px 0 rgba(0, 0, 0, 0.08)
+		.form-header
+			@apply mb-8 title-20 font-medium text-center
+
+			p
+				@apply leading-relaxed
+
+		.contact-form
+			@apply space-y-4
+
+			.form-row
+				@apply w-full
+
+			.form-group
+				@apply w-full
+
+				.form-control
+					@apply w-full px-6 py-3
+					@apply bg-white border border-[#E4E5E6]
+					@apply text-[#818998] body-16
+					@apply transition-all duration-300
+					@apply focus:outline-none focus:border-primary-1 focus:bg-white
+					@apply placeholder:text-gray-400
+
+					&:focus
+						@apply shadow-sm
+
+				textarea.form-control
+					@apply resize-none
+
+			// Captcha Box
+			.captcha-box
+				@apply bg-gray-50 border border-gray-200 p-4
+				@apply flex items-center justify-between
+				@apply rounded-sm
+
+				.captcha-checkbox
+					@apply flex items-center gap-3
+
+					input[type="checkbox"]
+						@apply w-6 h-6 cursor-pointer
+						@apply border-2 border-gray-300 rounded
+						@apply transition-all duration-200
+						@apply checked:bg-primary-1 checked:border-primary-1
+
+					label
+						@apply text-sm cursor-pointer
+						@apply select-none
+
+				.captcha-logo
+					@apply flex items-center
+
+					img
+						@apply h-10 w-auto opacity-60
+
+			// Submit Button
+			.btn-primary
+				@apply w-full sm:w-auto
+				@apply px-8 py-3
+				@apply bg-primary-1 text-white
+				@apply font-semibold text-base
+				@apply flex items-center justify-center gap-3
+				@apply transition-all duration-300
+				@apply hover:bg-primary-2 hover:shadow-lg
+				@apply focus:outline-none focus:ring-2 focus:ring-primary-1 focus:ring-offset-2
+
+				i
+					@apply text-sm transition-transform duration-300
+
+				&:hover i
+					@apply translate-x-1
+
+	// ============ RESPONSIVE ============
+	@media (max-width: 1023px)
+		.contact-info,
+		.contact-form-wrapper
+			@apply col-span-12
+
+	@media (max-width: 767px)
+		.contact-item
+			.contact-icon
+				@apply w-10 h-10
+
+			.contact-content
+				.contact-label
+					@apply text-xs
+
+		.captcha-box
+			@apply flex-col gap-4 items-start
+
+			.captcha-logo
+				@apply w-full justify-center

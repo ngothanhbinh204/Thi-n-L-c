@@ -59,10 +59,10 @@ section.introduction-3.section-py
 		]
 
 	.container
-		h2 Lịch Sử & Phát Triển
+		h2(data-aos="fade-up") Lịch Sử & Phát Triển
 		
 		//- Timeline Slider
-		.history-timeline.relative
+		.history-timeline.relative(data-aos="fade-up" data-aos-delay="200")
 			.swiper
 				.swiper-wrapper
 					each item, index in historyData
@@ -73,7 +73,7 @@ section.introduction-3.section-py
 			.line-bg
 
 		//- Main Slider
-		.wrapper-history-main.relative
+		.wrapper-history-main.relative(data-aos="fade-up" data-aos-delay="400")
 			.history-main.relative
 				.swiper
 					.swiper-wrapper

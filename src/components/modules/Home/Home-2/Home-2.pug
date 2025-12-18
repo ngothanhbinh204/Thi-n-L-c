@@ -1,5 +1,5 @@
 section.home-2
-	.marquee-wrapper.pt-4
+	.marquee-wrapper(class="pt-5 mb-2")
 		.marquee
 			.marquee-content
 				span.marquee-item THIÊN LỘC
@@ -20,14 +20,14 @@ section.home-2
 				span.marquee-item THIÊN LỘC
 				span.marquee-dot •
 	//- Section Title
-	.section-header.text-center
+	.section-header.text-center(data-aos="fade-up")
 		.container
 			h2.title-48.font-bold.text-white.font-medium Sản Phẩm Tiêu Biểu
 			p.body-18.text-white.py-10 Bao bì không chỉ là vật chứa đựng sản phẩm, mà còn là cách thương hiệu thể hiện giá trị, cá tính và sự khác biệt...
 	//- Product Cards
 	.product-cards
 		.list-grid(class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-1")
-				.product-card
+				.product-card(data-aos="fade-up" data-aos-delay="200")
 					.product-img
 						+PugImg("./img/product-item-1.png")(class="w-full h-full object-cover")
 					.product-content
@@ -35,7 +35,7 @@ section.home-2
 						p.product-desc Sắc nét – bền đẹp – thiết kế theo phong cách riêng
 						.product-line
 						a.btn.btn-secondary.product-btn(href="#") Xem thêm
-				.product-card
+				.product-card(data-aos="fade-up" data-aos-delay="300")
 					.product-img
 						+PugImg("./img/product-item-1.png")(class="w-full h-full object-cover")
 					.product-content
@@ -43,7 +43,7 @@ section.home-2
 						p.product-desc Sắc nét – bền đẹp – thiết kế theo phong cách riêng
 						.product-line
 						a.btn.btn-secondary.product-btn(href="#") Xem thêm
-				.product-card
+				.product-card(data-aos="fade-up" data-aos-delay="400")
 					.product-img
 						+PugImg("./img/product-item-1.png")(class="w-full h-full object-cover")
 					.product-content
@@ -51,7 +51,7 @@ section.home-2
 						p.product-desc Sắc nét – bền đẹp – thiết kế theo phong cách riêng
 						.product-line
 						a.btn.btn-secondary.product-btn(href="#") Xem thêm
-				.product-card
+				.product-card(data-aos="fade-up" data-aos-delay="500")
 					.product-img
 						+PugImg("./img/product-item-1.png")(class="w-full h-full object-cover")
 					.product-content

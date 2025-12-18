@@ -72,11 +72,11 @@ section.section-home-5.section-py.relative
 			+PugImg("./img/bg-partent-1.svg")
 	.container
 		//- Section Header
-		.section-header(class="text-center !mb-7.5")
+		.section-header(class="text-center !mb-7.5" data-aos="fade-up")
 			h2.title-48.text-primary-1.font-medium Tin Tức - Sự Kiện
 
 		//- Filter Tabs
-		.news-filter(class="flex justify-center gap-3 mb-11.5")
+		.news-filter(class="flex justify-center gap-3 mb-11.5" data-aos="fade-up" data-aos-delay="200")
 			button.filter-btn.active(data-filter="all") Tất cả
 			button.filter-btn(data-filter="news") Tin tức
 			button.filter-btn(data-filter="event") Sự kiện
@@ -84,20 +84,20 @@ section.section-home-5.section-py.relative
 		//- News Grid Layout - Responsive Grid
 		.news-grid
 			//- Featured Post - Full width on tablet, center on desktop
-			.news-item.news-item-featured
+			.news-item.news-item-featured(data-aos="fade-right" data-aos-delay="300")
 				each item in newsItems.filter(n => n.featured)
 					+newsCard(item, true)
 
 			//- Small Posts - Grid items
-			.news-item.news-item-small
+			.news-item.news-item-small(data-aos="fade-left" data-aos-delay="400")
 				+newsCard(newsItems[0], false)
-			.news-item.news-item-small
+			.news-item.news-item-small(data-aos="fade-left" data-aos-delay="500")
 				+newsCard(newsItems[1], false)
-			.news-item.news-item-small
+			.news-item.news-item-small(data-aos="fade-left" data-aos-delay="600")
 				+newsCard(newsItems[3], false)
-			.news-item.news-item-small
+			.news-item.news-item-small(data-aos="fade-left" data-aos-delay="700")
 				+newsCard(newsItems[4], false)
 
 		//- View More Button
-		.news-footer(class="flex justify-center mt-10")
+		.news-footer(class="flex justify-center mt-10" data-aos="fade-up" data-aos-delay="800")
 			a.btn.btn-primary(href="#") Xem thêm

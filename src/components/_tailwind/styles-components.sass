@@ -70,12 +70,11 @@
 						@apply relative
 
 						// Checkmark icon
-						&::after
-							content: '\f00c'
-							font-family: 'Font Awesome 6 Free'
-							font-weight: 900
-							@apply absolute right-4 top-1/2 transform -translate-y-1/2
-							@apply text-primary-2 text-xs
+						// &::after
+						// 	content: '\f00c'
+						// 	font-weight: 900
+						// 	@apply absolute right-4 top-1/2 transform -translate-y-1/2
+						// 	@apply text-primary-2 text-xs
 
 					&:hover
 						@apply bg-red-50
@@ -161,34 +160,112 @@
 
 // Tabs fade-in content
 
-
 .tabs-wrapper
 	@apply mb-16
 
 	.tabs-navigation
-		@apply flex flex-wrap gap-4 lg:gap-10 mb-8
-		@apply border-b border-gray-200 pb-0
+		@apply relative
+		@apply flex flex-nowrap gap-4 lg:gap-10 mb-8
+		@apply border-y-2 border-utility-100 pb-0
+		@apply overflow-x-auto overflow-y-hidden
+		@apply scrollbar-hidden
+		// Đảm bảo scroll mượt mà
+		scroll-behavior: smooth
+		-webkit-overflow-scrolling: touch
+
+		// Padding để items không bị cắt
+		@apply px-1
 
 		.tab-btn
-			@apply px-2 py-5 bg-transparent border-b-2 border-transparent
-			@apply font-semibold text-gray-600
+			@apply flex-shrink-0
+			@apply px-4 lg:px-6 py-5
+			@apply bg-transparent border-b-2 border-transparent
+			@apply whitespace-nowrap
+			@apply font-semibold text-gray-600 text-base
 			@apply transition-all duration-300
 			@apply cursor-pointer
-			@apply hover:text-primary-1 hover:border-primary-1
 
-		&.active
-			@apply text-primary-1 border-primary-1
+			&:hover
+				@apply text-primary-1 border-primary-1
+
+			&.active
+				@apply text-primary-1 border-primary-1
+
+		// Gradient fade effect (optional - cho đẹp)
+		&::before,
+		&::after
+			content: ''
+			@apply absolute top-0 bottom-0 z-10
+			@apply w-8 pointer-events-none
+			@apply opacity-0 transition-opacity duration-300
+
+		&::before
+			@apply left-0
+			background: linear-gradient(to right, white, transparent)
+
+		&::after
+			@apply right-0
+			background: linear-gradient(to left, white, transparent)
+
+		// Show gradient when scrollable
+		&.is-scrollable
+			&::before,
+			&::after
+				@apply opacity-100
 
 	.tabs-content
+		@apply p-4 lg:p-10 bg-[rgba(3,4,94,0.04)] rounded-4
+
 		.tab-pane
 			@apply hidden opacity-0
 			@apply transition-all duration-500 ease-in-out
 			@apply transform translate-y-4
 
-		&.active
-			@apply block opacity-100 translate-y-0
-			animation: fadeInUp 0.5s ease-out
+			&.active
+				@apply block opacity-100 translate-y-0
+				animation: fadeInUp 0.5s ease-out
 
-		.tab-content-body
-			p
-				@apply mb-4 last:mb-0
+			h3
+				@apply text-primary-1 title-36 leading-[1.25] font-bold mb-10 text-center
+
+			.tab-content-body
+				@apply space-y-4
+
+				figure,
+				img
+					@apply w-full h-auto rounded-4 object-cover
+					@apply my-6 #{!important}
+
+// Wrapper gap top
+.wrapper-gap-top
+	@apply min-h-screen pt-30 md:pt-32
+
+// Hide scrollbar (nếu chưa có trong global)
+.scrollbar-hidden
+	-ms-overflow-style: none
+	scrollbar-width: none
+
+	&::-webkit-scrollbar
+		@apply hidden
+
+.tabs-content
+			@apply p-4 lg:p-10 bg-[rgba(3,4,94,0.04)] rounded-4
+			.tab-pane
+				@apply hidden opacity-0
+				@apply transition-all duration-500 ease-in-out
+				@apply transform translate-y-4
+
+				&.active
+					@apply block opacity-100 translate-y-0
+					animation: fadeInUp 0.5s ease-out
+				h3
+					@apply text-primary-1 title-36 leading-[1.25] font-bold mb-10 text-center
+				.tab-content-body
+					@apply space-y-4
+					figure,
+					img
+						@apply w-full h-auto rounded-4 object-cover 
+						@apply my-6 #{!important}
+
+.wrapper-gap-top
+	@apply min-h-screen pt-30 md:pt-32 

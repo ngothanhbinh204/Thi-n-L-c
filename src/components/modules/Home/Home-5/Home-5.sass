@@ -15,7 +15,7 @@
 	// ========================================
 	.news-filter
 		.filter-btn
-			@apply px-4 py-2.5 rounded-full border border-primary-1 text-primary-1 font-medium body-14 transition-300
+			@apply px-4 py-2.5 rounded-full border border-primary-1 text-primary-1 font-medium body-16 transition-300
 			@apply hover:bg-primary-1 hover:text-white
 			&.active
 				@apply bg-primary-1 text-white
@@ -28,11 +28,9 @@
 	// ========================================
 	.news-grid
 		// Mobile: 1 column
-		@apply grid grid-cols-1 gap-6
+		@apply grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8
 
-		// Tablet: 2 columns
-		@media (min-width: 768px)
-			@apply grid-cols-2 gap-8
+	
 
 		// Desktop: Custom 3-column layout (1fr 2fr 1fr)
 		@media (min-width: 1024px)
@@ -82,7 +80,7 @@
 
 		.news-card-img
 			// Mobile: 16:9 aspect ratio, full width
-			@apply block overflow-hidden rounded-5 mb-4
+			@apply block overflow-hidden rounded-5
 			@apply aspect-video
 			img
 				@apply w-full h-full object-cover transition-500
@@ -94,7 +92,7 @@
 				@apply mb-5 img-ratio ratio:pt-[240_320]
 
 		.news-card-content
-			@apply flex flex-col gap-2
+			@apply flex flex-col gap-2 py-5 lg:pb-0
 
 		.news-card-meta
 			@apply flex items-center gap-2
@@ -106,9 +104,7 @@
 			@apply body-14 font-normal text-primary-1
 
 		.news-card-title
-			@apply body-16 font-bold text-utility-2929 leading-1.4
-			@media (min-width: 1024px)
-				@apply body-18
+			@apply body-18 font-bold text-utility-2929 leading-1.4
 			a
 				@apply hover:text-primary-1 transition-300
 
@@ -119,29 +115,17 @@
 		@apply flex flex-col h-full
 
 		.news-card-img
-			// Mobile: 16:9 aspect ratio
-			@apply block overflow-hidden rounded-5 mb-4
-			@apply aspect-video
+			@apply block overflow-hidden rounded-5 aspect-video
+			@media (min-width: 1024px)
+				@apply img-ratio ratio:pt-[510_680]
 			img
 				@apply w-full h-full object-cover transition-500
 			&:hover img
 				@apply scale-105
 
-			// Tablet: flex layout
-			@media (min-width: 768px)
-				@apply mb-0 flex-1 aspect-auto
-				min-height: calc(280/1920*100rem)
-
-			// Desktop: taller image
-			@media (min-width: 1024px)
-				min-height: calc(420/1920*100rem)
-
 		.news-card-content
-			@apply flex flex-col gap-2
-			// Tablet & Desktop: padding top
-			@media (min-width: 768px)
-				@apply pt-5 gap-3
-
+			@apply flex flex-col gap-2 py-6
+			
 		.news-card-meta
 			@apply flex items-center gap-2
 
@@ -168,14 +152,4 @@
 			@media (min-width: 768px)
 				@apply block body-16 line-clamp-3
 
-	// ========================================
-	// TABLET SPECIFIC - Featured horizontal
-	// ========================================
-	@media (min-width: 768px) and (max-width: 1023px)
-		.news-item-featured
-			.news-card-featured
-				@apply flex-row gap-6
-				.news-card-img
-					@apply w-1/2 flex-none
-				.news-card-content
-					@apply w-1/2 justify-center pt-0
+

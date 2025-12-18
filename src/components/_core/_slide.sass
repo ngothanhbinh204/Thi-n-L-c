@@ -230,7 +230,27 @@
 	@apply border border-primary-2 text-primary-2
 	@apply bg-white cursor-pointer
 	@apply w-10 h-10 flex items-center justify-center rounded-full
-	@apply transition-all duration-300 ease-in-out
+	@apply transition-all duration-300 ease-in-out hover:bg-primary-1 hover:border-primary-1 hover:text-white
+	
+
+	svg, i
+		@apply text-primary-2
+		@apply transition-colors duration-300 ease-in-out
+
+	&:active
+		@apply scale-95
+
+	&.is-disabled, &.swiper-button-disabled
+		@apply opacity-40 pointer-events-none
+	&:hover
+		svg, i
+			@apply text-white
+
+.btn-slider-1
+	@apply border border-primary-2 text-primary-2 rounded-none
+	@apply bg-white cursor-pointer border-1 border-utility-200
+	@apply w-10 h-10 flex items-center justify-center 
+	@apply transition-all duration-300 ease-in-out hover:bg-primary-1 hover:border-primary-1 hover:text-white
 	
 
 	svg, i

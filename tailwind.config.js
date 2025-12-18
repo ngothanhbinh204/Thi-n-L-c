@@ -375,6 +375,7 @@ module.exports = {
         "Shadow 2": "0px 4px 8px 0px rgba(31,34,39,0.08)",
         "Shadow 3": "0px 8px 16px 0px rgba(31,34,39,0.08)",
         "Shadow 4": "0px 8px 24px 0px rgba(31,34,39,0.06)",
+        "Shadow card": "4px 4px 32px 16px rgba(0, 0, 0, 0.08);",
         "Background blur": "",
       },
       borderRadius: {
@@ -406,6 +407,7 @@ module.exports = {
         "linear-1": `linear-gradient(90deg, #181830 -0.01%, #1D1D38 19.26%, #141228 40.12%, #2C223A 75.47%, #231B33 99.98%)`,
         "linear-top-to-bottom": `linear-gradient(180deg, #C2CCE7 0%, #F5F8FF 47.6%)`,
         "linear-1-top-to-bottom": `linear-gradient(180deg, #C2CCE7 0%, #DCE2F3 77.36%, #FFF 99.22%)`,
+        "linear-1-bottom-to-top": `linear-gradient(180deg, #FFF 0%, #E3EBFF 41%, #C2CCE7 100%)`,
         "linear-2": `linear-gradient(180deg, #FFF 0%, #E3EBFF 41%, #C2CCE7 100%)`,
       }),
       backgroundPosition: {
@@ -550,6 +552,7 @@ module.exports = {
         "dropshadow-light": "4px 4px 32px 16px rgba(0,0,0,0.08)",
         "dropshadow-medium": "4px 4px 8px 4px rgba(0,0,0,0.24)",
         "dropshadow-hard": "8px 8px 16px 8px rgba(0,0,0,0.4)",
+        "shadow-card": "4px 4px 32px 16px rgba(0, 0, 0, 0.08);",
       },
       lineClamp: {
         6: "6",

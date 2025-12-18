@@ -43,56 +43,79 @@ section.section-manufacturer-detail.section-py
 
 			//- MANUFACTURER TABS
 section.section-tabs-customer.section-py
-	.container
 			.manufacturer-tabs.tabs-wrapper
 				.tabs-navigation
 					button.tab-btn.active(data-tab="tab-products") Sản phẩm đã làm
 					button.tab-btn(data-tab="tab-images") Hình ảnh sản phẩm
 					button.tab-btn(data-tab="tab-usage") Hướng dẫn sử dụng
 					button.tab-btn(data-tab="tab-maintenance") Hướng dẫn bảo quản
-
+			.container
 				.tabs-content
+					.wrapper-content-tab.collapsed
+						//- Tab 1: Products Made
+						.tab-pane.active(id="tab-products")
+							h3.title-36 Sản phẩm đã làm
 
-					//- Tab 1: Products Made
-					.tab-pane.active(id="tab-products")
-						h3.title-36 Sản phẩm đã làm
+							.tab-content-body.body-18
+								p Chúng tôi cung cấp Ba chỉ bò mỹ nguyên khối. Ba chỉ bò mỹ cát lát. Ba chỉ bò mỹ nguyên thùng cắt nhân hàng nổi tiếng đến từ Mỹ như Excel, Harish, Swift đến các tủ hút lên cắt, thuận.
 
-						.tab-content-body.body-18
-							p Chúng tôi cung cấp Ba chỉ bò mỹ nguyên khối. Ba chỉ bò mỹ cát lát. Ba chỉ bò mỹ nguyên thùng cắt nhân hàng nổi tiếng đến từ Mỹ như Excel, Harish, Swift đến các tủ hút lên cắt, thuận.
+								p Quá trình sơ chế, hút chân không, đông khay, cấp đông ba chỉ bò Mỹ về sinh sạch sẽ đảm bảo chất lượng, an toàn cho sức khỏe người tiêu dùng. Ba chỉ bò Mỹ cát lát được phả cát bằng máy Cát công nghiệp, cắt mỏng cho món lẩu theo tiêu chuẩn độ dày 1mm hoặc cát lát dạng - 5mm phù hợp cho món nướng.
 
-							p Quá trình sơ chế, hút chân không, đông khay, cấp đông ba chỉ bò Mỹ về sinh sạch sẽ đảm bảo chất lượng, an toàn cho sức khỏe người tiêu dùng. Ba chỉ bò Mỹ cát lát được phả cát bằng máy Cát công nghiệp, cắt mỏng cho món lẩu theo tiêu chuẩn độ dày 1mm hoặc cát lát dạng - 5mm phù hợp cho món nướng.
+								p Ba chỉ bò Mỹ có thể bảo quản đông trong ngăn đá với nhiệt độ -18 do C. Trước khi sử dụng không nên để thịt tan giã hoàn toàn mà miếng thịt phải còn hơi cứng để khi thái lát, cắt miếng sẽ dễ dàng hơn. Như vậy thịt vừa có độ dẻo dai, vừa giữ được hương vị tự nhiên nhất và không bị nát khi chế biến.
 
-							p Ba chỉ bò Mỹ có thể bảo quản đông trong ngăn đá với nhiệt độ -18 do C. Trước khi sử dụng không nên để thịt tan giã hoàn toàn mà miếng thịt phải còn hơi cứng để khi thái lát, cắt miếng sẽ dễ dàng hơn. Như vậy thịt vừa có độ dẻo dai, vừa giữ được hương vị tự nhiên nhất và không bị nát khi chế biến.
+								p Nếm và vi tri trung, ba chỉ bò Mỹ chứa lượng mỡ nạc vên kế, béo ngậy tưong đỗi, nên khi ăn ba chỉ bò Mỹ có vị ngọt ngọt không ngạn, cam giác mềm và mùi thơm bắc trung.
 
-							p Nếm và vi tri trung, ba chỉ bò Mỹ chứa lượng mỡ nạc vên kế, béo ngậy tưong đỗi, nên khi ăn ba chỉ bò Mỹ có vị ngọt ngọt không ngạn, cam giác mềm và mùi thơm bắc trung.
+								p Ba chỉ bò Mỹ là thực phẩm quen thuộc giàu dinh dưỡng có thể chế biến được nhiều món trung bữa ăn hàng ngày như: phở bò, lẩu bò, canh thịt bò nấu dưa, thịt bò xào cải, thịt bò cuốn nấm chấm nướng, bò khô, rất ngon miệng.
 
-							p Ba chỉ bò Mỹ là thực phẩm quen thuộc giàu dinh dưỡng có thể chế biến được nhiều món trung bữa ăn hàng ngày như: phở bò, lẩu bò, canh thịt bò nấu dưa, thịt bò xào cải, thịt bò cuốn nấm chấm nướng, bò khô, rất ngon miệng.
-
-							p Sản phẩm ba chỉ bò Mỹ nhập khẩu là một lựa chọn tuyệt vời cho khách hàng mua lẻ, nhà hàng và khách sạn, chuỗi bán lẻ được sản xuất từ thịt bò tuổi ngon, có chất lượng cao và nhập khẩu trực tiếp từ Mỹ, nơi nổi tiếng về nguồn cung cấp thịt bò chất lượng, số lượng lớn hàng đầu thế giới.
-
-						.tab-image
-							+PugImg('img/product-detail.jpg')
+								p Sản phẩm ba chỉ bò Mỹ nhập khẩu là một lựa chọn tuyệt vời cho khách hàng mua lẻ, nhà hàng và khách sạn, chuỗi bán lẻ được sản xuất từ thịt bò tuổi ngon, có chất lượng cao và nhập khẩu trực tiếp từ Mỹ, nơi nổi tiếng về nguồn cung cấp thịt bò chất lượng, số lượng lớn hàng đầu thế giới.
+								+PugImg('img/1.jpg')
 
 
-					//- Tab 2: Product Images
-					.tab-pane(id="tab-images")
-						h3.title-36 Hình ảnh sản phẩm
+						//- Tab 2: Product Images
+						.tab-pane(id="tab-images")
+							h3.title-36 Hình ảnh sản phẩm
 
-						.tab-content-body.body-18
-							p Hình ảnh chi tiết sản phẩm...
-
-
-					//- Tab 3: Usage Guide
-					.tab-pane(id="tab-usage")
-						h3.title-36 Hướng dẫn sử dụng
-
-						.tab-content-body.body-18
-							p Hướng dẫn sử dụng sản phẩm...
+							.tab-content-body.body-18
+								p Hình ảnh chi tiết sản phẩm...
 
 
-					//- Tab 4: Maintenance
-					.tab-pane(id="tab-maintenance")
-						h3.title-36 Hướng dẫn bảo quản
+						//- Tab 3: Usage Guide
+						.tab-pane(id="tab-usage")
+							h3.title-36 Hướng dẫn sử dụng
 
-						.tab-content-body.body-18
-							p Hướng dẫn bảo quản sản phẩm...
+							.tab-content-body.body-18
+								p Hướng dẫn sử dụng sản phẩm...
+
+
+						//- Tab 4: Maintenance
+						.tab-pane(id="tab-maintenance")
+							h3.title-36 Hướng dẫn bảo quản
+
+							.tab-content-body.body-18
+								p Hướng dẫn bảo quản sản phẩm...
+					
+					.view-more-container.text-center.mt-8
+						button.btn-view-more.text-primary-2.font-normal.flex.items-center.justify-center.gap-3.mx-auto(type="button")
+							span Xem thêm
+							i.fa-solid.fa-chevron-down
+
+section.section-related-customers.section-py.bg-utility-50
+	.container
+		h2.title-36.text-center.text-primary-1.mb-10 Khách hàng liên quan
+		.section-related-customers.relative
+			.swiper-column-auto.auto-4-column.swiper-loop
+				.swiper.swiper-related-customers
+					.swiper-wrapper
+						- for(var i=1; i<=6; i++)
+							.swiper-slide
+								.customer-card
+									.card-img
+										+PugImg('img/ctm-logo.png')
+									.card-body
+										.card-title Thực phẩm
+										a.btn.btn-primary(href="#") Xem chi tiết
+				.swiper-navigation.center-y
+					.btn-prev.btn-slider-2
+						i.fa-solid.fa-chevron-left
+					.btn-next.btn-slider-2
+						i.fa-solid.fa-chevron-right
