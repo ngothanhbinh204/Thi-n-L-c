@@ -93,10 +93,21 @@ header.header
 				.search.cursor-pointer
 				
 					i.fa-light.fa-magnifying-glass(class="text-xl")
-				.language
-					+PugImg("./img/flag-vn.svg")(class="flag")
-					span VN
-					i.fa-light.fa-chevron-down(class="text-xs text-neutral-600")
+				.language.relative
+					.current-lang.flex.items-center.gap-1.cursor-pointer
+						+PugImg("./img/flag-vn.svg")(class="flag")
+						span VN
+						i.fa-light.fa-chevron-down(class="text-xs text-neutral-600 transition-transform duration-300")
+					.lang-dropdown
+						ul
+							li
+								a(href="#")
+									+PugImg("./img/flag-vn.svg")(class="flag")
+									span VN
+							li
+								a(href="#")
+									+PugImg("./img/flag-en.svg")(class="flag")
+									span EN
 				.hamburger(class="lg:hidden")
 					.header-hambuger
 						span

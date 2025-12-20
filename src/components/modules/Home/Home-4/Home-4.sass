@@ -1,202 +1,169 @@
-// ========================================
-// VARIABLES
-// ========================================
 $circle-size: calc(155/1920*100rem)
 $circle-size-mobile: calc(100/1920*100rem)
 
-// ========================================
-// MAIN STYLES - MOBILE FIRST
-// ========================================
 .section-home-4
 	@apply bg-primary-1 overflow-hidden
 
-	// ========================================
-	// GRID LAYOUT
-	// ========================================
 	.workflow-grid
-		// Mobile: 1 column
 		@apply flex flex-col gap-8 px-6
-		// Desktop: 6 columns
 		@media (min-width: 1024px)
 			@apply grid grid-cols-6-max gap-7.5 justify-center px-0
 
-	// ========================================
-	// WORKFLOW ITEM - Base styles
-	// ========================================
 	.workflow-item
-		@apply relative flex flex-row items-center gap-6 justify-center
+		@apply relative flex flex-row items-center gap-6 justify-center w-fit mx-auto
 
-		// Desktop: vertical layout
 		@media (min-width: 1024px)
 			@apply flex-col text-center w-40
 
-	// ========================================
-	// ODD ITEMS (1, 3, 5)
-	// Mobile: Nội dung - Tiêu đề - Ảnh (desc left, icon right)
-	// Desktop: Icon trên - Label - Desc dưới
-	// ========================================
 	.workflow-item.item-odd
-		
-		// Mobile layout: [Desc] - [Box(Label + Icon)]
 		.workflow-desc
 			@apply order-1 text-center
 		.workflow-box
-			@apply order-2 flex-col-reverse gap-3
-		.workflow-arrow
+			@apply order-2 flex-col-reverse gap-10
+		.workflow-circle
 			@apply order-3
+		.workflow-arrow
+			@apply order-3 
+			@apply top-0 translate-x-5 -translate-y-2 
 
-		// Mobile: arrow pointing down
 		.workflow-circle::before
 			@apply -bottom-3 top-auto rotate-180
 
-		// Desktop layout
 		@media (min-width: 1024px)
 			@apply pt-4
-			.workflow-desc
-				@apply order-2 text-center
 			.workflow-box
 				@apply order-1 flex-col gap-7
-			.workflow-arrow
-				@apply order-3 
+			.workflow-desc
+				@apply order-2
+			.workflow-circle
+				@apply order-first
 			.workflow-circle::before
 				@apply -bottom-3 top-auto rotate-180
+			.workflow-arrow
+				@apply left-1/2 right-auto -translate-x-1/2
 
-	// ========================================
-	// EVEN ITEMS (2, 4, 6)
-	// Mobile: Ảnh - Tiêu đề - Nội dung (icon left, desc right)
-	// Desktop: Desc trên - Label - Icon dưới
-	// ========================================
 	.workflow-item.item-even
-		// Mobile layout: [Box(Icon + Label)] - [Desc]
-		
 		.workflow-box
-			@apply order-1 flex-col gap-3
+			@apply order-1 flex-col gap-10
 		.workflow-desc
 			@apply order-2 text-center
 		.workflow-arrow
-			@apply order-3 top-auto bottom-0
+			@apply order-3 left-0 -translate-x-1/4
 
-		// Mobile: arrow pointing down (triangle on bottom)
 		.workflow-circle::before
 			@apply -bottom-3 top-auto rotate-180
 
-		// Desktop layout
 		@media (min-width: 1024px)
 			@apply pb-4
 			.workflow-desc
-				@apply order-1 text-center
+				@apply order-1
 			.workflow-box
 				@apply order-2 flex-col-reverse gap-7
-			.workflow-arrow
-				@apply order-3
-			// Triangle on TOP of circle
 			.workflow-circle::before
 				@apply -top-3 bottom-auto rotate-0
+			.workflow-arrow
+				@apply left-1/2 -translate-x-1/2 
 
-	// ========================================
-	// WORKFLOW BOX (Circle + Label)
-	// ========================================
 	.workflow-box
 		@apply relative flex flex-col items-center flex-shrink-0
 
-	// ========================================
-	// WORKFLOW CIRCLE
-	// ========================================
 	.workflow-circle
-		@apply flex items-center justify-center rounded-full relative p-3 bg-white
+		@apply flex items-center justify-center rounded-full relative p-3 bg-white 
 		width: $circle-size-mobile
 		height: $circle-size-mobile
 		transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)
 
-		// Desktop size
 		@media (min-width: 1024px)
 			@apply p-4
 			width: $circle-size
 			height: $circle-size
 
-		// Triangle arrow
 		&::before
 			content: ''
-			@apply absolute border-l-10 border-r-10 border-b-16 z-10 border-transparent left-1/2 -translate-x-1/2
-			border-bottom-color: #FFFFFF
+			@apply absolute border-l-10 border-r-10 border-b-16 border-transparent left-1/2 -translate-x-1/2
+			border-bottom-color: #fff
 
-		// Inner wrapper with gradient border
 		.wrapper-icon
 			@apply flex items-center justify-center rounded-full w-full h-full
-			background: linear-gradient(142deg, #FFF 14.64%, #D7D6D6 88.5%)
+			background: linear-gradient(142deg, #fff 14.64%, #d7d6d6 88.5%)
 			padding: calc(4/1920*100rem)
-			transition: all 0.4s ease
 
 			.workflow-icon
-				@apply flex items-center justify-center rounded-full w-full h-full
-				background: #F2F2F2
+				@apply flex items-center justify-center rounded-full w-full h-full bg-gray-100
 				img
-					@apply w-10 h-10 object-contain
+					@apply w-10 h-10
 					@media (min-width: 1024px)
 						@apply w-15 h-15
 
-	// ========================================
-	// WORKFLOW LABEL
-	// ========================================
 	.workflow-label
 		@apply body-16
 		@media (min-width: 1024px)
 			@apply body-18
-		span
-			@apply inline-block text-center min-w-124 bg-white text-primary-2 font-bold px-3 py-1.5 rounded-full shadow-lg whitespace-nowrap
 
-	// ========================================
-	// WORKFLOW DESCRIPTION
-	// ========================================
+		span
+			@apply inline-block min-w-124 bg-white text-primary-2 font-bold px-3 py-1.5 rounded-full shadow-lg whitespace-nowrap text-center
+
 	.workflow-desc
 		@apply flex-1 text-white body-16 max-w-160
 		@media (min-width: 1024px)
 			@apply body-18 max-w-none
 
-	// ========================================
-	// ARROWS
-	// ========================================
 	.workflow-arrow
-		@apply absolute
+		@apply absolute top-full left-1/2 -translate-x-1/2 rotate-90
 		width: calc(150/1920*100rem)
 		height: calc(130/1920*100rem)
 
-		// Mobile: vertical arrows between items
-		@apply top-full left-1/4 -translate-x-1/2 rotate-90
-		
-		// Desktop: horizontal arrows
 		@media (min-width: 1024px)
-			@apply top-0 left-1/2 -translate-x-1/2 rotate-0
+			@apply top-0 rotate-0
 			width: calc(206/1920*100rem)
 			height: calc(176/1920*100rem)
 
 		img
 			@apply w-full h-full object-contain
 
-	// Mobile arrow adjustments
-	.workflow-item.item-odd .workflow-arrow
-		@apply left-auto right-0 translate-x-1/4
+
+.workflow-arrow
+	@apply absolute
+	width: calc(150/1920*100rem)
+	height: calc(130/1920*100rem)
+
+	@apply top-full rotate-90
+
+	@media (min-width: 1024px)
+		@apply top-0 rotate-0
+		width: calc(206/1920*100rem)
+		height: calc(176/1920*100rem)
+
+	img
+		@apply w-full h-full object-contain
+
+
+.workflow-item.item-odd
+	.workflow-arrow
+		@apply right-0 translate-x-1/4 top-0 
+		// @apply top-0 translate-x-5 -translate-y-2
+
 		@media (min-width: 1024px)
 			@apply left-1/2 right-auto -translate-x-1/2
 
-	.workflow-item.item-even .workflow-arrow
-		@apply left-0 -translate-x-1/4
+
+.workflow-item.item-even
+	.workflow-arrow
+		@apply left-0 -translate-x-1/4 top-0
+
 		@media (min-width: 1024px)
-			@apply left-1/2 -translate-x-1/2
-.section-home-4 
-	@media (max-width: 1024px)
-		.workflow-item
-			&.item-even
-				@apply w-fit mx-auto
-				.workflow-box
-					@apply gap-10
-				.workflow-arrow
-					@apply top-0 -translate-x-5 -translate-y-2
-			&.item-odd
-				@apply w-fit mx-auto
-				.workflow-box
-					@apply gap-10
-					.workflow-label
-						@apply -order-1
-				.workflow-arrow
-					@apply top-0 translate-x-5 -translate-y-2
+			@apply left-1/2 -translate-x-1/2 top-auto
+			@apply bottom-0 #{!important}
+
+
+.workflow-item.item-odd .workflow-arrow
+	@apply left-auto right-0 translate-x-1/4 
+	@apply top-0 -translate-x-5 -translate-y-6
+	@media (min-width: 1024px)
+		@apply left-1/2 right-auto -translate-x-1/2
+
+.workflow-item.item-even .workflow-arrow
+	@apply left-0 -translate-x-1/4 top-0 
+	@apply translate-x-5 -translate-y-2
+	@media (min-width: 1024px)
+		@apply left-1/2 -translate-x-1/2 top-auto bottom-0

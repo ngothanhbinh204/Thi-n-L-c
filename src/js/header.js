@@ -84,6 +84,59 @@ export const header = {
         );
       }
     });
+
+    // Language Dropdown
+    const langTrigger = document.querySelector(".header .tools .language");
+    
+    if (langTrigger) {
+      langTrigger.addEventListener("click", (e) => {
+        e.stopPropagation(); // Prevent immediate closing
+        langTrigger.classList.toggle("active");
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!langTrigger.contains(e.target)) {
+          langTrigger.classList.remove("active");
+        }
+      });
+    }
+
+    // Search Toggle
+    const searchTrigger = document.querySelector(".header .tools .search");
+    const searchOverlay = document.querySelector(".header-search-form");
+    const searchClose = document.querySelector(
+      ".header-search-form .close-search"
+    );
+
+    if (searchTrigger && searchOverlay) {
+      searchTrigger.addEventListener("click", () => {
+        searchOverlay.classList.add("active");
+        document.body.classList.add("overflow-hidden");
+      });
+
+      if (searchClose) {
+        searchClose.addEventListener("click", () => {
+          searchOverlay.classList.remove("active");
+          document.body.classList.remove("overflow-hidden");
+        });
+      }
+
+      // Close when clicking outside the form
+      searchOverlay.addEventListener("click", (e) => {
+        if (e.target === searchOverlay) {
+          searchOverlay.classList.remove("active");
+          document.body.classList.remove("overflow-hidden");
+        }
+      });
+
+      // Close on Escape key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && searchOverlay.classList.contains("active")) {
+          searchOverlay.classList.remove("active");
+          document.body.classList.remove("overflow-hidden");
+        }
+      });
+    }
   },
 };
 

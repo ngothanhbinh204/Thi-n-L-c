@@ -1,4 +1,5 @@
 @layer components
+
 	form.submitting
 		button
 			@apply pointer-events-none relative
@@ -235,7 +236,23 @@
 				img
 					@apply w-full h-auto rounded-4 object-cover
 					@apply my-6 #{!important}
+.breadcrumb-wrapper
+	@apply bg-utility-50
+	ul,
+	.breadcrumb
+		@apply flex flex-wrap items-center gap-2 lg:gap-5 p-0 m-0 list-none
+		li
+			@apply flex items-center gap-2 lg:gap-4
 
+			a,b
+				@apply text-sm text-utility-5252 font-medium
+				@apply hover:text-primary-2 transition-colors duration-300
+
+			span.separator
+				@apply text-0 inline-flex
+				&::before
+					content: "\f054"
+					@apply font-awesome font-normal text-sm text-utility-5252
 // Wrapper gap top
 .wrapper-gap-top
 	@apply min-h-screen pt-30 md:pt-32

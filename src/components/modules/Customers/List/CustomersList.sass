@@ -1,9 +1,7 @@
 // ============ SECTION 1: PRODUCT COMMITMENT ============
-.section-product-commitment
-	@apply py-12 lg:py-20 bg-white
-
-	.commitment-header
-		@apply flex items-center justify-start gap-6 mb-10
+.commitment-header,
+	.partners-header
+		@apply flex items-center justify-start gap-6 mb-5 lg:mb-10
 
 		.header-icon
 			@apply w-15 h-15 rounded-full
@@ -13,9 +11,12 @@
 
 			i
 				@apply text-2xl text-white
-
+		h2
+			@apply title-32 lg:title-40 font-bold text-primary-1
+.section-product-commitment
+	@apply py-12 lg:py-20 bg-white
 	.commitment-content
-		@apply grid grid-cols-1 lg:grid-cols-2 gap-30 items-center
+		@apply grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10 lg:gap-30 items-center
 
 		.commitment-image
 			@apply overflow-hidden rounded-5 shadow-lg img-ratio ratio:pt-[453_680]
@@ -25,10 +26,10 @@
 				@apply transition-transform duration-500 hover:scale-105
 
 		.commitment-info
-			@apply space-y-12
+			@apply space-y-6 lg:space-y-12
 
 			.info-item
-				@apply relative space-y-7
+				@apply relative space-y-3 lg:space-y-7
 
 				.info-title
 					@apply title-32 font-bold text-primary-1
@@ -38,22 +39,6 @@
 .section-brand-partners
 	@apply pt-0 #{!important}
 
-	.partners-header
-		@apply flex items-center gap-4
-
-		.header-icon
-			@apply w-15 h-15 rounded-full
-			@apply flex items-center justify-center flex-shrink-0
-
-			i
-				@apply text-2xl text-white
-
-			img
-				@apply w-full h-full object-contain
-
-		.title-36
-			@apply m-0 text-center
-
 	.partners-description
 		@apply text-left mx-auto
 		@apply text-gray-700 leading-relaxed
@@ -62,7 +47,7 @@
 		@apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-10
 
 		.partner-card
-			@apply bg-white rounded-5 border-1 border-utility-300 px-5 py-10 gap-4
+			@apply bg-white rounded-5 border-1 border-utility-300 py-6 px-4 lg:px-5 lg:py-10 gap-4
 			@apply transition-all duration-300
 			@apply hover:shadow-xl hover:border-primary-2
 			@apply flex flex-row
@@ -85,44 +70,4 @@
 			.btn-primary-2
 				@apply mx-6 mb-6 text-center block
 
-
-// ============ RESPONSIVE ============
-@media (max-width: 1023px)
-	.section-product-commitment
-		.commitment-content
-			@apply gap-10
-
-		.commitment-info
-			@apply space-y-6
-
-	.section-brand-partners
-		.partners-grid
-			@apply gap-6
-
-
-@media (max-width: 767px)
-	.section-product-commitment
-		.commitment-header
-			@apply flex-col gap-3
-
-		.commitment-content
-			@apply gap-6
-
-	.section-brand-partners
-		.partners-header
-			@apply flex-col gap-3
-
-		.title-36
-			@apply text-2xl
-
-		.partners-description
-			@apply text-base
-
-		.partners-grid
-			@apply gap-6
-
-		.partner-card
-			.partner-logo
-				img
-					@apply max-w-[120px] max-h-[120px]
 

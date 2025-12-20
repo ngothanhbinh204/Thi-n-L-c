@@ -29,16 +29,34 @@
 					&:hover
 						@apply text-primary-2
 			.language
-				@apply flex items-center gap-1 text-primary-2 cursor-pointer px-3 py-2 border border-[rgba(191,191,191,0.40)] rounded-full hover:bg-neutral-100 transition-colors body-14
-				.flag
-					@apply w-5 h-5 aspect-1 object-cover
+				@apply relative z-20
+				.current-lang
+					@apply flex items-center gap-1 text-primary-2 cursor-pointer px-3 py-2 border border-[rgba(191,191,191,0.40)] rounded-full hover:bg-neutral-100 transition-colors body-14 bg-white
+					.flag
+						@apply w-5 h-5 aspect-1 object-cover
+				.lang-dropdown
+					@apply absolute top-full right-0 mt-2 bg-white shadow-lg rounded-lg py-2 w-32 opacity-0 invisible transition-all duration-300 translate-y-2 overflow-hidden
+					ul
+						@apply flex flex-col gap-0 p-0 w-full h-auto shadow-none static bg-transparent
+						li
+							@apply w-full
+							a
+								@apply flex items-center gap-2 px-4 py-2 hover:bg-neutral-100 transition-colors text-utility-2929 body-14
+								.flag
+									@apply w-5 h-5 aspect-1 object-cover
+				&.active
+					.current-lang
+						i
+							@apply rotate-180
+					.lang-dropdown
+						@apply opacity-100 visible translate-y-0
 				.hamburger
 					@apply lg:hidden
 					.header-hambuger
 						@apply w-7 h-0.5 bg-utility-2929 mb-1 last:mb-0
 		
 		ul
-			@apply flex items-center gap-10 md:gap-8 xl:gap-20
+			@apply flex items-center gap-x-10 md:gap-x-8 xl:gap-x-20
 			@apply lg:flex lg:items-center lg:static lg:bg-transparent lg:p-0 lg:w-auto lg:h-auto lg:shadow-none
 			// Mobile Menu Styles - REMOVED from here as it is now separate
 			
@@ -82,6 +100,10 @@
 						@apply lg:opacity-100 lg:visible lg:translate-y-0
 
 // Mobile Menu Independent Styles
+.admin-bar
+	.mobile-menu
+		@apply pt-36
+	
 .mobile-menu
 	@apply -z-1 fixed top-0 left-0 w-full h-screen bg-white translate-x-full transition-transform duration-300 pt-30 px-6 overflow-y-auto lg:hidden
 	.has-sub.active > div > i, .has-sub-2.active > div > i

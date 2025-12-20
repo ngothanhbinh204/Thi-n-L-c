@@ -25,7 +25,8 @@ $(document).ready(function () {
 
 /*==================== Aos Init ====================*/
 AOS.init({
-  offset: 100,
+  offset: 300,
+  once: true,
 });
 /*==================== Lazyload JS ====================*/
 const observer = lozad(); // lazy loads elements with default selector as '.lozad'

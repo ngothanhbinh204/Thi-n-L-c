@@ -10,10 +10,10 @@
 			@apply w-5 h-5 border-3 border-white/40 border-t-white rounded-full inline-block
 			@apply absolute animate-spin
 
-.btn-primary, .form-group button[type="submit"]
-	@apply bg-primary-2 text-white font-medium rounded-full
+.btn-primary, .form-group button[type="submit"], form input[type="submit"]
+	@apply bg-primary-2 text-white font-medium rounded-full transition-300 w-fit cursor-pointer min-w-130
 	@apply hover:bg-primary-1 hover:text-white
-	@apply body-16 tracking-wide 
+	@apply body-16 tracking-wide px-7.5 py-3
 .btn-large
 	@apply px-10.5 py-3
 .btn-secondary

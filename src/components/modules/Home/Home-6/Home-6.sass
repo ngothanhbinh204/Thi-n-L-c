@@ -2,7 +2,7 @@
 // SECTION HOME-6: CTA CONTACT
 // Mobile-First Responsive Approach
 // ========================================
-.section-home-6
+.section-home-6, .section-cta-contact
 	@apply overflow-hidden
 
 	.wrapper-cta
@@ -35,16 +35,21 @@
 		@apply title-20 font-bold text-utility-2929 uppercase mb-1
 		span
 			@apply text-primary-2
+		strong
+			@apply text-primary-2 font-bold
 		@media (min-width: 1024px)
 			@apply title-24
 	// ========================================
 	// CONTACT FORM - CF7 Ready Structure
 	// ========================================
-	.contact-form
+	.contact-form,
+	form.wpcf7-form
 		@apply flex flex-col gap-4
 
 	.form-group
 		@apply relative
+		.btn-primary-2
+			@apply bg-primary-2 text-white hover:bg-primary-1
 
 	// Hide label visually but keep for accessibility & CF7
 	.form-label
@@ -65,9 +70,9 @@
 			@apply resize-none min-h-[125px]
 
 	// Submit Button
+	
 	.form-submit
 		@apply mt-1
-
 		.btn
 			@apply min-w-130
 
@@ -121,9 +126,6 @@
 		@media (min-width: 1024px)
 			@apply title-30
 
-	// ========================================
-	// RESPONSIVE ADJUSTMENTS
-	// ========================================
 	@media (max-width: 1023px)
 		.cta-content
 			@apply text-center

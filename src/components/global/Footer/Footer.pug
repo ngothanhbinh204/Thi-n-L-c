@@ -93,4 +93,14 @@ footer.footer.relative
 				ul.footer-policy-menu
 					li.policy-item: a(href="#") Privacy Policy
 					li.policy-divider |
-					li.policy-item: a(href="#") Sitemap 
+					li.policy-item: a(href="#") Sitemap
+
+//- Search Overlay
+.header-search-form
+	.wrap-form-search-product
+		form.productsearchbox(action="#" method="GET")
+			input(type="text" placeholder="Tìm kiếm sản phẩm...")
+			button(type="submit")
+				i.fa-light.fa-magnifying-glass(class="text-white")
+	.close-search(class="absolute top-8 right-8 cursor-pointer text-white text-4xl hover:text-primary-1 transition-300")
+		i.fa-light.fa-xmark 
