@@ -99,23 +99,22 @@ section.section-tabs-customer.section-py
 							span Xem thêm
 							i.fa-solid.fa-chevron-down
 
-section.section-related-customers.section-py.bg-utility-50
+section.section-related-customers.section-py
 	.container
 		h2.title-36.text-center.text-primary-1.mb-10 Khách hàng liên quan
-		.section-related-customers.relative
-			.swiper-column-auto.auto-4-column.swiper-loop
-				.swiper.swiper-related-customers
-					.swiper-wrapper
-						- for(var i=1; i<=6; i++)
-							.swiper-slide
-								.customer-card
-									.card-img
-										+PugImg('img/ctm-logo.png')
-									.card-body
-										.card-title Thực phẩm
-										a.btn.btn-primary(href="#") Xem chi tiết
-				.swiper-navigation.center-y
-					.btn-prev.btn-slider-2
-						i.fa-solid.fa-chevron-left
-					.btn-next.btn-slider-2
-						i.fa-solid.fa-chevron-right
+		.related-customers-slider.relative
+			.swiper.swiper-related-customers
+				.swiper-wrapper
+					- for(var i=1; i<=6; i++)
+						.swiper-slide
+							.customer-card
+								.card-img
+									+PugImg('img/ctm-logo.png')
+								.card-body
+									.card-title Thực phẩm
+									a.btn.btn-primary(href="#") Xem chi tiết
+			.swiper-navigation.center-y
+				.btn-prev.btn-slider-2
+					i.fa-solid.fa-chevron-left
+				.btn-next.btn-slider-2
+					i.fa-solid.fa-chevron-right

@@ -17,7 +17,7 @@
 		@apply flex items-center gap-5
 
 		label
-			@apply body-18 font-medium text-utility-900
+			@apply body-18 font-bold text-utility-900
 			@apply whitespace-nowrap
 		.custom-select
 			@apply relative inline-block min-w-[140px] body-18
@@ -41,7 +41,7 @@
 						@apply text-primary-2
 			.select-dropdown
 				@apply absolute top-full left-0 right-0 mt-1
-				@apply bg-white border border-gray-200 shadow-lg
+				@apply bg-white border border-utility-100 shadow-lg
 				@apply opacity-0 invisible
 				@apply transition-all duration-300 ease-out
 				@apply transform translate-y-[-10px]
@@ -63,7 +63,9 @@
 					@apply px-4 py-2.5 text-sm text-utility-8181
 					@apply cursor-pointer transition-all duration-200
 					@apply hover:bg-gray-50 hover:text-primary-2
-					@apply border-b border-gray-100 last:border-b-0
+					@apply border-b border-gray-100
+					&:last-child
+						@apply border-b-0
 
 					// Active option
 					&.active
@@ -118,7 +120,7 @@
 
 				.page-item
 					.page-link
-						@apply flex items-center justify-center
+						@apply flex items-center justify-center h-full
 						@apply max-w-[44px] max-h-[44px] py-2.5 px-5 border border-[#DCDCDC]
 						@apply text-utility-900 font-semibold
 						@apply transition-all duration-200
@@ -162,27 +164,26 @@
 // Tabs fade-in content
 
 .tabs-wrapper
-	@apply mb-16
+	// @apply mb-16
 
 	.tabs-navigation
 		@apply relative
-		@apply flex flex-nowrap gap-4 lg:gap-10 mb-8
+		@apply flex flex-nowrap gap-4 lg:gap-10 mb-10
 		@apply border-y-2 border-utility-100 pb-0
 		@apply overflow-x-auto overflow-y-hidden
 		@apply scrollbar-hidden
-		// Đảm bảo scroll mượt mà
 		scroll-behavior: smooth
 		-webkit-overflow-scrolling: touch
-
-		// Padding để items không bị cắt
-		@apply px-1
-
 		.tab-btn
-			@apply flex-shrink-0
-			@apply px-4 lg:px-6 py-5
+			&::first-child
+				@apply ml-auto
+			&::last-child
+				@apply mr-auto
+		.tab-btn
+			@apply flex-shrink-0 max-w-[200px]
+			@apply px-2 py-5
 			@apply bg-transparent border-b-2 border-transparent
-			@apply whitespace-nowrap
-			@apply font-semibold text-gray-600 text-base
+			@apply whitespace-nowrap title-20 font-normal
 			@apply transition-all duration-300
 			@apply cursor-pointer
 
@@ -192,7 +193,6 @@
 			&.active
 				@apply text-primary-1 border-primary-1
 
-		// Gradient fade effect (optional - cho đẹp)
 		&::before,
 		&::after
 			content: ''
@@ -245,7 +245,7 @@
 			@apply flex items-center gap-2 lg:gap-4
 
 			a,b
-				@apply text-sm text-utility-5252 font-medium
+				@apply body-14 text-utility-5252 font-medium
 				@apply hover:text-primary-2 transition-colors duration-300
 
 			span.separator
@@ -253,9 +253,6 @@
 				&::before
 					content: "\f054"
 					@apply font-awesome font-normal text-sm text-utility-5252
-// Wrapper gap top
-.wrapper-gap-top
-	@apply min-h-screen pt-30 md:pt-32
 
 // Hide scrollbar (nếu chưa có trong global)
 .scrollbar-hidden
@@ -285,4 +282,6 @@
 						@apply my-6 #{!important}
 
 .wrapper-gap-top
-	@apply min-h-screen pt-30 md:pt-32 
+	@apply min-h-screen pt-26 xl:pt-34
+.space-to-header
+	@apply top-26 xl:top-34

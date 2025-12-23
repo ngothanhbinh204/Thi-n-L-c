@@ -1,25 +1,21 @@
-// ========================================
-// SECTION HOME-6: CTA CONTACT
-// Mobile-First Responsive Approach
-// ========================================
-.section-home-6, .section-cta-contact
+.section-home-6,
+.section-cta-contact
 	@apply overflow-hidden
 
 	.wrapper-cta
-		@apply gap-16 lg:gap-30 grid grid-cols-1 lg:grid-cols-2 items-center
-		.content-col 
+		@apply grid grid-cols-1 lg:grid-cols-2  gap-16 xl:gap-30 items-center
+		.content-col
 			@apply h-full
 			.cta-content
-				@apply h-full flex flex-col justify-between
-	// Background overlay
+				@apply h-full flex items-center flex-col justify-between
+
+
 	.home-6-bg
 		&::after
 			content: ''
 			@apply absolute-full bg-black/30
 
-	// ========================================
-	// CONTACT FORM WRAPPER
-	// ========================================
+
 	.contact-form-wrapper
 		@apply bg-white rounded-5 py-8 px-6
 		@media (min-width: 768px)
@@ -27,37 +23,42 @@
 		@media (min-width: 1024px)
 			@apply py-12 px-10
 
-	// Form Header
+
 	.form-header
 		@apply mb-5
 
-	.form-title, .form-subtitle
+
+	.form-title,
+	.form-subtitle
 		@apply title-20 font-bold text-utility-2929 uppercase mb-1
-		span
-			@apply text-primary-2
+
+		span,
 		strong
 			@apply text-primary-2 font-bold
+
 		@media (min-width: 1024px)
 			@apply title-24
-	// ========================================
-	// CONTACT FORM - CF7 Ready Structure
-	// ========================================
+
+	.form-col
+		@apply w-full
 	.contact-form,
 	form.wpcf7-form
 		@apply flex flex-col gap-4
 
+
 	.form-group
 		@apply relative
+
 		.btn-primary-2
 			@apply bg-primary-2 text-white hover:bg-primary-1
 
-	// Hide label visually but keep for accessibility & CF7
+
 	.form-label
 		@apply sr-only
 
-	// Form Control (Input & Textarea)
+
 	.form-control
-		@apply w-full border rounded-2 bg-transparent border-utility-100
+		@apply w-full border border-utility-100 rounded-2 bg-transparent
 		@apply py-2.5 px-5 body-18 text-utility-6565
 		@apply outline-none transition-300
 		@apply placeholder:text-utility-8181
@@ -65,80 +66,61 @@
 		&:focus
 			@apply border-primary-1
 
-		// Textarea specific
-		&[id="your-message"]
+		&#your-message
 			@apply resize-none min-h-[125px]
+		&textarea
+			@apply resize-none min-h-[125px]
+			height: r(125px)
+	textarea.form-control
+		@apply h-32 resize-none
 
-	// Submit Button
-	
 	.form-submit
-		@apply mt-1
+		@apply -lg:mx-auto mt-1
+
 		.btn
 			@apply min-w-130
 
-	// ========================================
-	// CTA CONTENT - Right Column
-	// ========================================
+
 	.cta-content
 		@apply text-white
 
-	// CTA Header
+
 	.cta-header
-		@apply mb-6
-		@media (min-width: 1024px)
-			@apply mb-8
+		@apply text-center lg:text-left mb-8
+
 
 	.cta-title
-		@apply title-48 font-medium leading-[1.2] mb-4
-		@media (min-width: 1024px)
-			@apply mb-5
+		@apply title-48 font-medium leading-[1.2] mb-4 lg:mb-5
+
 
 	.cta-desc
-		@apply body-16 opacity-90 mb-6 leading-1.5
-		@media (min-width: 1024px)
-			@apply body-18 mb-10
+		@apply body-16 opacity-90 mb-6 leading-1.5 lg:body-18 lg:mb-10
 
-	// ========================================
-	// HOTLINE BOX
-	// ========================================
+
 	.cta-hotline
-		@apply flex items-center gap-7 bg-primary-1 rounded-5 p-6
-		@apply max-w-md
-		@media (min-width: 1024px)
-			@apply gap-8 px-10 pt-14 pb-13
+		@apply flex flex-row -md:justify-center w-full items-center gap-4 lg:gap-7 xl:gap-15 bg-primary-1 rounded-5 p-6 lg:px-10 lg:pt-14 lg:pb-13
+
 
 	.hotline-left
-		@apply flex-shrink-0
+		@apply -lg:flex gap-2 flex-shrink-0
 
-	.hotline-label
-		@apply body-18 text-white leading-1.3 font-inter font-semibold
-		@media (min-width: 1024px)
-			@apply title-30 font-semibold
 
 	.hotline-right
 		@apply flex flex-col
 
+
+	.hotline-label
+		@apply body-18 text-white leading-1.3 font-inter font-semibold
+		@media (min-width: 1024px)
+			@apply title-30
+
+
 	.hotline-tag
 		@apply title-24 text-primary-2 font-bold
+
 
 	.hotline-number
 		@apply title-36 font-bold text-white font-inter
 		@media (min-width: 1024px)
 			@apply title-30
 
-	@media (max-width: 1023px)
-		.cta-content
-			@apply text-center
-
-		.cta-hotline
-			@apply mx-auto
-
-	@media (max-width: 767px)
-		.cta-hotline
-			@apply flex-col text-center gap-4
-
-		.hotline-left
-			@apply flex gap-2
-
-		.hotline-label
-			@apply inline

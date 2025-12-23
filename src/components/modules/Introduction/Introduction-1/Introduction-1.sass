@@ -12,24 +12,9 @@
 	.col-img
 		@apply flex items-center justify-center
 		.img-wrapper
-			@apply rounded-5 overflow-hidden h-auto relative w-full img-ratio ratio:pt-[383_680] my-auto
+			@apply rounded-5 overflow-hidden h-auto relative w-full -md:img-ratio -md:ratio:pt-[383_680] my-auto
 			img
 				@apply w-full h-full object-cover
-	
-	.list-stats
-		@apply grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-10 w-full mx-auto
-		.stat-item
-			@apply p-3 lg:p-5 flex items-center justify-start gap-4 lg:gap-6
-			.stat-info
-				@apply space-y-2
-			.stat-icon
-				@apply w-14 h-14 lg:w-16 lg:h-16 flex-shrink-0
-				img
-					@apply w-full h-full object-contain
-			.stat-number
-				@apply text-primary-2 font-black text-3xl lg:text-4xl
-			.stat-label
-				@apply text-utility-2929 text-sm
 
 .wrapper-introduction
 	@apply relative overflow-hidden

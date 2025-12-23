@@ -1,27 +1,19 @@
 // ============ PRODUCT DETAIL PAGE ============
 .section-product-detail
-	@apply py-12 lg:py-20
-
+	@apply py-10 xl:pt-20 xl:pb-11
 	.wrapper
-		@apply grid grid-cols-1 lg:grid-cols-12 gap-10
-	// ============ LEFT COLUMN ============
+		@apply grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-10
 	.product-detail-left
 		@apply w-full lg:col-span-9
-
-		// PRODUCT HERO (Gallery + Info)
 		.product-detail-hero
-			@apply flex flex-col lg:flex-row gap-7 mb-16
-
-			// ============ GALLERY ============
+			@apply flex flex-col justify-between md:grid md:grid-cols-9 md:gap-2 lg:gap-10 mb-10 lg:mb-20
 			.product-gallery
-				@apply flex flex-col lg:grid lg:grid-cols-[18%_80%] w-full lg:w-[58.5%]
-
-				// Thumbnail Navigation
+				@apply flex flex-col flex-grow md:grid md:grid-cols-[16%_78%] lg:grid-cols-[18%_81%] w-full md:col-span-7
 				.gallery-thumbnails
 					@apply flex flex-col gap-2 items-center relative
-					@apply w-full order-2 lg:order-1 mt-4 lg:mt-0 lg:pr-3.5
-					@apply lg:overflow-hidden
-					@screen lg
+					@apply w-full order-2 md:order-1 mt-4 md:mt-0 md:pr-3.5
+					@apply md:overflow-hidden
+					@screen md
 						height: 0
 						min-height: 100%
 
@@ -70,10 +62,10 @@
 
 				// Main Gallery
 				.gallery-main
-					@apply w-full order-1 lg:order-2
+					@apply w-full order-1 md:order-2
 
 					.swiper-product-gallery
-						@apply w-full rounded-4 overflow-hidden border border-gray-200
+						@apply w-full rounded-4 overflow-hidden border border-utility-100
 
 						.swiper-slide
 							@apply h-full
@@ -85,13 +77,16 @@
 								img
 									@apply w-full h-full object-cover
 
-
 			.product-info
-				@apply w-full lg:w-[41.5%] flex flex-col space-y-4
+				@apply w-full flex flex-col space-y-4 md:col-span-3
+					@media (min-width: 768px)
+						max-width: r(266px)
 
 				.product-description
 					p
-						@apply mb-4 last:mb-0
+						@apply mb-4
+						&:last-child
+							@apply mb-0
 
 				.btn-primary
 					@apply inline-block text-center w-fit
@@ -99,60 +94,67 @@
 
 		// ============ RELATED PRODUCTS ============
 		.product-related
+			@apply pt-10 lg:pt-20
+			h2
+				@apply title-36 text-center text-primary-1 mb-5 lg:mb-11 line-clamp-2
 			.wrapper-related-products
-				@apply relative px-10 flex flex-row gap-6 items-center
+				@apply relative flex flex-row items-center gap-2 md:gap-4 xl:gap-6
+
+				.btn-relative-prev,
+				.btn-relative-next
+					// @apply absolute top-1/2 -translate-y-1/2 z-10
+					@apply flex-shrink-0
+
+				.btn-relative-prev
+					// @apply -left-6
+
+				.btn-relative-next
+					// @apply -right-6
+
 				.swiper-related-products
-					@apply pb-16 
+					@apply overflow-hidden
+					padding-bottom: r(20px)
 
-					.product-card
-						@apply bg-white border border-gray-200
-						@apply transition-all duration-300 rounded-2 overflow-hidden shadow-shadow-card
-						@apply hover:shadow-md
+					.swiper-wrapper
+						@apply overflow-visible
 
-						.product-image
-							@apply overflow-hidden
-							aspect-ratio: 1/1
+					.swiper-slide
+						@apply overflow-visible
 
-							img
-								@apply w-full h-full object-cover
-								@apply transition-transform duration-300
+						.slide-inner
+							@apply p-3 lg:p-3
 
-						.product-info
-							@apply px-4 py-6 text-center
+							.product-card
+								@apply w-full bg-white rounded-2 transition-all duration-300
+								overflow: hidden
+								box-shadow: 0 10px 30px rgba(0,0,0,.08)
+								.product-info
+									@apply px-4 py-6 text-center
+									.product-title
+										@apply body-18 font-bold  mb-4
+										@apply transition-colors duration-300
+										@apply hover:text-primary-2 cursor-pointer
 
-							.product-title
-								@apply mb-4 font-semibold body-18
+								.product-image
+									@apply overflow-hidden
+									aspect-ratio: 1 / 1
 
-						&:hover .product-image img
-							@apply scale-110
+									img
+										@apply w-full h-full object-cover transition-transform duration-300
 
-
-
-
-						.btn-relative-prev,
-						.btn-relative-next
-							@apply relative
-							@apply w-12 h-12 bg-white border border-gray-300
-							@apply flex items-center justify-center
-							@apply cursor-pointer transition-all duration-300
-							@apply hover:bg-primary-2 hover:text-white hover:border-primary-2
-
-							&::after
-								@apply hidden
-
-							i
-								@apply text-lg
-
-							&.swiper-button-disabled
-								@apply opacity-30 cursor-not-allowed
+								&:hover .product-image img
+									@apply scale-110
 
 
 	// ============ RIGHT COLUMN - SIDEBAR ============
 	.product-detail-right
-		@apply w-full lg:col-span-3
+		@apply flex flex-col md:flex-row lg:flex-col gap-x-5 w-full lg:col-span-3 sticky self-start
+		@extend .space-to-header
 
 		.sidebar-widget
-			@apply mb-6 last:mb-0
+			@apply mb-6
+			&:last-child
+				@apply mb-0
 
 			.widget-title
 				@apply title-24 text-primary-1 font-bold mb-3 pb-3
@@ -161,8 +163,10 @@
 			.widget-content
 				// Latest Posts
 				.post-item
-					@apply mb-3 pb-3 last:mb-0 last:pb-0
-					@apply border-b border-gray-200 last:border-b-0
+					@apply mb-3 pb-3
+					@apply border-b border-utility-100
+					&:last-child
+						@apply mb-0 pb-0 border-b-0
 
 					p
 						@apply m-0 text-black
@@ -171,17 +175,19 @@
 
 				// Services
 				.service-item
-					@apply mb-4 pb-4 last:mb-0 last:pb-0
-					@apply border-b border-gray-200 last:border-b-0
+					@apply mb-4 pb-4
+					@apply border-b border-utility-100
+					&:last-child
+						@apply mb-0 pb-0 border-b-0
 
 					p
 						@apply m-0 text-black
 
 
 	// ============ RESPONSIVE ============
-	@media (max-width: 1023px)
+	@media (max-width: 767px)
 		.product-detail-left
-			@apply w-full mb-12
+			@apply w-full 
 
 		.product-detail-right
 			@apply w-full
@@ -213,7 +219,6 @@
 	@media (max-width: 767px)
 		.tabs-navigation
 			@apply overflow-x-auto
-
 			.tab-btn
 				@apply px-4 py-2 text-sm whitespace-nowrap
 

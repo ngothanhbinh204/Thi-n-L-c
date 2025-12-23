@@ -26,7 +26,7 @@ export default function productDetail() {
           direction: "horizontal",
           slidesPerView: 5,
         },
-        1024: {
+        768: {
           direction: "vertical",
           slidesPerView: 4,
         },
@@ -80,12 +80,6 @@ export default function productDetail() {
           const targetPane = document.getElementById(targetTab);
           if (targetPane) {
             targetPane.classList.add("active");
-
-            // Smooth scroll to tab content
-            targetPane.scrollIntoView({
-              behavior: "smooth",
-              block: "nearest",
-            });
           }
         }, 100);
       });
@@ -116,35 +110,33 @@ export default function productDetail() {
     new Swiper(".swiper-related-products", {
       modules: [Navigation, Autoplay],
       slidesPerView: 1,
-      spaceBetween: 12,
+      spaceBetween: 0,
       loop: true,
       speed: 600,
-      autoplay: {
-        delay: 4000,
-        disableOnInteraction: false,
-      },
+      //   autoplay: {
+      //     delay: 4000,
+      //     disableOnInteraction: false,
+      //   },
       navigation: {
-        nextEl:
-          ".swiper-related-products + .swiper-navigation .btn-relative-next",
-        prevEl:
-          ".swiper-related-products + .swiper-navigation .btn-relative-prev",
+        nextEl: ".wrapper-related-products .btn-relative-next",
+        prevEl: ".wrapper-related-products .btn-relative-prev",
       },
       breakpoints: {
         640: {
           slidesPerView: 2,
-          spaceBetween: 12,
+          //   spaceBetween: 12,
         },
         768: {
           slidesPerView: 3,
-          spaceBetween: 16,
+          //   spaceBetween: 16,
         },
         1024: {
           slidesPerView: 4,
-          spaceBetween: 16,
+          //   spaceBetween: 16,
         },
         1280: {
           slidesPerView: 4,
-          spaceBetween: 24,
+          //   spaceBetween: 24,
         },
       },
     });

@@ -1,27 +1,32 @@
 .home-1
 	@apply bg-neutral-100 
 	background: linear-gradient(173deg, #FFF 2.86%, #E3EBFF 41.16%, #C2CCE7 97.14%)
+	h2
+		@apply font-black title-60 md:font-black md:title-80 uppercase 
 	.home-1-bg
 		@apply opacity-10
 	.home-1-decor
-		height: calc(500/1920*100rem)
-		@apply w-auto object-contain absolute -top-28 left-0
+		height: calc(300/1920*100rem)
+		@apply w-auto object-contain absolute -top-20 md:-top-28 left-0
 		img
 			@apply h-full w-auto object-contain 
+		@media (min-width: 1024px)
+			height: calc(500/1920*100rem)
 	.container		  
 		@apply flex flex-col items-center
 		gap: rr(40px)
 .list-stats
-	@apply grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-10 w-full mx-auto
+	@apply grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-10 w-full mx-auto
 	.stat-item
+		@apply pl-10 md:pl-20 lg:p-5 flex items-start justify-start gap-2  md:gap-6 lg:whitespace-nowrap
 		.stat-info
-			@apply space-y-4
-		@apply p-3 lg:p-5 flex items-center justify-start gap-6 lg:whitespace-nowrap
+			@apply space-y-2 md:space-y-4
 		.stat-label
-			@apply font-normal text-utility-800 body-18
+			@apply font-normal text-utility-800 body-14 md:body-18
 		.stat-icon
 			@apply sq-14 lg:sq-16 flex-shrink-0
 			img
 				@apply w-full h-full object-contain
 		.stat-number
-			@apply text-primary-2 font-black title-48
+			@apply text-primary-2 title-28 md:title-48
+			@apply font-black #{!important}

@@ -22,7 +22,7 @@
 .box-news
 		@apply transition-all duration-300 space-y-5.5
 
-		.news-image
+		.news-image, figure
 				@apply relative overflow-hidden img-ratio ratio:pt-[293_440]
 
 				a
@@ -36,7 +36,7 @@
 				
 
 		.news-content
-				@apply flex flex-row gap-5
+				@apply flex flex-col lg:flex-row gap-5
 				.news-date
 					@apply bg-primary-1 text-white py-2.5 px-1
 					@apply flex flex-col items-center justify-center gap-1
@@ -50,6 +50,7 @@
 				.wrapper
 					@apply flex flex-col justify-between space-y-3
 					.news-title
+						@apply title-24 lg:title-20
 						a
 								@apply no-underline
 								@apply transition-colors duration-300
@@ -63,8 +64,8 @@
 
 		// Featured variant (larger)
 		&.box-news-featured
-				@apply grid grid-cols-1 lg:grid-cols-12 gap-0
-				.news-image
+				@apply grid grid-cols-1 lg:grid-cols-12 lg:gap-10
+				.news-image, figure
 						@apply col-span-12 lg:col-span-8 img-ratio ratio:pt-[613_920]
 						.news-date
 								@apply w-20 h-20
@@ -76,22 +77,21 @@
 										@apply text-sm
 
 				.news-content
-						@apply col-span-12 lg:col-span-4 p-10 gap-10 flex flex-col justify-center
+						@apply col-span-12 lg:col-span-4 lg:p-10 lg:pl-0 lg:gap-10 flex flex-col justify-center
 						.wrapper
 							@apply space-y-3
 							.news-title
-								@apply mb-4
-							.news-excerpt
-								@apply mb-6
+								@apply title-24
+							// .news-excerpt
+							// 	@apply mb-6
 .news-excerpt
 	@apply line-clamp-3
 // ============ NEWS ARCHIVE PAGE ============
 .section-news-archive
 		.featured-post
-				@apply mb-10
-
+				@apply mb-6 lg:mb-10
 		.news-grid
-				@apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-12
+				@apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-10
 
 		.news-pagination
 				@apply flex justify-center
@@ -116,16 +116,14 @@
 		// MAIN CONTENT
 		.news-detail-main
 				@apply w-full
-
 				// News Header
 				.header-news
 						@apply flex flex-row gap-5 pb-5 border-b border-[#B0B5BE]
-
 						.news-title
 								@apply title-32
 
 						.news-meta
-								@apply flex flex-wrap gap-4 text-sm text-gray-600
+								@apply flex flex-wrap gap-4 text-sm text-utility-2929
 
 								span
 										@apply flex items-center gap-2
@@ -144,8 +142,9 @@
 								img
 										@apply w-full h-auto object-cover rounded-4
 
-								figure.news-image
-										@apply my-8 overflow-hidden rounded-lg
+								figure.news-image, figure
+										@apply my-8 overflow-hidden rounded-lg 
+										@apply max-w-full #{!important}
 
 										img
 												@apply w-full h-auto object-cover rounded-4
@@ -214,8 +213,8 @@
 				&.box-news-featured
 						@apply grid-cols-1
 
-						.news-image
-								aspect-ratio: 16/9
+						// .news-image
+						// 		aspect-ratio: 16/9
 
 		.section-news-archive
 				.news-grid

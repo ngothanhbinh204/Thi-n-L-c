@@ -48,7 +48,9 @@
 				@apply w-full lg:w-1/4 px-4
 
 				.sidebar-widget
-						@apply mb-8 last:mb-0
+						@apply mb-8
+						&:last-child
+								@apply mb-0
 
 						.widget-title
 								@apply text-xl font-bold mb-4 pb-3
@@ -56,20 +58,24 @@
 
 						.widget-content
 								.post-item
-										@apply mb-4 pb-4 last:mb-0 last:pb-0
-										@apply border-b border-gray-200 last:border-b-0
+										@apply mb-4 pb-4
+										@apply border-b border-utility-100
+										&:last-child
+												@apply mb-0 pb-0 border-b-0
 
 										p
-												@apply m-0 text-gray-700
+												@apply m-0
 												@apply transition-colors duration-300
 												@apply hover:text-primary-2 cursor-pointer
 
 								.service-item
-										@apply mb-4 pb-4 last:mb-0 last:pb-0
-										@apply border-b border-gray-200 last:border-b-0
+										@apply mb-4 pb-4
+										@apply border-b border-utility-100
+										&:last-child
+												@apply mb-0 pb-0 border-b-0
 
 										p
-												@apply m-0 text-gray-700
+												@apply m-0
 
 		// ============ RESPONSIVE ============
 		@media (max-width: 1023px)
@@ -115,10 +121,11 @@
 										@apply px-4 py-2 text-sm whitespace-nowrap
 
 .section-tabs-customer
+	@apply -lg:px-4
 	@apply pt-0 #{!important}
 .section-tabs-customer, .section-product-detail
 	.tabs-navigation
-		@apply justify-center
+		@apply justify-start xl:justify-center
 
 	.tabs-content
 		.wrapper-content-tab
@@ -143,39 +150,41 @@
 
 
 .section-related-customers
-				.swiper-related-customers
-								@apply pb-12
-								.swiper-slide
-												height: auto
-												.customer-card
-																@apply h-full bg-white rounded-2 overflow-hidden transition-all duration-300 hover:shadow-lg hover:border-primary-2 flex-col
-																.card-img
-																				@apply relative img-ratio ratio:pt-[1/1] overflow-hidden p-4 justify-center 
-																				img
-																								@apply w-full h-full object-contain transition-transform duration-500
-																.card-body
-																				@apply px-4 py-6 flex-col flex-grow text-center
-																				.card-title
-																								@apply text-lg font-bold mb-4 line-clamp-2
-																				// .btn-detail
-																				// 				@apply mt-auto inline-block px-6 py-2 rounded-full border border-primary-1 text-primary-1 font-medium transition-all duration-300 hover:bg-primary-1 hover:text-white
+	.related-customers-slider
+		.swiper-related-customers
+			@apply pb-12
+			.swiper-slide
+				height: auto
+				.customer-card
+					@apply h-full bg-white rounded-2 overflow-hidden transition-all duration-300 hover:shadow-lg hover:border-primary-2 flex-col
+					.card-img
+						@apply relative bg-[#F3F3F3] img-ratio ratio:pt-[1/1] overflow-hidden p-4 justify-center 
+						img
+							@apply w-full h-full object-contain transition-transform duration-500
+					.card-body
+						@apply px-4 py-6 flex-col flex-grow text-center
+						.card-title
+							@apply body-18 font-bold mb-4 line-clamp-2
+						// .btn-detail
+						// 				@apply mt-auto inline-block px-6 py-2 rounded-full border border-primary-1 text-primary-1 font-medium transition-all duration-300 hover:bg-primary-1 hover:text-white
 
-																&:hover
-																				.card-img
-																								img
-																												@apply scale-110
+					&:hover
+						.card-img
+							img
+								@apply scale-110
 
-.swiper-navigation
-								.btn-prev,
-								.btn-next
-												@apply w-10 h-10 rounded-full flex justify-center transition-all duration-300
-												&::after
-																@apply hidden
-										
-								.btn-prev
-												@apply left-0 lg:-left-20
-								.btn-next
-												@apply right-0 lg:-right-20
+		.swiper-navigation
+			@apply absolute top-1/2 left-0 w-full z-10 flex justify-between pointer-events-none -translate-y-1/2
+			.btn-prev,
+			.btn-next
+				@apply w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 bg-white pointer-events-auto cursor-pointer hover:bg-primary-1 hover:text-white text-primary-1
+				&::after
+					@apply hidden
+			
+			.btn-prev
+				@apply -left-4 lg:-left-14 xl:-left-20
+			.btn-next
+				@apply -right-4 lg:-right-14 xl:-right-20
 
 // ============ ANIMATIONS ============
 @keyframes fadeInUp

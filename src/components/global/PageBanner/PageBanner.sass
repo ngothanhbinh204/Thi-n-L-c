@@ -1,7 +1,7 @@
 .page-banner
 	@apply relative
-	.banner-swiper
-		@apply h-[50vh] md:h-auto md:aspect-video xl:aspect-[1920/710] w-full
+	.banner-swiper, .banner-single
+		@apply h-[80vh] md:h-auto md:aspect-video xl:aspect-[1920/710] w-full
 	.banner-item
 		.banner-img
 			@apply h-full w-full absolute inset-0
@@ -24,7 +24,12 @@
 	.group-controll
 		@apply absolute flex items-center gap-3 z-10 bottom-6 -md:right-4 md:bottom-14 xl:bottom-20
 	.wrap-button-slide
-		@apply relative z-10 flex items-center gap-3 -translate-y-12 md:-translate-y-16
+		@apply -md:hidden relative z-10 flex items-center gap-3 -translate-y-12 md:-translate-y-16
 		.btn-prev, .btn-next
 			@apply static translate-y-0
+			@apply hover:bg-white hover:text-primary-1 hover:border-white transition-colors #{!important}
 	
+.wrapper-bg
+	@apply relative
+.otgs-development-site-front-end
+	@apply hidden

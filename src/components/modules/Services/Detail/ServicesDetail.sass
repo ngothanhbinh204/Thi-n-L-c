@@ -9,6 +9,7 @@
 		gap: r(32px)
 		align-items: center
 		height: 100%
+		width: 100%
 		@media (min-width: 768px)
 			@apply grid-cols-12
 			gap: r(40px)
@@ -69,22 +70,40 @@
 	@apply py-10 lg:py-20 bg-white
 	.grid-layout
 		@apply grid grid-cols-1 md:grid-cols-12 gap-0 justify-center items-center
-	.content-wrapper
-		@apply text-utility-900 col-span-full md:col-start-3 md:col-span-8 space-y-5 pl-5 md:pl-10 border-l-2 border-primary-2
-	.title
-		@apply body-18 font-bold text-black
-	.desc
-		@apply  body-18
-	.list-check
-		@apply space-y-4
-		li
-			@apply flex items-start
-			i
-				@apply text-primary-2 body-16 mr-5 mt-1
-			span
-				@apply body-18
-	.desc-bottom
-		@apply body-18
+		.content-wrapper
+			@apply text-utility-900 body-18 col-span-full md:col-start-3 md:col-span-8 space-y-5 pl-5 md:pl-10 border-l-2 border-primary-2
+			ul
+				@apply list-none m-0 p-0 space-y-4
+
+				li
+					@apply relative pl-9 flex items-start
+
+					&::before
+						content: ''
+						@apply absolute left-0 flex-shrink-0
+						// background-image: url('/img/icon-check.svg')
+						background-repeat: no-repeat
+						background-size: contain
+						content: '\f14a'
+						font-family: 'Font Awesome 6 Pro'
+						font-weight: 900
+						@apply text-primary-2 text-base
+			h2, h3, h4
+				@apply text-utility-900 font-bold body-18
+			// .title
+			// 	@apply body-18 font-bold text-black
+			// .desc
+			// 	@apply  body-18
+			// .list-check
+			// 	@apply space-y-4
+			// 	li
+			// 		@apply flex items-start
+			// 		i
+			// 			@apply text-primary-2 body-16 mr-5 mt-1
+			// 		span
+			// 			@apply body-18
+			// .desc-bottom
+			// 	@apply body-18
 
 .section-services-detail-3 
 	@apply relative overflow-hidden

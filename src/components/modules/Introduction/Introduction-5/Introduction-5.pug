@@ -1,64 +1,45 @@
-section.introduction-5.section-py(class="bg-linear-2")
+section.introduction-5.section-py.bg-linear-2
 	.container
-		.wrapper-grid
-			//- Left Column: Slider
-			.col-slider(data-aos="fade-right")
-				.machine-slider.relative
-					.swiper
-						.swiper-wrapper
-							//- Slide 1
-							.swiper-slide
-								.machine-grid
-									//- Item 1
-									.machine-item
-										.img-wrapper
-											+PugImg("./img/machine.png")
-										h4.title
-											a(href="#") Máy in UV
-									//- Item 2
-									.machine-item
-										.img-wrapper
-											+PugImg("./img/machine2.png")
-										h4.title
-											a(href="#") Máy in kỹ thuật số
-									//- Item 3 (Full width)
-									.machine-item.full
-										.img-wrapper
-											+PugImg("./img/machine.png")
-										h4.title
-											a(href="#") Máy in offset 4 - 6 màu
-							
-							//- Slide 2 (Demo data)
-							.swiper-slide
-								.machine-grid
-									//- Item 1
-									.machine-item
-										.img-wrapper
-											+PugImg("./img/machine.png")
-										h4.title
-											a(href="#") Máy gia công sau in
-									//- Item 2
-									.machine-item
-										.img-wrapper
-											+PugImg("./img/machine2.png")
-										h4.title
-											a(href="#") Máy bế tự động
-									//- Item 3 (Full width)
-									.machine-item.full
-										.img-wrapper
-											+PugImg("./img/machine.png")
-										h4.title
-											a(href="#") Hệ thống kiểm soát chất lượng
-			
-			//- Right Column: Content
-			.col-content(data-aos="fade-left" data-aos-delay="200")
-				h2 Máy Móc & Thiết Bị
-				.desc.text-neutral-600.text-lg.space-y-4.mb-8.text-justify
-					p Sở hữu nền tảng sản xuất vững chắc cùng hệ thống máy móc – thiết bị hiện đại, Thiên Lộc đảm bảo quy trình in ấn nhanh chóng, ổn định và đạt chuẩn chất lượng cao. Chúng tôi không ngừng đổi mới công nghệ để đáp ứng mọi yêu cầu từ B2B đến B2C và dẫn đầu xu hướng trong ngành in bao bì.
-				
-				.group-controll.in-static
-					.wrap-button-slide.machine-nav
-						.btn-prev.btn-slider-2
-							i.fa-solid.fa-chevron-left
-						.btn-next.btn-slider-2
-							i.fa-solid.fa-chevron-right
+		for i in [0, 1]
+			- const isReverse = i % 2 !== 0
+			.wrapper-grid(class= isReverse ? 'is-reverse' : '')
+				.col-slider(
+					data-aos= isReverse ? 'fade-left' : 'fade-right'
+					data-aos-delay="200"
+				)
+					.machine-slider.relative
+						.swiper
+							.swiper-wrapper
+								.swiper-slide
+									.machine-grid
+										.machine-item
+											.img-wrapper
+												+PugImg("./img/machine.png")
+											h4.title
+												a(href="#") Máy in UV
+										.machine-item
+											.img-wrapper
+												+PugImg("./img/machine2.png")
+											h4.title
+												a(href="#") Máy in kỹ thuật số
+										.machine-item.full
+											.img-wrapper
+												+PugImg("./img/machine.png")
+											h4.title
+												a(href="#") Máy in offset 4–6 màu
+
+				//- Content Column
+				.col-content(
+					data-aos= isReverse ? 'fade-right' : 'fade-left'
+					data-aos-delay="200"
+				)
+					h2 Máy Móc & Thiết Bị
+					.desc
+						p Sở hữu nền tảng sản xuất vững chắc cùng hệ thống máy móc – thiết bị hiện đại, Thiên Lộc đảm bảo quy trình in ấn nhanh chóng, ổn định và đạt chuẩn chất lượng cao.
+					
+					.group-controll.in-static
+						.wrap-button-slide.machine-nav
+							.btn-prev.btn-slider-2
+								i.fa-solid.fa-chevron-left
+							.btn-next.btn-slider-2
+								i.fa-solid.fa-chevron-right

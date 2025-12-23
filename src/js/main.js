@@ -25,7 +25,7 @@ $(document).ready(function () {
 
 /*==================== Aos Init ====================*/
 AOS.init({
-  offset: 300,
+  offset: 50,
   once: true,
 });
 /*==================== Lazyload JS ====================*/

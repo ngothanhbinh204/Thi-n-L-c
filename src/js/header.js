@@ -2,18 +2,33 @@ export const header = {
   init: () => {
     const headerEl = document.querySelector(".header");
     if (!headerEl) return;
+    const desktopMenuItems = document.querySelectorAll(
+      ".header .header-wrapper .menu li.has-sub"
+    );
+    let lastScrollY = window.scrollY;
 
     // Sticky Header
     const handleScroll = () => {
-      if (window.scrollY > 0) {
+      const currentScrollY = window.scrollY;
+
+      // Sticky header
+      if (currentScrollY > 0) {
         headerEl.classList.add("active");
       } else {
         headerEl.classList.remove("active");
       }
+
+      // 👉 Scroll UP → close desktop submenu
+      if (currentScrollY > lastScrollY && window.innerWidth >= 1024) {
+        desktopMenuItems.forEach((item) =>
+          item.classList.remove("open-submenu")
+        );
+      }
+
+      lastScrollY = currentScrollY;
     };
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Check on load
-
+    handleScroll();
     // Mobile Menu Toggle
     const hamburger = document.querySelector(".header-hambuger");
     const mobileMenu = document.querySelector(".mobile-menu");
@@ -34,27 +49,32 @@ export const header = {
       });
     }
 
-    // Desktop Submenu Logic
-    const desktopMenuItems = document.querySelectorAll(
-      ".header .header-wrapper .menu li.has-sub"
-    );
+    // Close all submenus when mouse leaves the header
+    headerEl.addEventListener("mouseleave", (e) => {
+      if (window.innerWidth >= 1024) {
+        // Check if the mouse moved to an element that is still inside the header
+        if (e.relatedTarget && headerEl.contains(e.relatedTarget)) {
+          return;
+        }
+        desktopMenuItems.forEach((item) =>
+          item.classList.remove("open-submenu")
+        );
+      }
+    });
+
     desktopMenuItems.forEach((item) => {
       const link = item.querySelector("a");
-      if (link) {
-        link.addEventListener("click", (e) => {
-          if (window.innerWidth >= 1024) {
-            e.preventDefault();
-            const isOpen = item.classList.contains("open-submenu");
-            // Close others
-            desktopMenuItems.forEach((other) => {
-              if (other !== item) other.classList.remove("open-submenu");
-            });
-            // Toggle
-            if (isOpen) item.classList.remove("open-submenu");
-            else item.classList.add("open-submenu");
-          }
-        });
-      }
+
+      // Hover Event
+      item.addEventListener("mouseenter", () => {
+        if (window.innerWidth >= 1024) {
+          // Close others
+          desktopMenuItems.forEach((other) => {
+            if (other !== item) other.classList.remove("open-submenu");
+          });
+          item.classList.add("open-submenu");
+        }
+      });
     });
 
     // Mobile Submenu Logic (Accordion)
@@ -87,7 +107,7 @@ export const header = {
 
     // Language Dropdown
     const langTrigger = document.querySelector(".header .tools .language");
-    
+
     if (langTrigger) {
       langTrigger.addEventListener("click", (e) => {
         e.stopPropagation(); // Prevent immediate closing

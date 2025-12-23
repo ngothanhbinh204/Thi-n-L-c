@@ -1,6 +1,13 @@
 .home-2
 	//- Marquee Animation
-	@apply bg-primary-1
+	@apply bg-primary-1 relative pb-10 lg:pb-20 overflow-hidden
+	.home-2-decor
+		height: calc(300/1920*100rem)
+		@apply w-auto object-contain absolute -bottom-20 md:-bottom-28 -right-1/2
+		img
+			@apply h-full w-auto object-contain 
+		@media (min-width: 1024px)
+			height: calc(500/1920*100rem)
 	.marquee-wrapper
 		@apply overflow-hidden
 	.marquee
@@ -12,9 +19,11 @@
 		.marquee-item, .marquee-dot
 			font-family: "Inter Tight", sans-serif
 			letter-spacing: -2.208px
-			@apply uppercase whitespace-nowrap font-bold title-138
+			@apply uppercase whitespace-nowrap font-bold title-80 md:title-138
 	.section-header
 		@apply mb-0	
+	.list-grid
+		@apply grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-1
 		
 	@keyframes marquee
 		0%
@@ -25,12 +34,11 @@
 .product-cards
 	.row
 		@apply flex-wrap
-
 		.col
 			@apply p-0
 
 	.product-card
-		@apply relative overflow-hidden cursor-pointer ratio:pt-[600_476]
+		@apply relative overflow-hidden cursor-pointer img-ratio ratio:pt-[600_476]
 
 		.product-img
 			@apply absolute inset-0 transition-transform duration-500 z-0
@@ -39,12 +47,13 @@
 				@apply w-full h-full object-cover
 
 		.product-content
-			@apply absolute bottom-0 left-0 right-0 p-10 space-y-6 text-white z-20
+			@apply absolute bottom-0 left-0 right-0 p-4 md:p-10 space-y-6 text-white z-20
 			@apply transition-all duration-500 ease-out
 			transform: translateY(4rem)
 
 		.product-title
-			@apply title-32 xl:title-36 font-bold text-white
+			@apply title-24
+			@apply xl:title-36 font-bold text-white
 
 		.product-desc
 			@apply body-18 line-clamp-6

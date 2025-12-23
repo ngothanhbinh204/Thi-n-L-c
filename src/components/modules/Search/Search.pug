@@ -1,0 +1,101 @@
+.search-page-wrapper
+	section.search-page.section-py
+		.container
+			.search-header.text-center.mb-base
+				h1.heading-2.font-bold.text-primary-2.mb-4
+					| Kết quả tìm kiếm
+				.search-query.body-1
+					| Tìm kiếm từ khóa:
+					span.font-bold.text-primary-1 &nbsp;"{keyword}"
+				.search-total.mt-2.text-utility-700
+					| Tìm thấy {total} kết quả
+
+			.search-tabs.mb-base
+				ul.search-tab-nav.flex.flex-wrap.justify-center.gap-3
+					li
+						button.search-tab-btn.active.btn.btn-outline(data-tab="all")
+							| Tất cả ({total})
+
+					li
+						button.search-tab-btn.btn.btn-outline(data-tab="product")
+							i.fa-solid.fa-box.mr-2
+							| Sản phẩm (10)
+
+					li
+						button.search-tab-btn.btn.btn-outline(data-tab="post")
+							i.fa-solid.fa-newspaper.mr-2
+							| Bài viết (5)
+
+					li
+						button.search-tab-btn.btn.btn-outline(data-tab="taxonomies")
+							i.fa-solid.fa-tags.mr-2
+							| Danh mục (3)
+
+			.search-tab-content
+				.search-tab-pane.active(data-pane="all")
+					.search-section.mb-base
+						.search-section-header.flex.items-center.justify-between.mb-6
+							h2.heading-4.font-bold.text-primary-2
+								i.fa-solid.fa-box.mr-2
+								| Sản phẩm
+								span.text-utility-700.font-normal &nbsp;(10)
+
+						.search-grid
+							.article-card
+								a.article-thumb(href="#")
+									img(src="https://via.placeholder.com/400x250")
+								h3.article-title
+									a(href="#") Tiêu đề kết quả
+								p.article-excerpt
+									| Mô tả ngắn nội dung kết quả
+							.article-card
+								a.article-thumb(href="#")
+									img(src="https://via.placeholder.com/400x250")
+								h3.article-title
+									a(href="#") Tiêu đề kết quả
+								p.article-excerpt
+									| Mô tả ngắn nội dung kết quả
+
+						.text-center.mt-6
+							button.btn.btn-primary.search-tab-btn(data-tab="product")
+								| Xem tất cả Sản phẩm (10)
+
+				.search-tab-pane(data-pane="product")
+					.search-section
+						.search-grid
+							.article-card
+								a.article-thumb(href="#")
+									img(src="https://via.placeholder.com/400x250")
+								h3.article-title
+									a(href="#") Tiêu đề kết quả
+								p.article-excerpt
+									| Mô tả ngắn nội dung kết quả
+							.article-card
+								a.article-thumb(href="#")
+									img(src="https://via.placeholder.com/400x250")
+								h3.article-title
+									a(href="#") Tiêu đề kết quả
+								p.article-excerpt
+									| Mô tả ngắn nội dung kết quả
+
+
+				.search-tab-pane(data-pane="taxonomies")
+					.search-section
+						.taxonomy-group.mb-8
+							h3.heading-5.font-bold.text-primary-2.mb-4
+								| Danh mục sản phẩm
+							.search-taxonomies.flex.flex-wrap.gap-3
+								a.search-term-item.inline-flex.items-center.gap-2.px-4.py-2(href="#")
+									i.fa-solid.fa-folder
+									span Bao bì
+									span.text-sm (12)
+
+			.search-no-results.text-center.py-20
+				.icon.text-6xl.text-utility-300.mb-6
+					i.fa-solid.fa-search
+				h2.heading-4.font-bold.text-primary-2.mb-4
+					| Không tìm thấy kết quả
+				p.body-1.text-utility-700.mb-6
+					| Vui lòng thử lại với từ khóa khác
+				a.btn.btn-primary(href="/")
+					| Về trang chủ

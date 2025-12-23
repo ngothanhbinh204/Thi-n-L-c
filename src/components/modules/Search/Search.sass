@@ -1,0 +1,70 @@
+.search-page
+	.search-header
+		.search-query
+			span
+				@apply text-primary-2
+
+	.search-tabs
+		.search-tab-nav
+			li
+				button
+					@apply py-4 px-6 body-16 font-medium text-utility-500 bg-white border border-utility-200 transition-all duration-300
+
+					&.active
+						@apply bg-primary-2
+						@apply text-white
+						@apply border-primary-2
+
+	.search-tab-content
+		.search-tab-pane
+			@apply hidden
+
+			&.active
+				@apply block
+
+	.search-section
+		.search-section-header
+			h2
+				@apply title-24 md:title-32 font-bold mb-6
+
+	.search-grid
+		@apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6
+		> *
+			@apply h-full
+			
+
+	.search-taxonomies
+		.search-term-item
+			@apply border border-utility-200 px-4 py-2 flex items-center gap-3 transition-all duration-300 cursor-pointer
+			@apply rounded-full bg-utility-50
+
+			&:hover
+				@apply bg-primary-2 text-white
+				@apply border-primary-2
+
+	.search-no-results
+		.icon
+			@apply opacity-60
+
+.search-page-wrapper
+			.article-card
+				@apply h-full bg-white rounded-2 overflow-hidden transition-all duration-300 hover:shadow-lg hover:border-primary-2 flex flex-col
+
+				.article-thumb
+					@apply relative img-ratio ratio:pt-[1/1] overflow-hidden
+
+					img
+						@apply w-full h-full object-cover transition-transform duration-500
+				&:hover .article-thumb img
+					@apply scale-110
+
+				.article-card-body
+					@apply flex-grow p-4 flex flex-col justify-between space-y-3
+
+					.article-title
+						@apply title-20 font-bold
+						@apply transition-colors duration-300
+						@apply hover:text-primary-2 cursor-pointer
+
+					.article-excerpt
+						@apply text-primary-1 font-bold body-18

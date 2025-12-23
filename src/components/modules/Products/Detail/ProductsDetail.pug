@@ -1,4 +1,4 @@
-section.section-product-detail.section-py
+section.section-product-detail
 	.container
 		.wrapper
 			//- LEFT COLUMN - Product Information (col-9)
@@ -91,23 +91,24 @@ section.section-product-detail.section-py
 
 
 				//- RELATED PRODUCTS
-				.product-related.section-py
-					h2(class="title-36 text-center text-primary-1 mb-5 lg:mb-11") Sản phẩm gợi ý
-						.wrapper-related-products.relative
-							.btn-relative-prev.btn-slider-2
-											i.fa-solid.fa-chevron-left
-							.swiper.swiper-related-products
-								.swiper-wrapper
-									- for(var i=1; i<=6; i++)
-										.swiper-slide
+				.product-related
+					h2(class="") Sản phẩm gợi ý
+					.wrapper-related-products.relative
+						.btn-relative-prev.btn-slider-2
+							i.fa-solid.fa-chevron-left
+						.swiper.swiper-related-products
+							.swiper-wrapper
+								- for(var i=1; i<=6; i++)
+									.swiper-slide
+										.slide-inner
 											.product-card
 												.product-image
 													+PugImg(`img/1.jpg`)
 												.product-info
 													h3.product-title Ấn phẩm văn phòng
 													a.btn.btn-primary(href="#") Xem chi tiết
-							.btn-relative-next.btn-slider-2
-										i.fa-solid.fa-chevron-right
+						.btn-relative-next.btn-slider-2
+							i.fa-solid.fa-chevron-right
 									
 
 

@@ -3,11 +3,14 @@
 	background-clip: text
 	-webkit-background-clip: text
 	-webkit-text-fill-color: transparent
+	background-position: center calc(100% - 10%)
 	@apply select-none bg-cover
 .title
 	@apply transition-colors duration-300
-.section-header
+.section-header, .section-header .container
 	@apply space-y-3 mb-10
+	.desc, p
+		@apply body-18
 .header-center
 	@apply space-y-6 text-center mb-10
 	.title-center
@@ -15,3 +18,26 @@
 
 body 
 	@apply overflow-x-hidden
+
+[class*="desc"]
+	ul
+		list-style: none
+		@apply pl-5
+		li
+			position: relative
+			@apply pl-5
+			line-height: 1.5
+			&::marker
+				display: none
+
+			&::before
+				content: ""
+				width: 3px
+				height: 3px
+				@apply bg-utility-2929
+				border-radius: 1px 
+				position: absolute
+				left: 0
+				top: 40% 
+
+

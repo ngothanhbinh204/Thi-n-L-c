@@ -3,7 +3,10 @@
 // Mobile-First Responsive Approach
 // ========================================
 .section-home-5
-	@apply bg-linear-top-to-bottom
+	@apply bg-linear-top-to-bottom overflow-hidden
+	.container
+		@media (min-width: 1024.02px)
+			@apply lg:px-0 #{!important}
 	.home-5-decor
 		height: calc(500/1920*100rem)
 		@apply w-auto object-contain absolute -bottom-48 -left-28
@@ -28,18 +31,14 @@
 	// ========================================
 	.news-grid
 		// Mobile: 1 column
-		@apply grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8
-
-	
-
+		@apply grid grid-cols-1 md:grid-cols-2 gap-6 xl:gap-10
 		// Desktop: Custom 3-column layout (1fr 2fr 1fr)
 		@media (min-width: 1024px)
-			@apply gap-10
 			grid-template-columns: 1fr 2fr 1fr
 			grid-template-rows: auto auto
-			// Define grid areas for desktop layout
 			grid-template-areas: "left1 center right1" "left2 center right2"
-
+	.news-footer
+		@apply flex justify-center mt-5 lg:mt-10
 	// ========================================
 	// NEWS ITEMS - Grid Positioning
 	// ========================================
@@ -79,15 +78,13 @@
 		@apply flex flex-col h-full
 
 		.news-card-img
-			// Mobile: 16:9 aspect ratio, full width
 			@apply block overflow-hidden rounded-5
-			@apply aspect-video
+			// @apply aspect-video
 			img
 				@apply w-full h-full object-cover transition-500
-			&:hover img
-				@apply scale-110
+			// &:hover img
+			// 	@apply scale-110
 
-			// Desktop: custom ratio
 			@media (min-width: 1024px)
 				@apply mb-5 img-ratio ratio:pt-[240_320]
 

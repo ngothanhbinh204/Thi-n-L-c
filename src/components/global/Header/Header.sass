@@ -1,112 +1,205 @@
 .header
 	@apply fixed top-0 left-0 w-full z-[100] transition-all duration-300 pt-5
 	@apply px-4 md:px-6 lg:px-10 xl:px-20
+
 	&.active
 		.header-wrapper
 			@apply shadow-md
+
 	.header-wrapper
-		@apply rounded-20 shadow-shadow-light bg-[rgba(255,255,255,0.90)] backdrop-blur px-8 py-3 lg:px-8 lg:py-4 xl:px-10 xl:py-5 gap-3
+		@apply relative z-[110]
+		@apply rounded-20 shadow-shadow-light bg-[rgba(255,255,255,0.90)] backdrop-blur
+		@apply pr-5 px-8 py-3 lg:px-8 lg:py-4 xl:px-10 xl:py-5
+		@apply flex items-center gap-3
+
 		.logo
-			a
-				img
-					@apply h-10 w-auto object-contain
-					@media (min-width: 1280px)
-						@apply h-15
+			a img
+				@apply h-10 w-auto object-contain
+				@apply xl:h-15
+
 		.menu
 			&.active
 				ul
 					@apply translate-x-0
+
+		ul
+			@apply flex items-center gap-x-10 md:gap-x-8 xl:gap-x-20
+			@apply lg:flex lg:items-center lg:static lg:bg-transparent
+			@apply lg:p-0 lg:w-auto lg:h-auto lg:shadow-none
+
+		ul li
+			@apply relative w-full lg:w-auto
+
+			a.item-menu
+				@apply block w-full py-2 lg:py-0
+				@apply title-20 font-bold text-utility-2929 transition-colors
+
+			&::before
+				@apply hidden lg:block
+				@apply content-[''] opacity-0 w-0 h-0.5 bg-primary-2
+				@apply absolute left-0 bottom-0 rounded-full transition-all duration-300
+
+			&:hover,
+			&.active
+				> a
+					@apply text-primary-2
+				&::before
+					@apply opacity-100 w-full
+
+			.mega-menu
+				@apply grid grid-cols-1 gap-10 backdrop-blur p-10 xl:p-12
+				@apply lg:grid-cols-5 absolute left-0 w-full bg-white
+				@apply shadow-lg rounded-5 overflow-hidden transition-all duration-300
+				@apply z-[-1]
+
+				/* Desktop */
+				@apply lg:fixed lg:left-0 lg:w-full
+				@apply lg:top-20 xl:top-26
+				@apply lg:opacity-0 lg:invisible lg:-translate-y-full
+				@apply lg:border-t lg:border-neutral-100
+
+				@apply -lg:hidden
+
+				.col
+					.label
+						@apply font-bold uppercase title-20 text-utility-2929 block
+						@apply py-4 border-b border-neutral-100
+
+					ul
+						@apply flex flex-col gap-1 p-0 m-0
+						@apply static w-auto h-auto bg-transparent shadow-none space-y-1
+
+						li
+							@apply w-full py-4 border-b border-neutral-100
+
+							a
+								@apply block title-20 font-normal text-utility-2929
+								@apply hover:text-primary-2 transition-colors
+								&::before
+									@apply hidden
+
+			&.open-submenu
+				.mega-menu
+					@apply lg:opacity-100 lg:visible lg:translate-y-0
+					@apply z-50
+
+		/* ================= TOOLS ================= */
 		.tools
 			@apply flex items-center gap-10
-			@media (max-width: 768px)
-				@apply ml-auto gap-4
-			@media (max-width: 1024px)
-				@apply ml-auto gap-6
+
+			@apply -md:ml-auto -md:gap-4
+
+			@apply -lg:ml-auto -lg:gap-6
+
 			.search
 				@apply cursor-pointer flex
 				i
-					@apply text-xl text-primary-1 transition-colors duration-300 my-auto
+					@apply text-xl text-primary-1 transition-colors my-auto
 					&:hover
 						@apply text-primary-2
+
 			.language
 				@apply relative z-20
+
 				.current-lang
-					@apply flex items-center gap-1 text-primary-2 cursor-pointer px-3 py-2 border border-[rgba(191,191,191,0.40)] rounded-full hover:bg-neutral-100 transition-colors body-14 bg-white
-					.flag
-						@apply w-5 h-5 aspect-1 object-cover
+					@apply flex items-center gap-1 px-3 py-2
+					@apply border border-[rgba(191,191,191,0.40)]
+					@apply rounded-full bg-white cursor-pointer
+					@apply text-primary-2 body-14 hover:bg-neutral-100 transition-colors
+
+				.flag
+					@apply w-5 h-5 aspect-1 object-cover
+
 				.lang-dropdown
-					@apply absolute top-full right-0 mt-2 bg-white shadow-lg rounded-lg py-2 w-32 opacity-0 invisible transition-all duration-300 translate-y-2 overflow-hidden
+					@apply absolute top-full right-0 mt-2
+					@apply bg-white shadow-lg rounded-lg w-20
+					@apply opacity-0 invisible translate-y-2
+					@apply transition-all duration-300 overflow-hidden
+
 					ul
-						@apply flex flex-col gap-0 p-0 w-full h-auto shadow-none static bg-transparent
+						@apply flex flex-col gap-0 p-0 w-full
+						@apply h-auto shadow-none static bg-transparent
+
 						li
 							@apply w-full
 							a
-								@apply flex items-center gap-2 px-4 py-2 hover:bg-neutral-100 transition-colors text-utility-2929 body-14
-								.flag
-									@apply w-5 h-5 aspect-1 object-cover
+								@apply flex items-center gap-2 px-4 py-2
+								@apply hover:bg-neutral-100 transition-colors
+								@apply text-utility-2929 body-14
+
 				&.active
-					.current-lang
-						i
-							@apply rotate-180
+					.current-lang i
+						@apply rotate-180
 					.lang-dropdown
 						@apply opacity-100 visible translate-y-0
-				.hamburger
-					@apply lg:hidden
-					.header-hambuger
-						@apply w-7 h-0.5 bg-utility-2929 mb-1 last:mb-0
-		
-		ul
-			@apply flex items-center gap-x-10 md:gap-x-8 xl:gap-x-20
-			@apply lg:flex lg:items-center lg:static lg:bg-transparent lg:p-0 lg:w-auto lg:h-auto lg:shadow-none
-			// Mobile Menu Styles - REMOVED from here as it is now separate
-			
-		ul
-			li
-				@apply relative w-full lg:w-auto
-				a.item-menu
-					@apply md:body-16 lg:title-20 font-bold text-utility-2929 transition-colors block w-full py-2 lg:py-0
-				&::before
-					@apply content-[''] opacity-0 w-0 h-0.5 bg-primary-2 mt-1 rounded-full absolute left-0 bottom-0 transition-all duration-300 hidden lg:block
-				&:hover, &.active
-					> a
-						@apply text-primary-2
-					&::before
-						@apply content-[''] opacity-100 w-full h-0.5 bg-primary-2 mt-1 rounded-full absolute left-0 bottom-0 transition-all duration-300
+
+			.hamburger
+				@apply lg:hidden
 				
-				// Mega Menu Styles
-				.mega-menu
-					@apply grid grid-cols-1 gap-10 backdrop-blur p-12 lg:grid-cols-5 absolute left-0 w-full bg-white shadow-lg rounded-5 overflow-hidden transition-all duration-300 z-[-1]
-					// Desktop
-					@apply lg:fixed lg:left-0 lg:w-full lg:top-20 xl:top-26 lg:opacity-0 lg:invisible lg:-translate-y-[100%] lg:border-t lg:border-neutral-100
-					@media (max-width: 1024px)
-						@apply hidden
-					
-					.col
-						@apply space-y-1
-						.label
-							@apply font-bold uppercase title-20 text-utility-2929 py-4 border-b border-neutral-100
-						ul
-							@apply flex flex-col gap-1 p-0 m-0 static w-auto h-auto bg-transparent shadow-none 
-							li
-								@apply w-full py-4 border-b border-neutral-100
-								a
-									@apply title-20 text-utility-2929 hover:text-primary-2 transition-colors font-normal block
-									&::before
-										@apply hidden
 
-				// Active State for Mega Menu (Desktop)
-				&.open-submenu
-					.mega-menu
-						@apply lg:opacity-100 lg:visible lg:translate-y-0
-
-// Mobile Menu Independent Styles
 .admin-bar
 	.mobile-menu
 		@apply pt-36
-	
+
 .mobile-menu
-	@apply -z-1 fixed top-0 left-0 w-full h-screen bg-white translate-x-full transition-transform duration-300 pt-30 px-6 overflow-y-auto lg:hidden
-	.has-sub.active > div > i, .has-sub-2.active > div > i
-		@apply rotate-180 text-primary-2
+	@apply fixed top-0 left-0 w-full h-screen bg-white
+	@apply translate-x-full transition-transform duration-300
+	@apply pt-30 px-6 overflow-y-auto
+	@apply lg:hidden z-[90]
+
 	&.active
 		@apply translate-x-0
+
+	.has-sub.active > div > i,
+	.has-sub-2.active > div > i
+		@apply rotate-180 text-primary-2
+
+.menu,
+.menu-desktop,
+.mobile-menu,
+.menu-mobile
+	.menu-item > a
+		color: inherit
+		transition: color 0.2s ease
+
+	.menu-item > a:hover
+		@apply text-primary-2 #{!important}
+
+	// ===== ACTIVE ITEM =====
+	.menu-item.current-menu-item > a
+		@apply text-primary-2 #{!important}
+
+	.menu-item.current_page_item > a
+		@apply text-primary-2 #{!important}
+
+	.menu-item.is-active > a
+		@apply text-primary-2 #{!important}
+
+	// ===== PARENT / ANCESTOR =====
+	.menu-item.current-menu-parent > a
+		@apply text-primary-2 #{!important}
+
+	.menu-item.current_page_parent > a
+		@apply text-primary-2 #{!important}
+
+	.menu-item.current-menu-ancestor > a
+		@apply text-primary-2 #{!important}
+
+	.menu-item.current_page_ancestor > a
+		@apply text-primary-2 #{!important}
+
+	// ===== SUB MENU =====
+	.menu-item .submenu,
+	.menu-item .submenu-2
+		.menu-item.current-menu-item > a
+			@apply text-primary-2 #{!important}
+
+		.menu-item.is-active > a
+			@apply text-primary-2 #{!important}
+
+	// ===== ICON STATE =====
+	.menu-item.is-active i
+		@apply text-primary-2 #{!important}
+
+	.menu-item.current-menu-ancestor i
+		@apply text-primary-2 #{!important}
