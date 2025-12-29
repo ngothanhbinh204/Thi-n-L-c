@@ -80,7 +80,7 @@
 		// ============ RESPONSIVE ============
 		@media (max-width: 1023px)
 				.manufacturer-detail-left
-						@apply w-full mb-12
+						@apply w-full
 
 				.manufacturer-detail-right
 						@apply w-full
@@ -130,33 +130,66 @@
 	.tabs-content
 		.wrapper-content-tab
 			@apply relative overflow-hidden
-			@apply transition-[max-height] duration-700 ease-in-out
-			max-height: 80vh
-
+			transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1)
+			
+			&.collapsed
+				&::after
+					content: ""
+					@apply absolute bottom-0 left-0 w-full pointer-events-none
+					height: 120px
+					background: linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.95) 20%, rgba(255, 255, 255, 0.8) 40%, rgba(255, 255, 255, 0.4) 70%, rgba(255, 255, 255, 0) 100%)
+					opacity: 1
+					z-index: 1
+					transition: opacity 0.3s ease-in-out
+			
 			&.expanded
-				max-height: 9999px // fallback nếu JS chưa chạy
+				&::after
+					content: none
 
 		.view-more-container
+			@apply transition-all duration-300
+			
+			&.hiddend
+				@apply opacity-0 invisible
+				max-height: 0
+				overflow: hidden
+				margin-top: 0 !important
+
+			&.show
+				@apply opacity-100 visible
+				margin-top: 2rem
+
 			.btn-view-more
-				@apply transition-all duration-300 hover:text-primary-2
+				@apply transition-all duration-300 hover:text-primary-2 cursor-pointer
+				@apply focus:outline-none 
+				@apply rounded-lg px-4 py-2
+				@apply select-none
+				-webkit-tap-highlight-color: transparent
 				display: inline-flex
 				align-items: center
+				
 				i
 					@apply transition-transform duration-300
+					display: inline-block
 
-				&.active
+				&[aria-expanded="true"]
 					i
-						@apply rotate-180
+						transform: rotate(180deg)
+
+				&[aria-expanded="false"]
+					i
+						transform: rotate(0deg)
 
 
 .section-related-customers
+	@apply pt-0 #{!important}
 	.related-customers-slider
 		.swiper-related-customers
-			@apply pb-12
+			// @apply pb-12
 			.swiper-slide
 				height: auto
 				.customer-card
-					@apply h-full bg-white rounded-2 overflow-hidden transition-all duration-300 hover:shadow-lg hover:border-primary-2 flex-col
+					@apply -md:p-10 h-full bg-white rounded-2 overflow-hidden transition-all duration-300 hover:shadow-lg hover:border-primary-2 flex-col
 					.card-img
 						@apply relative bg-[#F3F3F3] img-ratio ratio:pt-[1/1] overflow-hidden p-4 justify-center 
 						img

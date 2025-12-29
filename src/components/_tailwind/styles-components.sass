@@ -216,6 +216,7 @@
 
 	.tabs-content
 		@apply p-4 lg:p-10 bg-[rgba(3,4,94,0.04)] rounded-4
+		
 
 		.tab-pane
 			@apply hidden opacity-0
@@ -240,9 +241,9 @@
 	@apply bg-utility-50
 	ul,
 	.breadcrumb
-		@apply flex flex-wrap items-center gap-2 lg:gap-5 p-0 m-0 list-none
+		@apply body-14 flex flex-wrap items-center gap-2 lg:gap-5 p-0 m-0 list-none
 		li
-			@apply flex items-center gap-2 lg:gap-4
+			@apply body-14 flex items-center gap-2 lg:gap-4
 
 			a,b
 				@apply body-14 text-utility-5252 font-medium
@@ -276,6 +277,8 @@
 					@apply text-primary-1 title-36 leading-[1.25] font-bold mb-10 text-center
 				.tab-content-body
 					@apply space-y-4
+					ul
+						@apply list-disc list-inside
 					figure,
 					img
 						@apply w-full h-auto rounded-4 object-cover 

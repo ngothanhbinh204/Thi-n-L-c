@@ -51,9 +51,9 @@ section.section-tabs-customer.section-py
 					button.tab-btn(data-tab="tab-maintenance") Hướng dẫn bảo quản
 			.container
 				.tabs-content
-					.wrapper-content-tab.collapsed
-						//- Tab 1: Products Made
-						.tab-pane.active(id="tab-products")
+					//- Tab 1: Products Made
+					.tab-pane.active(id="tab-products")
+						.wrapper-content-tab.collapsed(data-collapsed-height="500")
 							h3.title-36 Sản phẩm đã làm
 
 							.tab-content-body.body-18
@@ -69,35 +69,63 @@ section.section-tabs-customer.section-py
 
 								p Sản phẩm ba chỉ bò Mỹ nhập khẩu là một lựa chọn tuyệt vời cho khách hàng mua lẻ, nhà hàng và khách sạn, chuỗi bán lẻ được sản xuất từ thịt bò tuổi ngon, có chất lượng cao và nhập khẩu trực tiếp từ Mỹ, nơi nổi tiếng về nguồn cung cấp thịt bò chất lượng, số lượng lớn hàng đầu thế giới.
 								+PugImg('img/1.jpg')
+						
+						.view-more-container.text-center.mt-8
+							button.btn-view-more.text-primary-2.font-normal.flex.items-center.justify-center.gap-3.mx-auto(
+								type="button"
+								aria-expanded="false"
+								aria-label="Xem thêm nội dung"
+							)
+								span Xem thêm
+								i.fa-solid.fa-chevron-down
 
-
-						//- Tab 2: Product Images
-						.tab-pane(id="tab-images")
+					//- Tab 2: Product Images
+					.tab-pane(id="tab-images")
+						.wrapper-content-tab.collapsed(data-collapsed-height="500")
 							h3.title-36 Hình ảnh sản phẩm
 
 							.tab-content-body.body-18
 								p Hình ảnh chi tiết sản phẩm...
+						
+						.view-more-container.text-center.mt-8
+							button.btn-view-more.text-primary-2.font-normal.flex.items-center.justify-center.gap-3.mx-auto(
+								type="button"
+								aria-expanded="false"
+							)
+								span Xem thêm
+								i.fa-solid.fa-chevron-down
 
-
-						//- Tab 3: Usage Guide
-						.tab-pane(id="tab-usage")
+					//- Tab 3: Usage Guide
+					.tab-pane(id="tab-usage")
+						.wrapper-content-tab.collapsed(data-collapsed-height="500")
 							h3.title-36 Hướng dẫn sử dụng
 
 							.tab-content-body.body-18
 								p Hướng dẫn sử dụng sản phẩm...
+						
+						.view-more-container.text-center.mt-8
+							button.btn-view-more.text-primary-2.font-normal.flex.items-center.justify-center.gap-3.mx-auto(
+								type="button"
+								aria-expanded="false"
+							)
+								span Xem thêm
+								i.fa-solid.fa-chevron-down
 
-
-						//- Tab 4: Maintenance
-						.tab-pane(id="tab-maintenance")
+					//- Tab 4: Maintenance
+					.tab-pane(id="tab-maintenance")
+						.wrapper-content-tab.collapsed(data-collapsed-height="500")
 							h3.title-36 Hướng dẫn bảo quản
 
 							.tab-content-body.body-18
 								p Hướng dẫn bảo quản sản phẩm...
-					
-					.view-more-container.text-center.mt-8
-						button.btn-view-more.text-primary-2.font-normal.flex.items-center.justify-center.gap-3.mx-auto(type="button")
-							span Xem thêm
-							i.fa-solid.fa-chevron-down
+						
+						.view-more-container.text-center.mt-8
+							button.btn-view-more.text-primary-2.font-normal.flex.items-center.justify-center.gap-3.mx-auto(
+								type="button"
+								aria-expanded="false"
+							)
+								span Xem thêm
+								i.fa-solid.fa-chevron-down
 
 section.section-related-customers.section-py
 	.container

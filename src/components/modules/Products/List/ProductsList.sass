@@ -97,13 +97,16 @@
 					.product-specs
 						@apply space-y-1
 
-						p
+						> *
 							@apply body-16 text-utility-900 font-normal leading-1.4
 							@apply m-0
 
+				h3,h2,h1,h4
+					@apply transition-colors duration-200
 				&:hover
 						a
-							@apply text-primary-2
+							h3,h2,h1,h4
+								@apply text-primary-2
 .product-sort
 	label
 		@apply font-bold 

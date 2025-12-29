@@ -2,24 +2,21 @@ export const header = {
   init: () => {
     const headerEl = document.querySelector(".header");
     if (!headerEl) return;
+
     const desktopMenuItems = document.querySelectorAll(
       ".header .header-wrapper .menu li.has-sub"
     );
+
     let lastScrollY = window.scrollY;
 
-    // Sticky Header
+    let closeTimeout = null;
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      // Sticky header
-      if (currentScrollY > 0) {
-        headerEl.classList.add("active");
-      } else {
-        headerEl.classList.remove("active");
-      }
+      headerEl.classList.toggle("active", currentScrollY > 0);
 
-      // 👉 Scroll UP → close desktop submenu
-      if (currentScrollY > lastScrollY && window.innerWidth >= 1024) {
+      if (window.innerWidth >= 1024) {
         desktopMenuItems.forEach((item) =>
           item.classList.remove("open-submenu")
         );
@@ -27,57 +24,76 @@ export const header = {
 
       lastScrollY = currentScrollY;
     };
+
     window.addEventListener("scroll", handleScroll);
     handleScroll();
-    // Mobile Menu Toggle
-    const hamburger = document.querySelector(".header-hambuger");
-    const mobileMenu = document.querySelector(".mobile-menu");
 
-    if (hamburger && mobileMenu) {
-      hamburger.addEventListener("click", () => {
-        if (mobileMenu.classList.contains("active")) {
-          // Close
-          hamburger.classList.remove("active");
-          mobileMenu.classList.remove("active");
-          document.body.classList.remove("overflow-hidden");
-        } else {
-          // Open
-          hamburger.classList.add("active");
-          mobileMenu.classList.add("active");
-          document.body.classList.add("overflow-hidden");
-        }
+    if (desktopMenuItems.length) {
+      desktopMenuItems.forEach((menuItem) => {
+        menuItem.addEventListener("mouseenter", () => {
+          if (window.innerWidth < 1024) return;
+
+          if (closeTimeout) {
+            clearTimeout(closeTimeout);
+            closeTimeout = null;
+          }
+
+          desktopMenuItems.forEach((item) => {
+            if (item !== menuItem) {
+              item.classList.remove("open-submenu");
+            }
+          });
+
+          menuItem.classList.add("open-submenu");
+        });
+
+        menuItem.addEventListener("mouseleave", (e) => {
+          if (window.innerWidth < 1024) return;
+
+          const relatedTarget = e.relatedTarget;
+
+          if (relatedTarget && menuItem.contains(relatedTarget)) return;
+
+          const isMovingToAnotherMenu = relatedTarget?.closest?.(
+            ".header .header-wrapper .menu li.has-sub"
+          );
+
+          if (isMovingToAnotherMenu) return;
+
+          closeTimeout = setTimeout(() => {
+            menuItem.classList.remove("open-submenu");
+            closeTimeout = null;
+          }, 200);
+        });
       });
     }
 
-    // Close all submenus when mouse leaves the header
-    headerEl.addEventListener("mouseleave", (e) => {
-      if (window.innerWidth >= 1024) {
-        // Check if the mouse moved to an element that is still inside the header
-        if (e.relatedTarget && headerEl.contains(e.relatedTarget)) {
-          return;
+    document.addEventListener("click", (e) => {
+      if (window.innerWidth < 1024) return;
+
+      if (!e.target.closest(".header .menu")) {
+        if (closeTimeout) {
+          clearTimeout(closeTimeout);
+          closeTimeout = null;
         }
+
         desktopMenuItems.forEach((item) =>
           item.classList.remove("open-submenu")
         );
       }
     });
 
-    desktopMenuItems.forEach((item) => {
-      const link = item.querySelector("a");
+    const hamburger = document.querySelector(".header-hambuger");
+    const mobileMenu = document.querySelector(".mobile-menu");
 
-      // Hover Event
-      item.addEventListener("mouseenter", () => {
-        if (window.innerWidth >= 1024) {
-          // Close others
-          desktopMenuItems.forEach((other) => {
-            if (other !== item) other.classList.remove("open-submenu");
-          });
-          item.classList.add("open-submenu");
-        }
+    if (hamburger && mobileMenu) {
+      hamburger.addEventListener("click", () => {
+        const isActive = mobileMenu.classList.toggle("active");
+        hamburger.classList.toggle("active", isActive);
+        document.body.classList.toggle("overflow-hidden", isActive);
       });
-    });
+    }
 
-    // Mobile Submenu Logic (Accordion)
     const mobileSubTriggers = document.querySelectorAll(
       ".mobile-menu .has-sub > div > i, .mobile-menu .has-sub-2 > div > i"
     );
@@ -85,32 +101,33 @@ export const header = {
     mobileSubTriggers.forEach((trigger) => {
       trigger.addEventListener("click", (e) => {
         e.preventDefault();
+
         const parentLi = trigger.closest("li");
         const submenu = parentLi.querySelector(".submenu, .submenu-2");
+        if (!submenu) return;
 
-        if (submenu) {
-          parentLi.classList.toggle("active");
-          slideToggle(submenu);
-        }
+        const siblings = [...parentLi.parentElement.children];
+
+        siblings.forEach((sibling) => {
+          if (sibling !== parentLi && sibling.classList.contains("active")) {
+            sibling.classList.remove("active");
+            const siblingSub = sibling.querySelector(".submenu, .submenu-2");
+            if (siblingSub) slideUp(siblingSub);
+          }
+        });
+
+        parentLi.classList.toggle("active");
+        parentLi.classList.contains("active")
+          ? slideDown(submenu)
+          : slideUp(submenu);
       });
     });
 
-    // Click Outside (Desktop)
-    document.addEventListener("click", (e) => {
-      if (window.innerWidth < 1024) return;
-      if (!e.target.closest(".header .menu")) {
-        desktopMenuItems.forEach((item) =>
-          item.classList.remove("open-submenu")
-        );
-      }
-    });
-
-    // Language Dropdown
     const langTrigger = document.querySelector(".header .tools .language");
 
     if (langTrigger) {
       langTrigger.addEventListener("click", (e) => {
-        e.stopPropagation(); // Prevent immediate closing
+        e.stopPropagation();
         langTrigger.classList.toggle("active");
       });
 
@@ -121,7 +138,6 @@ export const header = {
       });
     }
 
-    // Search Toggle
     const searchTrigger = document.querySelector(".header .tools .search");
     const searchOverlay = document.querySelector(".header-search-form");
     const searchClose = document.querySelector(
@@ -134,14 +150,11 @@ export const header = {
         document.body.classList.add("overflow-hidden");
       });
 
-      if (searchClose) {
-        searchClose.addEventListener("click", () => {
-          searchOverlay.classList.remove("active");
-          document.body.classList.remove("overflow-hidden");
-        });
-      }
+      searchClose?.addEventListener("click", () => {
+        searchOverlay.classList.remove("active");
+        document.body.classList.remove("overflow-hidden");
+      });
 
-      // Close when clicking outside the form
       searchOverlay.addEventListener("click", (e) => {
         if (e.target === searchOverlay) {
           searchOverlay.classList.remove("active");
@@ -149,7 +162,6 @@ export const header = {
         }
       });
 
-      // Close on Escape key
       document.addEventListener("keydown", (e) => {
         if (e.key === "Escape" && searchOverlay.classList.contains("active")) {
           searchOverlay.classList.remove("active");
@@ -174,7 +186,7 @@ const slideUp = (target, duration = 300) => {
   target.style.transitionDuration = duration + "ms";
   target.style.boxSizing = "border-box";
   target.style.height = target.offsetHeight + "px";
-  target.offsetHeight; // force repaint
+  target.offsetHeight;
   target.style.overflow = "hidden";
   target.style.height = 0;
   target.style.paddingTop = 0;
@@ -206,7 +218,8 @@ const slideDown = (target, duration = 300) => {
   target.style.paddingBottom = 0;
   target.style.marginTop = 0;
   target.style.marginBottom = 0;
-  target.offsetHeight; // force repaint
+  target.offsetHeight;
+  target.style.boxSizing = "border-box";
   target.style.transitionProperty = "height, margin, padding";
   target.style.transitionDuration = duration + "ms";
   target.style.height = height + "px";

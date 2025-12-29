@@ -1,7 +1,7 @@
 
 .section-services-detail-1
-	@apply bg-utility-50 flex py-20
-	@media (min-width: 768px)
+	@apply bg-utility-50 flex pb-10
+	@media (min-width: 769px)
 			@apply py-25
 	.services-detail-wrapper
 		display: grid
@@ -10,7 +10,7 @@
 		align-items: center
 		height: 100%
 		width: 100%
-		@media (min-width: 768px)
+		@media (min-width: 769px)
 			@apply grid-cols-12
 			gap: r(40px)
 
@@ -18,9 +18,11 @@
 			@apply col-span-5
 			margin-right: auto
 			margin-left: auto
-			padding: r(80px) r(20px) 0 r(20px)
+			padding: r(40px) r(20px) 0 r(20px)
 			width: 100%
 			max-width: 100%
+			@media (min-width: 769px)
+				padding: r(80px) r(20px) 0 r(20px)
 			.sub-title
 				@apply  font-bold mb-5 title-60 relative leading-1.125
 				padding-bottom: r(20px)
@@ -32,7 +34,7 @@
 			.title
 				@apply title-36 font-normal leading-1.125
 				margin-bottom: r(24px)
-			@media (min-width: 768px) 
+			@media (min-width: 769px) 
 				padding: r(112px) r(0px) r(112px) r(40px)
 				max-width: 100%
 			@media (min-width: 1024px) 
@@ -53,13 +55,12 @@
 			@apply img-ratio ratio:pt-[640_1060]
 			img
 				overflow: hidden
-				height: auto
+				height: 100%
 				width: 100%
 				object-fit: cover
 			@media (min-width: 1440px)
 				overflow: hidden
 				min-height: 100%
-				height: r(640px)
 				img
 					width: 100%
 					height: 100%
@@ -67,7 +68,7 @@
 					transition: transform 0.5s ease
 
 .section-services-detail-2
-	@apply py-10 lg:py-20 bg-white
+	@apply pb-0 bg-white #{!important}
 	.grid-layout
 		@apply grid grid-cols-1 md:grid-cols-12 gap-0 justify-center items-center
 		.content-wrapper
@@ -128,7 +129,7 @@
 
 		.img 
 			@apply relative overflow-hidden
-			@apply transition-transform duration-500 ease-out img-ratio ratio:pt-[810_1124]
+			@apply transition-transform duration-500 ease-out img-ratio ratio:pt-[810_1224]
 			
 			img 
 				@apply w-full h-full object-cover
@@ -198,6 +199,6 @@
 			&::after
 				content: none
 		.swiper-button-other-prev
-			@apply left-0
+			@apply left-0 md:-left-2
 		.swiper-button-other-next
-			@apply right-0
+			@apply right-0 md:-right-2

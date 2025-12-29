@@ -8,7 +8,7 @@
 				.machine-grid
 					@apply grid grid-cols-12 lg:grid-cols-7 gap-3
 					.machine-item
-						@apply bg-white rounded-5 p-6 flex flex-col items-center justify-between text-center h-full min-h-[200px] transition-all border border-transparent
+						@apply bg-white rounded-5 p-6 pb-3 flex flex-col items-center justify-between text-center h-full min-h-[200px] transition-all border border-transparent
 						&:hover
 							@apply border-primary-1/20
 						&.full
@@ -36,13 +36,13 @@
 								@apply transition-colors duration-300
 	
 		.col-content
-			@apply flex flex-col lg:col-span-5 gap-6
+			@apply -md:order-first flex flex-col lg:col-span-5 gap-6
 			h2
 				@apply title-48 font-medium text-primary-1 leading-[1.2]
 			.desc
 				@apply text-utility-2929 title-20 space-y-4 text-justify 
 			.group-controll
-				@apply -lg:order-first -lg:mx-auto
+				@apply -lg:mx-auto
 				@apply mt-0 #{!important}
 			.machine-nav
 				@apply mt-0 #{!important}

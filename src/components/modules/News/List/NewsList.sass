@@ -1,24 +1,15 @@
 // ============ NEWS COMMON - BOX NEWS COMPONENT ============
 .box-news
 	.news-date
-		@apply bg-primary-1 text-white py-2.5 px-1
-		@apply flex flex-col items-center justify-center gap-1
-		@apply w-16 h-16 z-10
-
-		.date-day
-			@apply title-20 font-bold leading-none
-		.date-month
-			@apply text-xs
+		@apply body-14 text-utility-8181
+	.news-category
+		@apply body-14 font-normal text-primary-1
 .header-news
 	.news-date
-		@apply bg-primary-1 text-white py-2.5 px-1
-		@apply flex flex-col items-center justify-center gap-1
-		@apply w-16 h-16 z-10
+			@apply body-14 text-utility-8181
+	.news-category
+			@apply body-14 font-normal text-primary-1
 
-		.date-day
-			@apply title-20 font-bold leading-none
-		.date-month
-			@apply text-xs 
 .box-news
 		@apply transition-all duration-300 space-y-5.5
 
@@ -36,17 +27,12 @@
 				
 
 		.news-content
-				@apply flex flex-col lg:flex-row gap-5
+				@apply flex flex-col gap-5
 				.news-date
-					@apply bg-primary-1 text-white py-2.5 px-1
-					@apply flex flex-col items-center justify-center gap-1
-					@apply w-16 h-16 z-10
+					@apply body-14 text-utility-8181
 
-					.date-day
-						@apply title-20 font-bold leading-none
-
-					.date-month
-						@apply text-xs 
+				.news-category
+					@apply body-14 font-normal text-primary-1
 				.wrapper
 					@apply flex flex-col justify-between space-y-3
 					.news-title
@@ -68,13 +54,10 @@
 				.news-image, figure
 						@apply col-span-12 lg:col-span-8 img-ratio ratio:pt-[613_920]
 						.news-date
-								@apply w-20 h-20
+							@apply body-14 text-utility-8181
 
-								.date-day
-										@apply text-3xl
-
-								.date-month
-										@apply text-sm
+						.news-category
+							@apply body-14 font-normal text-primary-1
 
 				.news-content
 						@apply col-span-12 lg:col-span-4 lg:p-10 lg:pl-0 lg:gap-10 flex flex-col justify-center
@@ -82,14 +65,14 @@
 							@apply space-y-3
 							.news-title
 								@apply title-24
-							// .news-excerpt
-							// 	@apply mb-6
+							.news-excerpt
+								@apply line-clamp-7
 .news-excerpt
 	@apply line-clamp-3
 // ============ NEWS ARCHIVE PAGE ============
 .section-news-archive
 		.featured-post
-				@apply mb-6 lg:mb-10
+				@apply mb-6 lg:mb-10 lg:bg-[#F5F5F5]
 		.news-grid
 				@apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-10
 
@@ -115,10 +98,10 @@
 .section-news-detail
 		// MAIN CONTENT
 		.news-detail-main
-				@apply w-full
+				@apply w-full max-w-[1160px] mx-auto
 				// News Header
 				.header-news
-						@apply flex flex-row gap-5 pb-5 border-b border-[#B0B5BE]
+						@apply flex flex-col gap-5 pb-5 border-b border-[#B0B5BE]
 						.news-title
 								@apply title-32
 
@@ -199,7 +182,7 @@
 
 		.section-news-detail
 				.news-detail-main
-						@apply w-full mb-12
+						@apply w-full
 
 				.news-detail-sidebar
 						@apply w-full
@@ -207,6 +190,12 @@
 				.related-news
 						.news-grid
 								@apply grid-cols-2
+		.related-news
+			.swiper-navigation
+				@apply flex gap-4 justify-center mt-6
+				.btn-prev,
+				.btn-next
+					@apply w-10 h-10 relative left-0 right-0 #{!important} 
 
 @media (max-width: 767px)
 		.box-news

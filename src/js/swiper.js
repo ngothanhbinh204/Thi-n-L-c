@@ -170,23 +170,7 @@ export function swiperInit() {
           spaceBetween: 8,
         },
         640: {
-          slidesPerView: 1.3,
-          spaceBetween: 8,
-        },
-        768: {
-          slidesPerView: 1.4,
-          spaceBetween: 8,
-        },
-        1024: {
-          slidesPerView: 1.5,
-          spaceBetween: 8,
-        },
-        1280: {
-          slidesPerView: 1.6,
-          spaceBetween: 8,
-        },
-        1536: {
-          slidesPerView: 1.8,
+          slidesPerView: 1.568,
           spaceBetween: 8,
         },
       },
@@ -237,6 +221,45 @@ export function swiperInit() {
         1024: {
           slidesPerView: 3,
           spaceBetween: 40,
+        },
+      },
+    });
+  }
+
+  // Home-2 Product Slider
+  if ($(".home-2 .list-grid.swiper").length > 0) {
+    const $home2Swiper = $(".home-2 .list-grid.swiper");
+    const slideCount = $home2Swiper.find(".swiper-slide").length;
+    const hasMoreThan4 = slideCount > 4;
+
+    new Swiper(".home-2 .list-grid.swiper", {
+      modules: [Navigation],
+      slidesPerView: 1,
+      spaceBetween: 4,
+      loop: hasMoreThan4,
+      speed: 500,
+      navigation: hasMoreThan4
+        ? {
+            nextEl: ".home-2 .product-nav .btn-next",
+            prevEl: ".home-2 .product-nav .btn-prev",
+          }
+        : false,
+      breakpoints: {
+        576: {
+          slidesPerView: 2,
+          spaceBetween: 4,
+        },
+        1200: {
+          slidesPerView: 4,
+          spaceBetween: 4,
+        },
+      },
+      on: {
+        init: function (swiper) {
+          // Show/hide navigation based on slide count
+          if (!hasMoreThan4) {
+            $(".home-2 .product-nav").hide();
+          }
         },
       },
     });

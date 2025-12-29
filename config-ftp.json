@@ -1,8 +1,8 @@
 {
   "connection": {
-    "host": "185.250.38.17",
-    "user": "previewcanhcam_thienloc",
-    "password": "w64AbicO3crE4N4j",
+    "host": "103.245.255.12",
+    "user": "admin_thienloc237",
+    "password": "I7fsK6a4o1FhzDwd",
     "parallel": 10,
     "secure": false,
     "secureOptions": null,

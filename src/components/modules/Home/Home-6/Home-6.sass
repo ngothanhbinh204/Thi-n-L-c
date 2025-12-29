@@ -3,11 +3,11 @@
 	@apply overflow-hidden
 
 	.wrapper-cta
-		@apply grid grid-cols-1 lg:grid-cols-2  gap-16 xl:gap-30 items-center
+		@apply grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center
 		.content-col
-			@apply h-full
+			@apply h-full lg:col-span-6 lg:pl-10 xl:pl-20
 			.cta-content
-				@apply h-full flex items-center flex-col justify-between
+				@apply h-full flex items-center flex-col lg:gap-20 xl:gap-24 xl:justify-start 2xl:justify-between
 
 
 	.home-6-bg
@@ -40,7 +40,7 @@
 			@apply title-24
 
 	.form-col
-		@apply w-full
+		@apply w-full lg:col-span-6
 	.contact-form,
 	form.wpcf7-form
 		@apply flex flex-col gap-4
@@ -98,7 +98,7 @@
 
 
 	.cta-hotline
-		@apply flex flex-row -md:justify-center w-full items-center gap-4 lg:gap-7 xl:gap-15 bg-primary-1 rounded-5 p-6 lg:px-10 lg:pt-14 lg:pb-13
+		@apply flex flex-row -lg:justify-center w-fit lg:w-full items-center gap-4 lg:gap-7 xl:gap-15 bg-primary-1 rounded-5 p-6 lg:px-10 lg:pt-14 lg:pb-13
 
 
 	.hotline-left
@@ -120,7 +120,7 @@
 
 
 	.hotline-number
-		@apply title-36 font-bold text-white font-inter
-		@media (min-width: 1024px)
-			@apply title-30
+		@apply title-24 md:title-30 font-bold text-white font-inter
+	.form-group .wpcf7-spinner
+		@apply right-auto
 

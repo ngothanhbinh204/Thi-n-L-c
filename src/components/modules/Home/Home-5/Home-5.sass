@@ -4,9 +4,6 @@
 // ========================================
 .section-home-5
 	@apply bg-linear-top-to-bottom overflow-hidden
-	.container
-		@media (min-width: 1024.02px)
-			@apply lg:px-0 #{!important}
 	.home-5-decor
 		height: calc(500/1920*100rem)
 		@apply w-auto object-contain absolute -bottom-48 -left-28
@@ -31,7 +28,8 @@
 	// ========================================
 	.news-grid
 		// Mobile: 1 column
-		@apply grid grid-cols-1 md:grid-cols-2 gap-6 xl:gap-10
+		@apply grid grid-cols-1 md:grid-cols-2
+		@apply gap-6 xl:gap-10
 		// Desktop: Custom 3-column layout (1fr 2fr 1fr)
 		@media (min-width: 1024px)
 			grid-template-columns: 1fr 2fr 1fr
@@ -71,48 +69,41 @@
 			&:nth-child(5)
 				grid-area: right2
 
-	// ========================================
-	// NEWS CARD - Small Version
-	// ========================================
-	.news-card-small
+.news-card-small
+	@apply flex flex-col h-full
+	.news-card-img
+		@apply block overflow-hidden rounded-5
+		img
+			@apply w-full h-full object-cover transition-500
+		// &:hover img
+		// 	@apply scale-110
+
+		@media (min-width: 1024px)
+			@apply img-ratio ratio:pt-[240_320]
+
+	.news-card-content
+		@apply flex flex-col gap-2 py-5 lg:pb-0
+
+	.news-card-meta
+		@apply flex items-center gap-2
+
+	.news-date
+		@apply body-14 text-utility-8181
+
+	.news-category
+		@apply body-14 font-normal text-primary-1
+
+	.news-card-title
+		@apply body-18 font-bold text-utility-2929 leading-1.4
+		a
+			@apply hover:text-primary-1 transition-300
+
+
+.news-card-featured
 		@apply flex flex-col h-full
 
 		.news-card-img
-			@apply block overflow-hidden rounded-5
-			// @apply aspect-video
-			img
-				@apply w-full h-full object-cover transition-500
-			// &:hover img
-			// 	@apply scale-110
-
-			@media (min-width: 1024px)
-				@apply mb-5 img-ratio ratio:pt-[240_320]
-
-		.news-card-content
-			@apply flex flex-col gap-2 py-5 lg:pb-0
-
-		.news-card-meta
-			@apply flex items-center gap-2
-
-		.news-date
-			@apply body-14 text-utility-8181
-
-		.news-category
-			@apply body-14 font-normal text-primary-1
-
-		.news-card-title
-			@apply body-18 font-bold text-utility-2929 leading-1.4
-			a
-				@apply hover:text-primary-1 transition-300
-
-	// ========================================
-	// NEWS CARD - Featured Version
-	// ========================================
-	.news-card-featured
-		@apply flex flex-col h-full
-
-		.news-card-img
-			@apply block overflow-hidden rounded-5 aspect-video
+			@apply block overflow-hidden rounded-5 -md:aspect-video
 			@media (min-width: 1024px)
 				@apply img-ratio ratio:pt-[510_680]
 			img

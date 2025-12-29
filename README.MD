@@ -1,5 +1,16 @@
 # 🚀 Frontend Build System with FTP Deployment
 
+// https://thienlocprinting.com/admincp
+
+// admin / zu%zZmKUpx4go\*C%#r2zGMBd
+
+// URL: https://cp012.canhcam.com:8156
+// UN: thienloc237
+// PW: +pEPEndb#GID48C!
+
+// Host: 103.245.255.12
+// UN: admin_thienloc237
+// PW: I7fsK6a4o1FhzDwd
 A modern frontend build tool powered by esbuild, combining SASS, TailwindCSS, and Pug templating with integrated FTP deployment and live reloading.
 
 ## 🛠️ Tech Stack
@@ -56,13 +67,15 @@ Main build configuration for vendor dependencies and minification.
 
 ```json
 {
-  "minify": true,                           // Enable/disable minification
-  "font": ["src/assets/fonts/**"],          // Font directories
-  "js": [                                   // Vendor JS files (concatenated to core.min.js)
+  "minify": true, // Enable/disable minification
+  "font": ["src/assets/fonts/**"], // Font directories
+  "js": [
+    // Vendor JS files (concatenated to core.min.js)
     "node_modules/jquery/dist/jquery.min.js",
     "node_modules/@fancyapps/ui/dist/fancybox.umd.js"
   ],
-  "css": [                                  // Vendor CSS files (bundled to core.min.css)
+  "css": [
+    // Vendor CSS files (bundled to core.min.css)
     "node_modules/swiper/swiper-bundle.min.css",
     "node_modules/aos/dist/aos.css"
   ]
@@ -70,6 +83,7 @@ Main build configuration for vendor dependencies and minification.
 ```
 
 **Key settings:**
+
 - `minify`: Set to `false` for faster dev builds, `true` for production
 - `js`: Vendor JavaScript files (bundled to `dist/js/core.min.js`)
 - `css`: Vendor CSS files (bundled to `dist/css/core.min.css`)
@@ -88,38 +102,41 @@ FTP deployment configuration with interactive keyboard shortcuts.
     "secure": false
   },
   "deployment": {
-    "basePath": "/public_html/path",        // Remote base directory
-    "localFolder": "dist",                  // Local build directory
+    "basePath": "/public_html/path", // Remote base directory
+    "localFolder": "dist", // Local build directory
     "mappings": {
       "styles": {
-        "local": "css",                     // Local: dist/css
-        "remote": "styles",                 // Remote: basePath/styles
+        "local": "css", // Local: dist/css
+        "remote": "styles", // Remote: basePath/styles
         "description": "Deploy CSS files"
       }
       // ... more mappings
     }
   },
   "shortcuts": {
-    "u": { "action": "deployScripts" },     // Press 'U' to deploy JS
-    "i": { "action": "deployStyles" },      // Press 'I' to deploy CSS
-    "d": { "action": "toggleAutoDeploy" }   // Press 'D' to toggle auto-deploy
+    "u": { "action": "deployScripts" }, // Press 'U' to deploy JS
+    "i": { "action": "deployStyles" }, // Press 'I' to deploy CSS
+    "d": { "action": "toggleAutoDeploy" } // Press 'D' to toggle auto-deploy
   }
 }
 ```
 
 **Connection settings:**
+
 - `host`: FTP server address
 - `user`: FTP username
 - `password`: FTP password
 - `secure`: Use FTPS (default: false)
 
 **Deployment mappings:**
+
 - `local`: Folder inside `dist/` directory
 - `remote`: Target folder on FTP server (relative to `basePath`)
 - `exclude`: Files to skip (e.g., `["*.map", "*.log"]`)
 
 **Keyboard shortcuts:**
 When server is running, press these keys for instant deployment:
+
 - **U** - Deploy Scripts
 - **I** - Deploy Styles
 - **M** - Deploy Images

@@ -49,7 +49,7 @@
 			.mega-menu
 				@apply grid grid-cols-1 gap-10 backdrop-blur p-10 xl:p-12
 				@apply lg:grid-cols-5 absolute left-0 w-full bg-white
-				@apply shadow-lg rounded-5 overflow-hidden transition-all duration-300
+				@apply shadow-lg rounded-5 overflow-hidden
 				@apply z-[-1]
 
 				/* Desktop */
@@ -59,6 +59,24 @@
 				@apply lg:border-t lg:border-neutral-100
 
 				@apply -lg:hidden
+
+				// Optimize transitions - chỉ animate opacity và transform
+				@screen lg
+					transition-property: opacity, transform, visibility
+					transition-duration: 250ms
+					transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1)
+					pointer-events: none
+
+				// Thêm hover zone để ngăn menu đóng khi di chuột từ item xuống mega-menu
+				&::before
+					@apply content-[''] absolute left-0 w-full bg-transparent
+					@apply -lg:hidden
+					@screen lg
+						top: -20px
+						height: 20px
+					@screen xl
+						top: -26px
+						height: 26px
 
 				.col
 					.label
@@ -82,6 +100,8 @@
 				.mega-menu
 					@apply lg:opacity-100 lg:visible lg:translate-y-0
 					@apply z-50
+					@screen lg
+						pointer-events: auto
 
 		/* ================= TOOLS ================= */
 		.tools

@@ -24,6 +24,12 @@
 		@apply mb-0	
 	.list-grid
 		@apply grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-1
+		&.swiper
+			@apply overflow-visible
+			.swiper-wrapper
+				@apply flex
+			.swiper-slide
+				@apply h-auto
 		
 	@keyframes marquee
 		0%
@@ -32,6 +38,16 @@
 			transform: translateX(-100%)
 
 .product-cards
+	.product-slider-wrapper
+		@apply relative
+		.product-nav
+			@apply hidden xl:flex absolute top-1/2 -translate-y-1/2 z-30 justify-between w-full pointer-events-none
+			button
+				@apply pointer-events-auto
+			.btn-prev
+				@apply -left-16
+			.btn-next
+				@apply -right-16
 	.row
 		@apply flex-wrap
 		.col

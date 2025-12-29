@@ -1,7 +1,16 @@
+.home-page-banner
+	.page-banner
+		.banner-swiper, .banner-single
+			@apply h-[100vh] md:h-auto lg:aspect-[390/320] xl:aspect-[1920/710] w-full
 .page-banner
 	@apply relative
+	@media (max-width: 767.98px)
+		&:before
+			content: ''
+			@apply absolute h-3/5 w-full inset-0 z-1 bg-gradient-to-b from-[rgba(0,0,0,0.0)] to-[rgba(0,0,0,0.8)]
 	.banner-swiper, .banner-single
-		@apply h-[80vh] md:h-auto md:aspect-video xl:aspect-[1920/710] w-full
+		@apply md:h-auto aspect-[390/320] xl:aspect-[1920/700] w-full
+		
 	.banner-item
 		.banner-img
 			@apply h-full w-full absolute inset-0
@@ -22,7 +31,7 @@
 			@apply mb-6
 			text-shadow: 0 2px 10px rgba(0,0,0,0.3)
 	.group-controll
-		@apply absolute flex items-center gap-3 z-10 bottom-6 -md:right-4 md:bottom-14 xl:bottom-20
+		@apply absolute flex items-center gap-3 z-10 bottom-6 md:right-14 xl:right-20 md:bottom-14 xl:bottom-20
 	.wrap-button-slide
 		@apply -md:hidden relative z-10 flex items-center gap-3 -translate-y-12 md:-translate-y-16
 		.btn-prev, .btn-next

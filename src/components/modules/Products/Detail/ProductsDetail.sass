@@ -1,18 +1,24 @@
 // ============ PRODUCT DETAIL PAGE ============
 .section-product-detail
 	@apply py-10 xl:pt-20 xl:pb-11
+
 	.wrapper
 		@apply grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-10
+
 	.product-detail-left
 		@apply w-full lg:col-span-9
+
 		.product-detail-hero
 			@apply flex flex-col justify-between md:grid md:grid-cols-9 md:gap-2 lg:gap-10 mb-10 lg:mb-20
+
 			.product-gallery
-				@apply flex flex-col flex-grow md:grid md:grid-cols-[16%_78%] lg:grid-cols-[18%_81%] w-full md:col-span-7
+				@apply flex flex-col flex-grow md:grid md:grid-cols-[16%_78%] lg:grid-cols-[18%_81%] w-full md:col-span-6
+
 				.gallery-thumbnails
 					@apply flex flex-col gap-2 items-center relative
 					@apply w-full order-2 md:order-1 mt-4 md:mt-0 md:pr-3.5
 					@apply md:overflow-hidden
+
 					@screen md
 						height: 0
 						min-height: 100%
@@ -41,6 +47,7 @@
 								@apply border-2 border-transparent
 								@apply transition-all duration-300
 								@apply overflow-hidden img-ratio ratio:pt-[100_100] rounded-2
+
 								@screen lg
 									padding-top: 0 !important
 									height: 100% !important
@@ -58,7 +65,6 @@
 							&.swiper-slide-thumb-active
 								.thumbnail-item
 									@apply border-primary-2
-
 
 				// Main Gallery
 				.gallery-main
@@ -79,37 +85,118 @@
 
 			.product-info
 				@apply w-full flex flex-col space-y-4 md:col-span-3
-					@media (min-width: 768px)
-						max-width: r(266px)
+
+				@media (min-width: 768px)
+					max-width: r(266px)
 
 				.product-description
 					p
 						@apply mb-4
+
 						&:last-child
 							@apply mb-0
 
 				.btn-primary
 					@apply inline-block text-center w-fit
 
+		// ============ ✅ COMPLETELY FIXED TAB STYLES ============
+		.tabs-content
+			figure,
+			img
+				@apply w-auto max-w-full h-auto rounded-4 object-cover
+				@apply my-6 #{!important}
+
+			// Tab pane visibility
+			.tab-pane
+				@apply hidden
+
+				&.active
+					@apply block
+
+			// ✅ CRITICAL FIX: Wrapper content tab - Loại bỏ conflict
+			.wrapper-content-tab
+				@apply relative
+				overflow: hidden
+				// ✅ FIX: KHÔNG set max-height ở đây, để JS control hoàn toàn
+				transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1)
+
+				// ✅ Gradient overlay - CHỈ hiện khi collapsed
+				&.collapsed
+					position: relative
+
+					&::after
+						content: ""
+						@apply absolute bottom-0 left-0 w-full pointer-events-none
+						height: 120px
+						background: linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.95) 20%, rgba(255, 255, 255, 0.8) 40%, rgba(255, 255, 255, 0.4) 70%, rgba(255, 255, 255, 0) 100%)
+						opacity: 1
+						z-index: 1
+						transition: opacity 0.3s ease-in-out
+
+				// ✅ KHÔNG collapsed - ẩn gradient
+				&.expanded
+					&::after
+						content: none 
+
+				// Content body
+				.tab-content-body
+					@apply relative
+					z-index: 0
+
+			// ✅ View more button container
+			.view-more-container
+				@apply transition-all duration-300
+
+				&.hiddend
+					@apply opacity-0 invisible
+					max-height: 0
+					overflow: hidden
+					margin-top: 0 !important
+
+				&.show
+					@apply opacity-100 visible
+					margin-top: 2rem
+
+				.btn-view-more
+					@apply transition-all duration-300 hover:text-primary-2 cursor-pointer
+					@apply focus:outline-none focus:ring-2 focus:ring-primary-2 focus:ring-offset-2
+					@apply rounded-lg px-4 py-2
+					@apply select-none
+					// Prevent button highlighting
+					-webkit-tap-highlight-color: transparent
+					-webkit-touch-callout: none
+					user-select: none
+
+					i
+						@apply transition-transform duration-300 ease-in-out
+						display: inline-block // Để transform hoạt động
+
+					// State khi expanded
+					&[aria-expanded="true"]
+						i
+							transform: rotate(180deg)
+
+					&[aria-expanded="false"]
+						i
+							transform: rotate(0deg)
+
+					// Disable khi đang animate
+					&:disabled
+						@apply opacity-50 cursor-not-allowed
 
 		// ============ RELATED PRODUCTS ============
 		.product-related
 			@apply pt-10 lg:pt-20
+
 			h2
 				@apply title-36 text-center text-primary-1 mb-5 lg:mb-11 line-clamp-2
+
 			.wrapper-related-products
 				@apply relative flex flex-row items-center gap-2 md:gap-4 xl:gap-6
 
 				.btn-relative-prev,
 				.btn-relative-next
-					// @apply absolute top-1/2 -translate-y-1/2 z-10
 					@apply flex-shrink-0
-
-				.btn-relative-prev
-					// @apply -left-6
-
-				.btn-relative-next
-					// @apply -right-6
 
 				.swiper-related-products
 					@apply overflow-hidden
@@ -127,11 +214,13 @@
 							.product-card
 								@apply w-full bg-white rounded-2 transition-all duration-300
 								overflow: hidden
-								box-shadow: 0 10px 30px rgba(0,0,0,.08)
+								box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08)
+
 								.product-info
 									@apply px-4 py-6 text-center
+
 									.product-title
-										@apply body-18 font-bold  mb-4
+										@apply body-18 font-bold mb-4
 										@apply transition-colors duration-300
 										@apply hover:text-primary-2 cursor-pointer
 
@@ -145,14 +234,14 @@
 								&:hover .product-image img
 									@apply scale-110
 
-
 	// ============ RIGHT COLUMN - SIDEBAR ============
 	.product-detail-right
-		@apply flex flex-col md:flex-row lg:flex-col gap-x-5 w-full lg:col-span-3 sticky self-start
+		@apply flex flex-col gap-x-5 w-full lg:col-span-3 sticky self-start
 		@extend .space-to-header
 
 		.sidebar-widget
 			@apply mb-6
+
 			&:last-child
 				@apply mb-0
 
@@ -165,11 +254,13 @@
 				.post-item
 					@apply mb-3 pb-3
 					@apply border-b border-utility-100
+
 					&:last-child
 						@apply mb-0 pb-0 border-b-0
 
-					p
+					p, a
 						@apply m-0 text-black
+						@apply leading-1.4
 						@apply transition-colors duration-300
 						@apply hover:text-primary-2 cursor-pointer
 
@@ -177,17 +268,17 @@
 				.service-item
 					@apply mb-4 pb-4
 					@apply border-b border-utility-100
+
 					&:last-child
 						@apply mb-0 pb-0 border-b-0
 
 					p
 						@apply m-0 text-black
 
-
 	// ============ RESPONSIVE ============
 	@media (max-width: 767px)
 		.product-detail-left
-			@apply w-full 
+			@apply w-full
 
 		.product-detail-right
 			@apply w-full
@@ -204,8 +295,10 @@
 					.thumb-nav
 						@apply absolute z-10 top-1/2 transform -translate-y-1/2
 						@apply w-8 h-8
+
 						&.thumb-prev
 							@apply left-2 -rotate-90
+
 						&.thumb-next
 							@apply right-2 -rotate-90
 
@@ -215,17 +308,15 @@
 						.thumbnail-item
 							@apply w-20 mb-0 flex-shrink-0
 
-
-	@media (max-width: 767px)
 		.tabs-navigation
 			@apply overflow-x-auto
+
 			.tab-btn
 				@apply px-4 py-2 text-sm whitespace-nowrap
 
 		.product-related
 			.swiper-navigation
 				@apply flex-wrap
-
 
 // ============ ANIMATIONS ============
 @keyframes fadeInUp

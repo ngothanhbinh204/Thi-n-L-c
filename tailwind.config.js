@@ -50,6 +50,8 @@ module.exports = {
 
       xl: "1200px",
       // => @media (min-width: 1440px) { ... }
+      "2xl": "1336px",
+      // => @media (min-width: 1336px) { ... }
       "-xs": {
         max: "409.98px",
       },
@@ -287,6 +289,7 @@ module.exports = {
         124: "calc(124/1920*100rem)",
         130: "calc(130/1920*100rem)",
         160: "calc(160/1920*100rem)",
+        640: "calc(640/1920*100rem)",
         680: "calc(680/1920*100rem)",
       },
       maxHeight: {
@@ -295,6 +298,7 @@ module.exports = {
         124: "calc(124/1920*100rem)",
         130: "calc(130/1920*100rem)",
         160: "calc(160/1920*100rem)",
+        640: "calc(640/1920*100rem)",
         680: "calc(680/1920*100rem)",
       },
       colors: {

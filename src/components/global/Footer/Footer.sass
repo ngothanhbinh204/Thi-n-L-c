@@ -56,7 +56,7 @@
 	.footer-certs
 		@apply flex items-center gap-5
 		.box-img
-			@apply sq-19 flex-center bg-white aspect-1 rounded-3 p-3
+			@apply sq-19 flex-center bg-white aspect-1 rounded-3 p-1 overflow-hidden
 			img
 				@apply w-full h-full object-contain
 				
@@ -161,7 +161,7 @@ footer
 			&.info-value
 				@apply hover:text-primary-2 transition-300
 .footer-policy-menu
-	@apply flex items-center
+	@apply flex items-center body-14
 
 	> li
 		@apply relative body-14 text-[#D5D7D8]
@@ -172,3 +172,6 @@ footer
 			&::after
 				content: "|"
 				@apply absolute right-0 top-1/2 -translate-y-1/2 text-utility-300
+		a
+			@apply body-14 text-[#D5D7D8] transition-300
+

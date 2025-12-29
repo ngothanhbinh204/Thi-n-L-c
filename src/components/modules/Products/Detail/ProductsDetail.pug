@@ -39,7 +39,7 @@ section.section-product-detail
 						a.btn.btn-primary(href="#") Liên hệ tư vấn
 
 
-				//- PRODUCT TABS
+				//- PRODUCT TABS (✅ Đã fix structure)
 				.product-tabs.tabs-wrapper
 					.tabs-navigation
 						button.tab-btn.active(data-tab="tab-info") Thông tin sản phẩm
@@ -48,51 +48,72 @@ section.section-product-detail
 						button.tab-btn(data-tab="tab-maintenance") Hướng dẫn bảo quản
 
 					.tabs-content
-						.wrapper-content-tab.collapsed
-							//- Tab 1: Thông tin sản phẩm
-							.tab-pane.active(id="tab-info")
+						//- Tab 1: Thông tin sản phẩm (✅ Thêm data-max-height)
+						.tab-pane.active(id="tab-info")
+							.wrapper-content-tab.collapsed(data-collapsed-height="500")
 								h3.title-36 Thông tin sản phẩm
 								.tab-content-body.body-18
 									p Chúng tôi cung cấp Ba chi bò mỹ nguyên khối. Ba chi bò mỹ cát lát. Ba chi bò mỹ nguyên thùng cắt. nhân hàng nói tiếng đến từ Mỹ như Excel. Được đến cắt hút lên tủ có chuối bán lẻ, nhà hàng, khách sạn... người tiêu dùng.
-
 									p Quá trình sơ chế, hút chân không, đông khay, cấp đông ba chi bò Mỹ về sinh sạch sẽ đảm bảo chất lượng, an toàn cho sức khỏe người tiêu dùng. Ba chi bò Mỹ cát lát được phả cát bằng máy Cắt công nghiệp, cắt mỏng cho món lẩu theo tiêu chuẩn độ dày 1mm hoặc cát dạng dày khoảng...5mm phù hợp cho món nướng...
 									p Ba chi bò Mỹ có thể bảo quản đông trong ngăn đá với nhiệt độ -18 do C. Trước khi sử dụng không nên để thịt tan giã hoàn toàn mà miếng thịt phải còn hơi cứng để khi thái lát, cắt miếng sẽ dễ dàng hơn. Như vậy thịt vừa có độ dẻo dai, vừa giữ được hương vị tự nhiên nhất và không bị nát khi chế biến.
 									p Ba chi bò Mỹ có thể bảo quản đông trong ngăn đá với nhiệt độ -18 do C. Trước khi sử dụng không nên để thịt tan giã hoàn toàn mà miếng thịt phải còn hơi cứng để khi thái lát, cắt miếng sẽ dễ dàng hơn. Như vậy thịt vừa có độ dẻo dai, vừa giữ được hương vị tự nhiên nhất và không bị nát khi chế biến.
 									p Ba chi bò Mỹ có thể bảo quản đông trong ngăn đá với nhiệt độ -18 do C. Trước khi sử dụng không nên để thịt tan giã hoàn toàn mà miếng thịt phải còn hơi cứng để khi thái lát, cắt miếng sẽ dễ dàng hơn. Như vậy thịt vừa có độ dẻo dai, vừa giữ được hương vị tự nhiên nhất và không bị nát khi chế biến.
-									p Ba chi bò Mỹ có thể bảo quản đông trong ngăn đá với nhiệt độ -18 do C. Trước khi sử dụng không nên để thịt tan giã hoàn toàn mà miếng thịt phải còn hơi cứng để khi thái lát, cắt miếng sẽ dễ dàng hơn. Như vậy thịt vừa có độ dẻo dai, vừa giữ được hương vị tự nhiên nhất và không bị nát khi chế biến.
-									p Ba chi bò Mỹ có thể bảo quản đông trong ngăn đá với nhiệt độ -18 do C. Trước khi sử dụng không nên để thịt tan giã hoàn toàn mà miếng thịt phải còn hơi cứng để khi thái lát, cắt miếng sẽ dễ dàng hơn. Như vậy thịt vừa có độ dẻo dai, vừa giữ được hương vị tự nhiên nhất và không bị nát khi chế biến.
-									p Ba chi bò Mỹ có thể bảo quản đông trong ngăn đá với nhiệt độ -18 do C. Trước khi sử dụng không nên để thịt tan giã hoàn toàn mà miếng thịt phải còn hơi cứng để khi thái lát, cắt miếng sẽ dễ dàng hơn. Như vậy thịt vừa có độ dẻo dai, vừa giữ được hương vị tự nhiên nhất và không bị nát khi chế biến.
-									p Ba chi bò Mỹ có thể bảo quản đông trong ngăn đá với nhiệt độ -18 do C. Trước khi sử dụng không nên để thịt tan giã hoàn toàn mà miếng thịt phải còn hơi cứng để khi thái lát, cắt miếng sẽ dễ dàng hơn. Như vậy thịt vừa có độ dẻo dai, vừa giữ được hương vị tự nhiên nhất và không bị nát khi chế biến.
+							//- ✅ Thêm aria-expanded và aria-label
+							.view-more-container.text-center.mt-8
+								button.btn-view-more.text-primary-2.font-normal.flex.items-center.justify-center.gap-3.mx-auto(
+									type="button"
+									aria-expanded="false"
+									aria-label="Xem thêm nội dung"
+								)
+									span Xem thêm
+									i.fa-solid.fa-chevron-down
 
-									p Ba chi bò Mỹ có thể bảo quản đông trong ngăn đá với nhiệt độ -18 do C. Trước khi sử dụng không nên để thịt tan giã hoàn toàn mà miếng thịt phải còn hơi cứng để khi thái lát, cắt miếng sẽ dễ dàng hơn. Như vậy thịt vừa có độ dẻo dai, vừa giữ được hương vị tự nhiên nhất và không bị nát khi chế biến.
-
-							//- Tab 2: Ưu đãi
-							.tab-pane(id="tab-advantages")
+						//- Tab 2: Ưu đãi
+						.tab-pane(id="tab-advantages")
+							.wrapper-content-tab.collapsed(data-collapsed-height="500")
 								h3.title-36 Ưu đãi và chiết khấu
 								.tab-content-body.body-18
 									p Nội dung về ưu đãi và chiết khấu...
+							.view-more-container.text-center.mt-8
+								button.btn-view-more.text-primary-2.font-normal.flex.items-center.justify-center.gap-3.mx-auto(
+									type="button"
+									aria-expanded="false"
+								)
+									span Xem thêm
+									i.fa-solid.fa-chevron-down
 
-							//- Tab 3: Hướng dẫn sử dụng
-							.tab-pane(id="tab-usage")
+						//- Tab 3: Hướng dẫn sử dụng
+						.tab-pane(id="tab-usage")
+							.wrapper-content-tab.collapsed(data-collapsed-height="500")
 								h3.title-36 Hướng dẫn sử dụng
 								.tab-content-body.body-18
 									p Nội dung hướng dẫn sử dụng...
+							.view-more-container.text-center.mt-8
+								button.btn-view-more.text-primary-2.font-normal.flex.items-center.justify-center.gap-3.mx-auto(
+									type="button"
+									aria-expanded="false"
+								)
+									span Xem thêm
+									i.fa-solid.fa-chevron-down
 
-							//- Tab 4: Bảo quản
-							.tab-pane(id="tab-maintenance")
+						//- Tab 4: Bảo quản
+						.tab-pane(id="tab-maintenance")
+							.wrapper-content-tab.collapsed(data-collapsed-height="500")
 								h3.title-36 Hướng dẫn bảo quản
 								.tab-content-body.body-18
 									p Nội dung hướng dẫn bảo quản...
-
-						.view-more-container.text-center.mt-8
-							button.btn-view-more.text-primary-2.font-normal.flex.items-center.justify-center.gap-3.mx-auto(type="button")
-								span Xem thêm
-								i.fa-solid.fa-chevron-down
+							.view-more-container.text-center.mt-8
+								button.btn-view-more.text-primary-2.font-normal.flex.items-center.justify-center.gap-3.mx-auto(
+									type="button"
+									aria-expanded="false"
+								)
+									span Xem thêm
+									i.fa-solid.fa-chevron-down
 
 
 				//- RELATED PRODUCTS
 				.product-related
-					h2(class="") Sản phẩm gợi ý
+					h2 Sản phẩm gợi ý
 					.wrapper-related-products.relative
 						.btn-relative-prev.btn-slider-2
 							i.fa-solid.fa-chevron-left
@@ -109,7 +130,6 @@ section.section-product-detail
 													a.btn.btn-primary(href="#") Xem chi tiết
 						.btn-relative-next.btn-slider-2
 							i.fa-solid.fa-chevron-right
-									
 
 
 			//- RIGHT COLUMN - Sidebar (col-3)
